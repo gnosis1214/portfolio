@@ -1962,13 +1962,50 @@
 @media(hover:hover) and (min-width:768px){#zeno-portfolio .z-work .zg-plinks{opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}#zeno-portfolio .z-work .z-project:hover .zg-plinks,#zeno-portfolio .z-work .z-project:focus-within .zg-plinks{opacity:1;transform:none}}
 
 /* case studies + device mockups */
-#zeno-portfolio .zg-case-grid{display:grid;gap:18px}
-@media(min-width:900px){#zeno-portfolio .zg-case-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-#zeno-portfolio .zg-case{display:flex;flex-direction:column;padding:0;overflow:hidden}
-#zeno-portfolio .zg-case-media{padding:24px 24px 6px;background:radial-gradient(circle at 50% 100%,rgba(184,155,123,.24),transparent 70%),var(--zg-panel2);border-bottom:1px solid var(--zg-line)}
-#zeno-portfolio .zg-case-body{padding:22px 24px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
 #zeno-portfolio .zg-kicker{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent);letter-spacing:.06em}
-#zeno-portfolio .zg-case .z-btn{margin-top:auto;align-self:flex-start}
+/* case-study showcase (tabs + animated stage) */
+#zeno-portfolio .zg-cs{display:grid;gap:16px}
+@media(min-width:1050px){#zeno-portfolio .zg-cs{grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start}}
+#zeno-portfolio .zg-cs-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 6px;scroll-behavior:smooth}
+#zeno-portfolio .zg-cs-tabs::-webkit-scrollbar{display:none}
+@media(min-width:1050px){#zeno-portfolio .zg-cs-tabs{flex-direction:column;overflow:visible;padding:0}}
+#zeno-portfolio .zg-cs-tab{position:relative;flex:0 0 auto;min-width:168px;min-height:64px;display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:13px 16px 15px;border:1px solid var(--zg-line);background:var(--zg-panel);color:var(--zg-muted);text-align:left;overflow:hidden;transition:border-color .3s,background .3s,transform .3s}
+#zeno-portfolio .zg-cs-tab strong{font:600 16px/1.3 "Space Grotesk",sans-serif;letter-spacing:-.02em;color:var(--zg-text)}
+#zeno-portfolio .zg-cs-tab:hover{border-color:var(--zg-brown)}
+#zeno-portfolio .zg-cs-tab[aria-selected="true"]{border-color:var(--zg-brown);background:linear-gradient(120deg,rgba(184,155,123,.2),transparent 70%),var(--zg-panel)}
+@media(min-width:1050px){#zeno-portfolio .zg-cs-tab{min-width:0}#zeno-portfolio .zg-cs-tab[aria-selected="true"]{transform:translateX(6px)}}
+#zeno-portfolio .zg-cs-bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--zg-accent)}
+#zeno-portfolio .zg-cs-tab[aria-selected="true"] .zg-cs-bar{width:100%;opacity:.35}
+#zeno-portfolio .zg-cs-tab.zg-play .zg-cs-bar{opacity:1;animation:zg-bar 7s linear both}
+@keyframes zg-bar{from{width:0}to{width:100%}}
+#zeno-portfolio .zg-cs-stage{position:relative;border:1px solid var(--zg-line);background:radial-gradient(circle at 28% 42%,rgba(184,155,123,.22),transparent 55%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel);padding:clamp(18px,3vw,36px);overflow:hidden}
+#zeno-portfolio[data-zg-theme="light"] .zg-cs-stage{background:radial-gradient(circle at 28% 42%,rgba(184,155,123,.25),transparent 55%),linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)}
+#zeno-portfolio .zg-cs-panel{display:grid;gap:24px;align-items:center;animation:zg-cs-in .6s cubic-bezier(.2,.7,.2,1)}
+@media(min-width:900px){#zeno-portfolio .zg-cs-panel{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:34px}}
+@keyframes zg-cs-in{from{opacity:0;transform:translateY(16px)}}
+#zeno-portfolio .zg-cs-visual{position:relative;padding:26px 14px 12px}
+#zeno-portfolio .zg-cs-visual .zg-dev{filter:drop-shadow(0 26px 40px rgba(0,0,0,.45))}
+#zeno-portfolio .zg-cs-panel .zg-laptop-screen img{animation:zg-kb 7s ease-out both}
+@keyframes zg-kb{from{transform:scale(1.1)}to{transform:scale(1)}}
+#zeno-portfolio .zg-scan{position:absolute;left:0;right:0;top:0;height:40%;z-index:2;pointer-events:none;background:linear-gradient(transparent,rgba(212,180,148,.2),transparent);animation:zg-scan 3.4s linear infinite}
+@keyframes zg-scan{from{transform:translateY(-100%)}to{transform:translateY(260%)}}
+#zeno-portfolio .zg-cs-chip{position:absolute;z-index:3;padding:7px 11px;border:1px solid #B89B7B;background:rgba(15,13,12,.92);color:#E7D0B8;font:11px "JetBrains Mono",monospace;box-shadow:0 10px 24px rgba(0,0,0,.4);animation:zg-bob 5s ease-in-out infinite}
+#zeno-portfolio .zg-cs-chip.c1{top:4px;left:4px}
+#zeno-portfolio .zg-cs-chip.c2{top:34%;right:0;animation-delay:-1.7s}
+#zeno-portfolio .zg-cs-chip.c3{bottom:8%;left:0;animation-delay:-3.4s}
+@keyframes zg-bob{50%{transform:translateY(-9px)}}
+#zeno-portfolio .zg-cs-info h3{font-size:clamp(24px,3vw,34px);margin:8px 0 10px}
+#zeno-portfolio .zg-cs-info p{font-size:15px}
+#zeno-portfolio .zg-pipe{list-style:none;margin:20px 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:10px 0}
+#zeno-portfolio .zg-pipe li{position:relative;padding:8px 12px;border:1px solid var(--zg-line);background:var(--zg-bg);color:var(--zg-muted);font:11px "JetBrains Mono",monospace;animation:zg-pipe-on .5s ease both}
+#zeno-portfolio .zg-pipe li+li{margin-left:26px}
+#zeno-portfolio .zg-pipe li+li::before{content:"";position:absolute;left:-27px;top:50%;width:26px;height:2px;background:linear-gradient(90deg,var(--zg-accent) 55%,transparent 0) 0 0/9px 2px;animation:zg-pipe-dash .7s linear infinite}
+#zeno-portfolio .zg-pipe li:nth-child(1){animation-delay:.3s}#zeno-portfolio .zg-pipe li:nth-child(2){animation-delay:.7s}#zeno-portfolio .zg-pipe li:nth-child(3){animation-delay:1.1s}#zeno-portfolio .zg-pipe li:nth-child(4){animation-delay:1.5s}
+@keyframes zg-pipe-on{from{opacity:.3}to{opacity:1;border-color:var(--zg-brown);color:var(--zg-text)}}
+@keyframes zg-pipe-dash{to{background-position:9px 0}}
+@media(max-width:899px){#zeno-portfolio .zg-pipe{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}#zeno-portfolio .zg-pipe::-webkit-scrollbar{display:none}#zeno-portfolio .zg-pipe li{flex:0 0 auto}}
+#zeno-portfolio .zg-modal-nav{display:flex;gap:6px}
+@media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-cs-panel,#zeno-portfolio .zg-cs-panel .zg-laptop-screen img,#zeno-portfolio .zg-scan,#zeno-portfolio .zg-cs-chip,#zeno-portfolio .zg-pipe li,#zeno-portfolio .zg-pipe li+li::before{animation:none}#zeno-portfolio .zg-pipe li{border-color:var(--zg-brown);color:var(--zg-text)}#zeno-portfolio .zg-scan{display:none}}
 #zeno-portfolio .zg-dev{position:relative;max-width:520px;margin:0 auto;padding-bottom:10px}
 #zeno-portfolio .zg-laptop-screen{position:relative;border:7px solid #1d1a17;border-bottom-width:11px;border-radius:9px 9px 0 0;background:#0d0c0b;aspect-ratio:16/10;overflow:hidden}
 #zeno-portfolio .zg-laptop-screen img,#zeno-portfolio .zg-phone img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:1}
@@ -2530,10 +2567,10 @@
     <div class="z-wrap">
       <h2 class="zg-sr" id="zg-stats-title">At a glance</h2>
       <div class="zg-stats-grid">
-        <div class="zg-stat zg-rv"><span class="zg-stat-num"><span class="zg-count" data-zg-to="15">15</span><i>+</i></span><span class="zg-stat-label">projects shipped</span></div>
-        <div class="zg-stat zg-rv" style="--zg-d:1"><span class="zg-stat-num"><span class="zg-count" data-zg-to="8">8</span><i>+</i></span><span class="zg-stat-label">platforms &amp; CMSs</span></div>
-        <div class="zg-stat zg-rv" style="--zg-d:2"><span class="zg-stat-num"><span class="zg-count" data-zg-to="3">3</span><i>+</i></span><span class="zg-stat-label">years building for the web</span></div>
-        <div class="zg-stat zg-rv" style="--zg-d:3"><span class="zg-stat-num"><span class="zg-count" data-zg-to="5">5</span><i>+</i></span><span class="zg-stat-label">client countries</span></div>
+        <div class="zg-stat zg-rv"><span class="zg-stat-num"><span class="zg-count" data-zg-to="40">40</span><i>+</i></span><span class="zg-stat-label">projects shipped</span></div>
+        <div class="zg-stat zg-rv" style="--zg-d:1"><span class="zg-stat-num"><span class="zg-count" data-zg-to="12">12</span><i>+</i></span><span class="zg-stat-label">platforms &amp; CMSs</span></div>
+        <div class="zg-stat zg-rv" style="--zg-d:2"><span class="zg-stat-num"><span class="zg-count" data-zg-to="5">5</span><i>+</i></span><span class="zg-stat-label">years building for the web</span></div>
+        <div class="zg-stat zg-rv" style="--zg-d:3"><span class="zg-stat-num"><span class="zg-count" data-zg-to="8">8</span><i>+</i></span><span class="zg-stat-label">client countries</span></div>
       </div>
     </div>
   </section>
@@ -3172,7 +3209,7 @@
 
           <!-- PROJECT 8 — The Walker Group -->
 
-          <article class="z-project" data-zg-cat="seo ai">
+          <article class="z-project" data-zg-cat="seo ai" data-zg-case="walker">
 
             <div class="z-project-browser">
               <i class="z-dot"></i>
@@ -3218,7 +3255,7 @@
 
           <!-- PROJECT 10 — Luxe Aura Hair -->
 
-          <article class="z-project" data-zg-cat="tracking">
+          <article class="z-project" data-zg-cat="tracking" data-zg-case="luxe">
 
             <div class="z-project-browser">
               <i class="z-dot"></i>
@@ -3287,7 +3324,7 @@
 
           <!-- PROJECT 1 — MPP Legal -->
 
-          <article class="z-project" data-zg-cat="wordpress seo">
+          <article class="z-project" data-zg-cat="wordpress seo" data-zg-case="mpp">
 
             <div class="z-project-browser">
               <i class="z-dot"></i>
@@ -3420,36 +3457,45 @@
       <div class="z-head zg-rv">
         <span class="z-label">// case_studies.open()</span>
         <h2 class="z-title" id="zg-cases-title">Case studies.</h2>
-        <p class="z-copy">Three builds in more depth: the challenge, what I did, and the stack behind it.</p>
+        <p class="z-copy">Six builds in more depth. Pick one to explore, or let them play: the challenge, what I did, and the stack behind it.</p>
       </div>
-      <div class="zg-case-grid">
-        <article class="zg-card zg-case zg-tilt zg-rv">
-          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/Tallmade.webp" alt="Tallmade product landing page by Pagulayan Cues on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
-          <div class="zg-case-body">
-            <span class="zg-kicker">SHOPIFY · INTERACTIVE 3D</span>
-            <h3>Pagulayan Cues (Tallmade)</h3>
-            <p>A Shopify landing page with an interactive 360° product viewer and scroll animations.</p>
-            <button type="button" class="z-btn z-btn-dark" data-zg-open="zg-case-pagulayan" data-zg-event="case_study_open" data-zg-label="pagulayan">View case study <span>→</span></button>
+      <!-- Interactive showcase: tabs auto-play every 7s (pauses on hover/focus/reduced motion). -->
+      <div class="zg-cs zg-rv" data-zg-cs>
+        <div class="zg-cs-tabs" role="tablist" aria-label="Case studies">
+          <button type="button" class="zg-cs-tab" role="tab" id="zg-cs-t1" aria-controls="zg-cs-p1" aria-selected="true" data-zg-label="pagulayan"><span class="zg-kicker">01 · Shopify</span><strong>Pagulayan Cues</strong><i class="zg-cs-bar" aria-hidden="true"></i></button>
+          <button type="button" class="zg-cs-tab" role="tab" id="zg-cs-t2" aria-controls="zg-cs-p2" aria-selected="false" tabindex="-1" data-zg-label="mlb"><span class="zg-kicker">02 · Shopify</span><strong>MLB Artist</strong><i class="zg-cs-bar" aria-hidden="true"></i></button>
+          <button type="button" class="zg-cs-tab" role="tab" id="zg-cs-t3" aria-controls="zg-cs-p3" aria-selected="false" tabindex="-1" data-zg-label="graceful"><span class="zg-kicker">03 · WordPress</span><strong>Graceful Connections</strong><i class="zg-cs-bar" aria-hidden="true"></i></button>
+          <button type="button" class="zg-cs-tab" role="tab" id="zg-cs-t4" aria-controls="zg-cs-p4" aria-selected="false" tabindex="-1" data-zg-label="walker"><span class="zg-kicker">04 · AI search</span><strong>The Walker Group</strong><i class="zg-cs-bar" aria-hidden="true"></i></button>
+          <button type="button" class="zg-cs-tab" role="tab" id="zg-cs-t5" aria-controls="zg-cs-p5" aria-selected="false" tabindex="-1" data-zg-label="luxe"><span class="zg-kicker">05 · Tracking</span><strong>Luxe Aura Hair</strong><i class="zg-cs-bar" aria-hidden="true"></i></button>
+          <button type="button" class="zg-cs-tab" role="tab" id="zg-cs-t6" aria-controls="zg-cs-p6" aria-selected="false" tabindex="-1" data-zg-label="mpp"><span class="zg-kicker">06 · WordPress</span><strong>MPP Legal</strong><i class="zg-cs-bar" aria-hidden="true"></i></button>
+        </div>
+
+        <div class="zg-cs-stage">
+          <div class="zg-cs-panel" role="tabpanel" id="zg-cs-p1" aria-labelledby="zg-cs-t1">
+            <div class="zg-cs-visual"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/Tallmade.webp" alt="Tallmade product landing page by Pagulayan Cues on a laptop" loading="lazy" width="1264" height="585"><i class="zg-scan" aria-hidden="true"></i></div><div class="zg-laptop-base"></div></div><span class="zg-cs-chip c1" aria-hidden="true">Shopify</span><span class="zg-cs-chip c2" aria-hidden="true">Liquid</span><span class="zg-cs-chip c3" aria-hidden="true">360° viewer</span></div>
+            <div class="zg-cs-info"><span class="zg-kicker">SHOPIFY · INTERACTIVE 3D</span><h3>Pagulayan Cues (Tallmade)</h3><p>A Shopify landing page where visitors rotate the product in 360°, with parallax and scroll animations.</p><ol class="zg-pipe" aria-label="How it was built"><li>3D model</li><li>360° viewer</li><li>Scroll FX</li><li>Shopify</li></ol><div class="zg-actions"><button type="button" class="z-btn z-btn-primary" data-zg-open="zg-case-pagulayan" data-zg-event="case_study_open" data-zg-label="pagulayan">Read case study <span>→</span></button><a class="z-btn z-btn-dark" href="https://pagulayancues.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="pagulayancues.com">Visit site ↗</a></div></div>
           </div>
-        </article>
-        <article class="zg-card zg-case zg-tilt zg-rv" style="--zg-d:1">
-          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/MLB-ARTIST.webp" alt="MLB Artist Shopify store on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
-          <div class="zg-case-body">
-            <span class="zg-kicker">SHOPIFY · E-COMMERCE</span>
-            <h3>MLB Artist</h3>
-            <p>A full Shopify store with custom Liquid sections, product bundles and Printful fulfilment.</p>
-            <button type="button" class="z-btn z-btn-dark" data-zg-open="zg-case-mlb" data-zg-event="case_study_open" data-zg-label="mlb">View case study <span>→</span></button>
+          <div class="zg-cs-panel" role="tabpanel" id="zg-cs-p2" aria-labelledby="zg-cs-t2" hidden>
+            <div class="zg-cs-visual"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/MLB-ARTIST.webp" alt="MLB Artist Shopify store on a laptop" loading="lazy" width="1264" height="585"><i class="zg-scan" aria-hidden="true"></i></div><div class="zg-laptop-base"></div></div><span class="zg-cs-chip c1" aria-hidden="true">Shopify</span><span class="zg-cs-chip c2" aria-hidden="true">Printful</span><span class="zg-cs-chip c3" aria-hidden="true">Bundles</span></div>
+            <div class="zg-cs-info"><span class="zg-kicker">SHOPIFY · E-COMMERCE</span><h3>MLB Artist</h3><p>A full Shopify store with custom Liquid sections, product bundles and print-on-demand fulfilment.</p><ol class="zg-pipe" aria-label="How it was built"><li>Products</li><li>Liquid sections</li><li>Bundles</li><li>Printful</li></ol><div class="zg-actions"><button type="button" class="z-btn z-btn-primary" data-zg-open="zg-case-mlb" data-zg-event="case_study_open" data-zg-label="mlb">Read case study <span>→</span></button><a class="z-btn z-btn-dark" href="https://mlbartist.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="mlbartist.com">Visit site ↗</a></div></div>
           </div>
-        </article>
-        <article class="zg-card zg-case zg-tilt zg-rv" style="--zg-d:2">
-          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care WordPress website on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
-          <div class="zg-case-body">
-            <span class="zg-kicker">WORDPRESS · TECHNICAL SEO</span>
-            <h3>Graceful Connections Home Care</h3>
-            <p>A full WordPress / Elementor build with schema markup and technical SEO.</p>
-            <button type="button" class="z-btn z-btn-dark" data-zg-open="zg-case-graceful" data-zg-event="case_study_open" data-zg-label="graceful">View case study <span>→</span></button>
+          <div class="zg-cs-panel" role="tabpanel" id="zg-cs-p3" aria-labelledby="zg-cs-t3" hidden>
+            <div class="zg-cs-visual"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care WordPress website on a laptop" loading="lazy" width="1264" height="585"><i class="zg-scan" aria-hidden="true"></i></div><div class="zg-laptop-base"></div></div><span class="zg-cs-chip c1" aria-hidden="true">Elementor</span><span class="zg-cs-chip c2" aria-hidden="true">Schema</span><span class="zg-cs-chip c3" aria-hidden="true">llms.txt</span></div>
+            <div class="zg-cs-info"><span class="zg-kicker">WORDPRESS · TECHNICAL SEO</span><h3>Graceful Connections Home Care</h3><p>A full WordPress / Elementor build with schema markup, Rich Results validation and an llms.txt file.</p><ol class="zg-pipe" aria-label="How it was built"><li>Elementor build</li><li>Schema</li><li>Rich Results</li><li>llms.txt</li></ol><div class="zg-actions"><button type="button" class="z-btn z-btn-primary" data-zg-open="zg-case-graceful" data-zg-event="case_study_open" data-zg-label="graceful">Read case study <span>→</span></button><a class="z-btn z-btn-dark" href="https://gracefulconnectionshomecare.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="gracefulconnectionshomecare.com">Visit site ↗</a></div></div>
           </div>
-        </article>
+          <div class="zg-cs-panel" role="tabpanel" id="zg-cs-p4" aria-labelledby="zg-cs-t4" hidden>
+            <div class="zg-cs-visual"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/thewalkergroup.webp" alt="The Walker Group website on a laptop" loading="lazy" width="1264" height="585"><i class="zg-scan" aria-hidden="true"></i></div><div class="zg-laptop-base"></div></div><span class="zg-cs-chip c1" aria-hidden="true">llms.txt</span><span class="zg-cs-chip c2" aria-hidden="true">AI crawlers</span><span class="zg-cs-chip c3" aria-hidden="true">Technical SEO</span></div>
+            <div class="zg-cs-info"><span class="zg-kicker">AI SEARCH · LLMS.TXT</span><h3>The Walker Group</h3><p>Site content restructured so AI search tools and crawlers can find and read the key pages clearly.</p><ol class="zg-pipe" aria-label="How it was built"><li>Content audit</li><li>Structure</li><li>llms.txt</li><li>AI crawlers</li></ol><div class="zg-actions"><button type="button" class="z-btn z-btn-primary" data-zg-open="zg-case-walker" data-zg-event="case_study_open" data-zg-label="walker">Read case study <span>→</span></button><a class="z-btn z-btn-dark" href="https://thewalkergroup.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="thewalkergroup.com">Visit site ↗</a></div></div>
+          </div>
+          <div class="zg-cs-panel" role="tabpanel" id="zg-cs-p5" aria-labelledby="zg-cs-t5" hidden>
+            <div class="zg-cs-visual"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/luxehair.webp" alt="Luxe Aura Hair website on a laptop" loading="lazy" width="1264" height="585"><i class="zg-scan" aria-hidden="true"></i></div><div class="zg-laptop-base"></div></div><span class="zg-cs-chip c1" aria-hidden="true">Vagaro</span><span class="zg-cs-chip c2" aria-hidden="true">Meta Pixel</span><span class="zg-cs-chip c3" aria-hidden="true">Conversions</span></div>
+            <div class="zg-cs-info"><span class="zg-kicker">TRACKING · BOOKING</span><h3>Luxe Aura Hair</h3><p>Vagaro bookings connected to Meta Pixel conversion tracking, so the booking journey is visible end to end.</p><ol class="zg-pipe" aria-label="How it was built"><li>Ad click</li><li>Website</li><li>Vagaro booking</li><li>Pixel event</li></ol><div class="zg-actions"><button type="button" class="z-btn z-btn-primary" data-zg-open="zg-case-luxe" data-zg-event="case_study_open" data-zg-label="luxe">Read case study <span>→</span></button><a class="z-btn z-btn-dark" href="https://luxeaurahair.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="luxeaurahair.com">Visit site ↗</a></div></div>
+          </div>
+          <div class="zg-cs-panel" role="tabpanel" id="zg-cs-p6" aria-labelledby="zg-cs-t6" hidden>
+            <div class="zg-cs-visual"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/mpplegal.webp" alt="MPP Legal website on a laptop" loading="lazy" width="1264" height="585"><i class="zg-scan" aria-hidden="true"></i></div><div class="zg-laptop-base"></div></div><span class="zg-cs-chip c1" aria-hidden="true">WordPress</span><span class="zg-cs-chip c2" aria-hidden="true">Internal links</span><span class="zg-cs-chip c3" aria-hidden="true">SEO</span></div>
+            <div class="zg-cs-info"><span class="zg-kicker">WORDPRESS · SEO</span><h3>MPP Legal</h3><p>Attorney profile pages, content updates and internal linking for a clearer, easier-to-navigate law firm site.</p><ol class="zg-pipe" aria-label="How it was built"><li>Attorney profiles</li><li>Content</li><li>Internal links</li><li>SEO</li></ol><div class="zg-actions"><button type="button" class="z-btn z-btn-primary" data-zg-open="zg-case-mpp" data-zg-event="case_study_open" data-zg-label="mpp">Read case study <span>→</span></button><a class="z-btn z-btn-dark" href="https://mpplegal.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="mpplegal.com">Visit site ↗</a></div></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -3656,7 +3702,7 @@
   <!-- ========== V2: CASE STUDY MODALS ========== -->
   <!-- DRAFT: Zeno to review. "What I did" reuses your existing project copy. -->
   <dialog class="zg-modal" id="zg-case-pagulayan" aria-labelledby="zg-m1-title">
-    <div class="zg-modal-top"><span class="zg-kicker">// case_study / pagulayan-cues</span><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="zg-modal-top"><span class="zg-kicker">// case_study / pagulayan-cues</span><span class="zg-modal-nav"><button type="button" class="zg-icon-btn" data-zg-step="-1" aria-label="Previous case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-step="1" aria-label="Next case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span></div>
     <div class="zg-modal-in">
       <span class="zg-kicker">SHOPIFY · INTERACTIVE 3D · 360° VIEWER</span>
       <h2 id="zg-m1-title">Pagulayan Cues (Tallmade)</h2>
@@ -3672,7 +3718,7 @@
   </dialog>
 
   <dialog class="zg-modal" id="zg-case-mlb" aria-labelledby="zg-m2-title">
-    <div class="zg-modal-top"><span class="zg-kicker">// case_study / mlb-artist</span><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="zg-modal-top"><span class="zg-kicker">// case_study / mlb-artist</span><span class="zg-modal-nav"><button type="button" class="zg-icon-btn" data-zg-step="-1" aria-label="Previous case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-step="1" aria-label="Next case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span></div>
     <div class="zg-modal-in">
       <span class="zg-kicker">SHOPIFY · E-COMMERCE · PRINT ON DEMAND</span>
       <h2 id="zg-m2-title">MLB Artist</h2>
@@ -3688,7 +3734,7 @@
   </dialog>
 
   <dialog class="zg-modal" id="zg-case-graceful" aria-labelledby="zg-m3-title">
-    <div class="zg-modal-top"><span class="zg-kicker">// case_study / graceful-connections</span><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div class="zg-modal-top"><span class="zg-kicker">// case_study / graceful-connections</span><span class="zg-modal-nav"><button type="button" class="zg-icon-btn" data-zg-step="-1" aria-label="Previous case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-step="1" aria-label="Next case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span></div>
     <div class="zg-modal-in">
       <span class="zg-kicker">WORDPRESS · ELEMENTOR · TECHNICAL SEO</span>
       <h2 id="zg-m3-title">Graceful Connections Home Care</h2>
@@ -3700,6 +3746,54 @@
         <div><h3>// result</h3><p class="zg-result">Schema validated in Google's Rich Results Test, plus an llms.txt file so AI search tools can read the site clearly.</p></div>
       </div>
       <div class="zg-actions" style="margin-top:30px"><a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-close data-zg-event="book_call" data-zg-label="case_graceful">Book a call about a similar build</a><a class="z-btn z-btn-dark" href="https://gracefulconnectionshomecare.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="gracefulconnectionshomecare.com">Visit site ↗</a></div>
+    </div>
+  </dialog>
+
+  <dialog class="zg-modal" id="zg-case-walker" aria-labelledby="zg-m4-title">
+    <div class="zg-modal-top"><span class="zg-kicker">// case_study / the-walker-group</span><span class="zg-modal-nav"><button type="button" class="zg-icon-btn" data-zg-step="-1" aria-label="Previous case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-step="1" aria-label="Next case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span></div>
+    <div class="zg-modal-in">
+      <span class="zg-kicker">AI SEARCH · LLMS.TXT · TECHNICAL SEO</span>
+      <h2 id="zg-m4-title">The Walker Group</h2>
+      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/thewalkergroup.webp" alt="The Walker Group website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
+      <div class="zg-modal-cols">
+        <div><h3>// challenge</h3><p>Make the firm's existing website content easy for AI search tools and crawlers to find, read and understand.</p></div>
+        <div><h3>// what i did</h3><p>Worked on llms.txt updates and AI-readable content organization, with a focus on technical SEO and AI crawler optimization. The work centered on making existing website information more clearly structured for automated discovery.</p></div>
+        <div><h3>// stack</h3><ul class="zg-tags"><li>llms.txt</li><li>Technical SEO</li><li>Content structure</li><li>AI crawlers</li></ul></div>
+        <div><h3>// result</h3><p class="zg-result">An llms.txt file and a clearer content structure that point AI tools straight to the key pages and services.</p></div>
+      </div>
+      <div class="zg-actions" style="margin-top:30px"><a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-close data-zg-event="book_call" data-zg-label="case_walker">Book a call about a similar build</a><a class="z-btn z-btn-dark" href="https://thewalkergroup.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="thewalkergroup.com">Visit site ↗</a></div>
+    </div>
+  </dialog>
+
+  <dialog class="zg-modal" id="zg-case-luxe" aria-labelledby="zg-m5-title">
+    <div class="zg-modal-top"><span class="zg-kicker">// case_study / luxe-aura-hair</span><span class="zg-modal-nav"><button type="button" class="zg-icon-btn" data-zg-step="-1" aria-label="Previous case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-step="1" aria-label="Next case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span></div>
+    <div class="zg-modal-in">
+      <span class="zg-kicker">TRACKING · BOOKING · META PIXEL</span>
+      <h2 id="zg-m5-title">Luxe Aura Hair</h2>
+      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/luxehair.webp" alt="Luxe Aura Hair website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
+      <div class="zg-modal-cols">
+        <div><h3>// challenge</h3><p>Bookings happened inside Vagaro, so ad platforms couldn't see which website visits turned into appointments.</p></div>
+        <div><h3>// what i did</h3><p>Worked on connecting Vagaro booking functionality with website conversion tracking. Tasks included appointment-related tracking and troubleshooting Meta Pixel events to improve visibility into the booking journey.</p></div>
+        <div><h3>// stack</h3><ul class="zg-tags"><li>Vagaro</li><li>Meta Pixel</li><li>Conversion events</li><li>Event debugging</li></ul></div>
+        <div><h3>// result</h3><p class="zg-result">Booking actions now send Meta Pixel events, giving clearer visibility from ad click to appointment.</p></div>
+      </div>
+      <div class="zg-actions" style="margin-top:30px"><a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-close data-zg-event="book_call" data-zg-label="case_luxe">Book a call about a similar build</a><a class="z-btn z-btn-dark" href="https://luxeaurahair.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="luxeaurahair.com">Visit site ↗</a></div>
+    </div>
+  </dialog>
+
+  <dialog class="zg-modal" id="zg-case-mpp" aria-labelledby="zg-m6-title">
+    <div class="zg-modal-top"><span class="zg-kicker">// case_study / mpp-legal</span><span class="zg-modal-nav"><button type="button" class="zg-icon-btn" data-zg-step="-1" aria-label="Previous case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-step="1" aria-label="Next case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button><button type="button" class="zg-icon-btn" data-zg-close aria-label="Close case study"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></span></div>
+    <div class="zg-modal-in">
+      <span class="zg-kicker">WORDPRESS · ELEMENTOR · SEO</span>
+      <h2 id="zg-m6-title">MPP Legal</h2>
+      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/mpplegal.webp" alt="MPP Legal website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
+      <div class="zg-modal-cols">
+        <div><h3>// challenge</h3><p>A law firm needed attorney profiles and practice content kept consistent, current and easy to navigate.</p></div>
+        <div><h3>// what i did</h3><p>Worked on website content updates and attorney profile pages, along with SEO improvements and internal linking. These tasks supported clearer navigation, more consistent page content, and ongoing WordPress and Elementor maintenance.</p></div>
+        <div><h3>// stack</h3><ul class="zg-tags"><li>WordPress</li><li>Elementor</li><li>On-page SEO</li><li>Internal linking</li><li>Mobile fixes</li></ul></div>
+        <div><h3>// result</h3><p class="zg-result">Updated attorney profiles with stronger internal links between related pages, so visitors and search engines move through the site more easily.</p></div>
+      </div>
+      <div class="zg-actions" style="margin-top:30px"><a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-close data-zg-event="book_call" data-zg-label="case_mpp">Book a call about a similar build</a><a class="z-btn z-btn-dark" href="https://mpplegal.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="mpplegal.com">Visit site ↗</a></div>
     </div>
   </dialog>
 
@@ -4768,6 +4862,57 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
       syncDots();
     }
 
+    /* ---------- case study showcase: tabs + autoplay ---------- */
+    var cs = $("[data-zg-cs]");
+    if (cs) {
+      var csTabs = $$('[role="tab"]', cs), csPanels = $$('[role="tabpanel"]', cs), csList = $(".zg-cs-tabs", cs);
+      var csCur = 0, csTimer = null, csHold = false, csSeen = false, CS_MS = 7000;
+      var csPlay = function () {
+        clearTimeout(csTimer);
+        var t = csTabs[csCur];
+        csTabs.forEach(function (x) { x.classList.remove("zg-play"); });
+        if (reduce || csHold || !csSeen) return;
+        void t.offsetWidth; /* restart the progress bar animation */
+        t.classList.add("zg-play");
+        csTimer = setTimeout(function () { csShow(csCur + 1, false); }, CS_MS);
+      };
+      var csShow = function (i, user) {
+        csCur = (i + csTabs.length) % csTabs.length;
+        csTabs.forEach(function (t, k) {
+          var on = k === csCur;
+          t.setAttribute("aria-selected", String(on));
+          t.tabIndex = on ? 0 : -1;
+        });
+        csPanels.forEach(function (p, k) { p.hidden = k !== csCur; });
+        var tab = csTabs[csCur];
+        if (csList.scrollWidth > csList.clientWidth) csList.scrollTo({ left: tab.offsetLeft - csList.offsetLeft - 8, behavior: reduce ? "auto" : "smooth" });
+        if (user) { zgTrack("case_tab", tab.dataset.zgLabel); tab.focus(); }
+        csPlay();
+      };
+      csTabs.forEach(function (t, k) { t.addEventListener("click", function () { csShow(k, true); }); });
+      csList.addEventListener("keydown", function (e) {
+        var map = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 };
+        if (map[e.key]) { e.preventDefault(); csShow(csCur + map[e.key], true); }
+        else if (e.key === "Home") { e.preventDefault(); csShow(0, true); }
+        else if (e.key === "End") { e.preventDefault(); csShow(csTabs.length - 1, true); }
+      });
+      /* Pause while the visitor is reading or using it. */
+      cs.addEventListener("pointerenter", function () { csHold = true; csPlay(); });
+      cs.addEventListener("pointerleave", function () { csHold = false; csPlay(); });
+      cs.addEventListener("focusin", function () { csHold = true; csPlay(); });
+      cs.addEventListener("focusout", function (e) { if (!cs.contains(e.relatedTarget)) { csHold = false; csPlay(); } });
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(function (en) { csSeen = en[0].isIntersecting; csPlay(); }, { threshold: 0.35 }).observe(cs);
+      }
+      /* Opening a modal from a project card keeps the showcase in sync. */
+      root.addEventListener("click", function (e) {
+        var o = e.target.closest("[data-zg-open]");
+        if (!o) return;
+        var k = csTabs.map(function (t) { return t.dataset.zgLabel; }).indexOf(o.dataset.zgOpen.replace("zg-case-", ""));
+        if (k > -1 && k !== csCur) csShow(k, false);
+      });
+    }
+
     /* ---------- case study modals ---------- */
     var lastOpener = null;
     function zgOpen(id, opener) {
@@ -4783,12 +4928,24 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
     root.addEventListener("click", function (e) {
       var opener = e.target.closest("[data-zg-open]");
       if (opener) { e.preventDefault(); zgOpen(opener.dataset.zgOpen, opener); return; }
+      var step = e.target.closest("[data-zg-step]");
+      if (step) {
+        /* Prev / next between case studies without leaving the modal. */
+        var cur = step.closest("dialog"), order = $$("dialog.zg-modal");
+        var next = order[(order.indexOf(cur) + parseInt(step.dataset.zgStep, 10) + order.length) % order.length];
+        cur.dataset.zgSwitch = "1";
+        zgClose(cur);
+        zgOpen(next.id, lastOpener);
+        zgTrack("case_study_step", next.id.replace("zg-case-", ""));
+        return;
+      }
       var closer = e.target.closest("[data-zg-close]");
       if (closer) { var d = closer.closest("dialog"); if (d) zgClose(d); }
     });
     $$("dialog.zg-modal").forEach(function (d) {
       d.addEventListener("click", function (e) { if (e.target === d) zgClose(d); });
       d.addEventListener("close", function () {
+        if (d.dataset.zgSwitch) { delete d.dataset.zgSwitch; return; }
         document.documentElement.style.overflow = "";
         if (lastOpener && document.contains(lastOpener)) lastOpener.focus();
       });
