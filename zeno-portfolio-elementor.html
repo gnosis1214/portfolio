@@ -3,7 +3,7 @@
  One Elementor HTML widget | No framework required
  Replace images, email, projects, and social links.
  v2: fill ZG_CONFIG (bottom script) with your Calendly / Upwork links.
- New copy is marked DRAFT: Zeno to review. See V2-NOTES.md.
+ New copy is marked DRAFT: Zeno to review.
 ================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1964,7 +1964,7 @@
 /* case studies + device mockups */
 #zeno-portfolio .zg-kicker{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent);letter-spacing:.06em}
 /* case-study showcase (tabs + animated stage) */
-#zeno-portfolio .zg-cs{display:grid;gap:16px}
+#zeno-portfolio .zg-cs{display:grid;gap:16px;grid-template-columns:minmax(0,1fr)}
 @media(min-width:1050px){#zeno-portfolio .zg-cs{grid-template-columns:280px minmax(0,1fr);gap:22px;align-items:start}}
 #zeno-portfolio .zg-cs-tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:2px 2px 6px;scroll-behavior:smooth}
 #zeno-portfolio .zg-cs-tabs::-webkit-scrollbar{display:none}
@@ -1980,7 +1980,7 @@
 @keyframes zg-bar{from{width:0}to{width:100%}}
 #zeno-portfolio .zg-cs-stage{position:relative;border:1px solid var(--zg-line);background:radial-gradient(circle at 28% 42%,rgba(184,155,123,.22),transparent 55%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel);padding:clamp(18px,3vw,36px);overflow:hidden}
 #zeno-portfolio[data-zg-theme="light"] .zg-cs-stage{background:radial-gradient(circle at 28% 42%,rgba(184,155,123,.25),transparent 55%),linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)}
-#zeno-portfolio .zg-cs-panel{display:grid;gap:24px;align-items:center;animation:zg-cs-in .6s cubic-bezier(.2,.7,.2,1)}
+#zeno-portfolio .zg-cs-panel{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:center;animation:zg-cs-in .6s cubic-bezier(.2,.7,.2,1)}
 @media(min-width:900px){#zeno-portfolio .zg-cs-panel{grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:34px}}
 @keyframes zg-cs-in{from{opacity:0;transform:translateY(16px)}}
 #zeno-portfolio .zg-cs-visual{position:relative;padding:26px 14px 12px}
@@ -2111,17 +2111,12 @@
 #zeno-portfolio .zg-ai-form .zg-icon-btn{background:#D4B494;color:#141210;border-color:#D4B494}
 
 /* ===== v2 upgrades to v1 sections (backgrounds, graphics, extra items) ===== */
-@keyframes zg-rot{to{transform:rotate(360deg)}}
-@keyframes zg-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
 #zeno-portfolio .zg-hero-meta{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
 #zeno-portfolio .zg-hero-meta li{display:inline-flex;align-items:center;gap:8px;font:12px "JetBrains Mono",monospace;color:var(--muted)}
 #zeno-portfolio .zg-hero-meta svg{width:16px;height:16px;color:var(--accent)}
 #zeno-portfolio .zg-float-three{right:-12px;bottom:-24px}
 @media(max-width:1050px){#zeno-portfolio .zg-float-three{display:none}}
 #zeno-portfolio .z-techbar{background:linear-gradient(90deg,#0d0b09,#17130f 50%,#0d0b09);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-#zeno-portfolio .z-about{background:radial-gradient(circle at 12% 28%,rgba(184,155,123,.3),transparent 42%),radial-gradient(circle at 92% 82%,rgba(184,155,123,.18),transparent 40%),radial-gradient(rgba(0,0,0,.09) 1px,transparent 1.3px) 0 0/22px 22px,#E5E5E5}
-@media(max-width:560px){#zeno-portfolio .zg-about-deco{position:absolute;left:-30px;top:-30px;width:96px;height:96px;color:#8B6B4F;opacity:.6;z-index:2;animation:zg-rot 40s linear infinite;pointer-events:none}
-@media(max-width:767px){#zeno-portfolio .zg-about-deco{left:-8px;top:-18px;width:70px;height:70px}}
 #zeno-portfolio .z-orbit-section{background:radial-gradient(ellipse at 50% 72%,rgba(184,155,123,.17),transparent 55%),repeating-radial-gradient(ellipse at 50% 72%,transparent 0 90px,rgba(212,180,148,.07) 90px 91px),#080808}
 #zeno-portfolio .z-story{background:radial-gradient(ellipse at 18% 35%,rgba(184,155,123,.15),transparent 50%),radial-gradient(ellipse at 92% 92%,rgba(184,155,123,.09),transparent 45%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/64px 64px,linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/64px 64px,#000}
 #zeno-portfolio .z-story-screen{box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(212,180,148,.08),0 0 90px rgba(184,155,123,.12)}
@@ -2131,14 +2126,8 @@
 #zeno-portfolio .z-services{background:radial-gradient(circle at 88% 6%,rgba(184,155,123,.26),transparent 40%),radial-gradient(circle at 4% 96%,rgba(184,155,123,.16),transparent 40%),linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px) 0 0/48px 48px,#E5E5E5}
 #zeno-portfolio .z-tools{background:radial-gradient(ellipse at 75% 50%,rgba(184,155,123,.17),transparent 55%),repeating-linear-gradient(135deg,transparent 0 22px,rgba(255,255,255,.022) 22px 23px),#000}
 #zeno-portfolio .z-work{background:radial-gradient(ellipse at 50% 100%,rgba(184,155,123,.28),transparent 55%),radial-gradient(rgba(0,0,0,.08) 1px,transparent 1.3px) 0 0/24px 24px,#E5E5E5}
-#zeno-portfolio .z-contact{overflow:hidden}
-#zeno-portfolio .z-contact-box{position:relative;z-index:1}
-#zeno-portfolio .zg-contact-art{position:absolute;left:50%;top:50%;width:min(760px,140vw);transform:translate(-50%,-50%);color:rgba(212,180,148,.16);pointer-events:none;animation:zg-spin 120s linear infinite}
-#zeno-portfolio .zg-contact-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;margin-top:34px}
-#zeno-portfolio .zg-avail{display:inline-flex;align-items:center;gap:9px;font:12px "JetBrains Mono",monospace;color:var(--muted)}
 #zeno-portfolio .zg-foot-blurb{grid-column:1/-1;font-size:14px;color:#454545}
 #zeno-portfolio .zg-foot-blurb strong{color:#090909;font-family:"Space Grotesk",sans-serif}
-@media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-about-deco,#zeno-portfolio .zg-contact-art{animation:none}}
 
 /* light theme — overrides for v1 dark sections */
 #zeno-portfolio[data-zg-theme="light"] .z-header{background:rgba(244,240,234,.94)}
@@ -2510,17 +2499,13 @@
           <span>Genesis Montilla / Zeno</span>
           <span class="z-green">$ current_focus</span>
           <span>Web Development + Design</span>
-          <span class="z-green">$ stack --short</span>
-          <span>WP · Shopify · Next.js · n8n</span>
         </div>
-
-        <svg class="zg-about-deco" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M44 30 18 60l26 30M76 30l26 30-26 30"/><circle cx="60" cy="60" r="56" stroke-dasharray="3 7"/></g></svg>
 
       </div>
 
       <div class="z-about-copy z-reveal">
 
-        <span class="z-label">// 01. about_me</span>
+        <span class="z-label">// about_me</span>
 
         <h2 class="z-title">
           More than just building websites.
@@ -2547,11 +2532,6 @@
           <span>Shopify Apps</span>
           <span>Hosting &amp; DNS</span>
           <span>AI Tools</span>
-          <!-- DRAFT: added in v2 -->
-          <span>Next.js / React</span>
-          <span>n8n Automation</span>
-          <span>Technical SEO</span>
-          <span>GA4 &amp; GTM</span>
         </div>
 
       </div>
@@ -2559,6 +2539,7 @@
     </div>
 
   </section>
+
 
 
   <!-- ========== V2: STATS ========== -->
@@ -2593,7 +2574,7 @@
     <div class="z-wrap">
 
       <div class="z-head z-story-head z-reveal">
-        <span class="z-label">// 02. how_i_work</span>
+        <span class="z-label">// how_i_work</span>
         <h2 class="z-title">Different tasks. One workflow.</h2>
         <p class="z-copy">
           Development, design, setup, and problem-solving.
@@ -2766,7 +2747,7 @@
     <div class="z-wrap">
 
       <div class="z-head z-reveal">
-        <span class="z-label">// 03. services</span>
+        <span class="z-label">// services</span>
         <h2 class="z-title">What I work on.</h2>
         <p class="z-copy">
           Development, customization, and technical support.
@@ -3092,7 +3073,7 @@
   <section class="z-section z-work" id="zeno-work">
 
     <div class="z-wrap z-head z-reveal">
-      <span class="z-label">// 04. selected_work</span>
+      <span class="z-label">// selected_work</span>
       <h2 class="z-title">Projects &amp; builds.</h2>
       <p class="z-copy">
         A few websites and projects I've worked on.
@@ -3612,7 +3593,7 @@
         &lt;/&gt;
       </div>
 
-      <span class="z-label">// 05. contact</span>
+      <span class="z-label">// contact</span>
 
       <h2>Let's build something.</h2>
 
@@ -3646,18 +3627,10 @@
 
       </div>
 
-      <!-- DRAFT: Zeno to review -->
-      <div class="zg-contact-cta">
-        <span class="zg-avail"><span class="z-status-dot" aria-hidden="true"></span>Open to new projects · GMT+8</span>
-        <a class="z-btn z-btn-primary zg-magnetic" href="#zeno-contact" data-zg-href="calendly" data-zg-event="book_call" data-zg-label="contact">Book a call <span>→</span></a>
-      </div>
-
     </div>
 
-    <svg class="zg-contact-art" viewBox="0 0 600 600" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="300" cy="300" r="290" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="210"/><circle cx="300" cy="300" r="130" stroke-dasharray="6 12"/></svg>
-
-
   </section>
+
 
   <!-- ========== FOOTER ========== -->
 
