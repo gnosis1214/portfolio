@@ -2008,6 +2008,10 @@
   #zeno-portfolio .zg-proc-line{left:24px;right:24px;top:23px;bottom:auto;width:auto;height:2px}
   #zeno-portfolio .zg-proc-line i{transform-origin:0 50%;transform:scaleX(var(--zg-pp,0))}
   #zeno-portfolio .zg-step{grid-template-columns:1fr}
+  #zeno-portfolio .zg-step > div{transition:opacity .45s}
+  #zeno-portfolio .zg-step:not(.zg-on) > div{opacity:.4}
+  #zeno-portfolio #zeno-process.zg-pin{height:var(--zg-pin-h);padding:0}
+  #zeno-portfolio #zeno-process.zg-pin > .z-wrap{position:sticky;top:0;height:100vh;height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:62px}
 }
 
 /* packages */
@@ -2016,25 +2020,11 @@
 @media(min-width:1180px){#zeno-portfolio .zg-pk-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 #zeno-portfolio .zg-pk{display:flex;flex-direction:column}
 #zeno-portfolio .zg-pk-care{border-color:var(--zg-brown);background:linear-gradient(160deg,rgba(184,155,123,.16),transparent 60%),var(--zg-panel)}
-#zeno-portfolio .zg-pk-price{font:700 32px/1.1 "Space Grotesk",sans-serif;color:var(--zg-text);letter-spacing:-.04em;margin:16px 0 6px}
-#zeno-portfolio .zg-pk-price small{display:block;font:11px "JetBrains Mono",monospace;color:var(--zg-muted);letter-spacing:0;margin-bottom:4px}
 #zeno-portfolio .zg-pk ul{list-style:none;margin:20px 0 26px;padding:0;display:grid;gap:10px}
 #zeno-portfolio .zg-pk li{position:relative;padding-left:22px;font-size:14px;line-height:1.55;color:var(--zg-muted)}
 #zeno-portfolio .zg-pk li::before{content:"";position:absolute;left:1px;top:.5em;width:10px;height:5px;border-left:2px solid var(--zg-accent);border-bottom:2px solid var(--zg-accent);transform:rotate(-45deg)}
 #zeno-portfolio .zg-pk .z-btn{margin-top:auto;width:100%}
 #zeno-portfolio .zg-note{margin-top:22px;font:12px/1.6 "JetBrains Mono",monospace;color:var(--zg-muted)}
-
-/* testimonials */
-#zeno-portfolio .zg-tm-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;padding-bottom:4px}
-#zeno-portfolio .zg-tm-track::-webkit-scrollbar{display:none}
-@media(min-width:768px){#zeno-portfolio .zg-tm-track{grid-auto-columns:calc(50% - 8px)}}
-@media(min-width:1180px){#zeno-portfolio .zg-tm-track{grid-auto-columns:calc((100% - 32px) / 3)}}
-#zeno-portfolio .zg-tm-card{scroll-snap-align:start;display:flex;flex-direction:column;gap:18px;margin:0}
-#zeno-portfolio .zg-tm-card svg{width:30px;height:30px;color:var(--zg-accent)}
-#zeno-portfolio .zg-tm-card blockquote{margin:0;font:500 clamp(17px,2vw,20px)/1.5 "Space Grotesk",sans-serif;color:var(--zg-text)}
-#zeno-portfolio .zg-tm-card figcaption{margin-top:auto;font:12px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)}
-#zeno-portfolio .zg-tm-nav{display:flex;gap:8px;align-items:center;margin-top:20px}
-#zeno-portfolio .zg-tm-count{margin-left:8px;font:12px "JetBrains Mono",monospace;color:var(--zg-muted)}
 
 /* FAQ */
 #zeno-portfolio .zg-faq-layout{display:grid;gap:36px}
@@ -2061,36 +2051,6 @@
 #zeno-portfolio .zg-cta p{margin-top:14px;max-width:520px}
 #zeno-portfolio .zg-actions{display:flex;flex-wrap:wrap;gap:12px}
 
-/* contact additions */
-#zeno-portfolio .zg-contact-grid{display:grid;gap:18px;margin-top:56px;text-align:left}
-@media(min-width:900px){#zeno-portfolio .zg-contact-grid{grid-template-columns:.8fr 1.2fr}}
-#zeno-portfolio .zg-panel{border:1px solid var(--line);background:rgba(0,0,0,.38);padding:clamp(20px,3vw,32px)}
-#zeno-portfolio .zg-panel h3{font-size:20px;margin-bottom:14px}
-#zeno-portfolio .zg-time{display:flex;gap:12px;align-items:flex-start;font:500 16px/1.5 "Space Grotesk",sans-serif;color:var(--text)}
-#zeno-portfolio .zg-time svg{width:22px;height:22px;color:var(--accent);margin-top:2px}
-#zeno-portfolio .zg-time strong{color:var(--accent)}
-#zeno-portfolio .zg-meta{display:block;margin-top:8px;font:12px/1.6 "JetBrains Mono",monospace;color:var(--muted)}
-#zeno-portfolio .zg-quick{display:grid;gap:10px;margin-top:24px}
-#zeno-portfolio .zg-quick .z-btn{justify-content:flex-start}
-#zeno-portfolio .zg-quick svg{width:18px;height:18px}
-#zeno-portfolio .zg-form{display:grid;gap:14px}
-#zeno-portfolio .zg-row{display:grid;gap:14px}
-@media(min-width:600px){#zeno-portfolio .zg-row{grid-template-columns:repeat(2,minmax(0,1fr))}}
-#zeno-portfolio .zg-field label{display:block;font:500 12px "JetBrains Mono",monospace;color:var(--muted);margin-bottom:7px}
-#zeno-portfolio .zg-field input,#zeno-portfolio .zg-field select,#zeno-portfolio .zg-field textarea{width:100%;min-height:48px;margin:0;padding:12px 14px;background:rgba(0,0,0,.45);border:1px solid var(--line);border-radius:0;color:var(--text);font:15px/1.5 "DM Sans",sans-serif;box-shadow:none}
-#zeno-portfolio .zg-field select{-webkit-appearance:none;appearance:none;padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23B89B7B' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px}
-#zeno-portfolio .zg-field option{color:#141210;background:#fff}
-#zeno-portfolio .zg-field textarea{min-height:140px;resize:vertical}
-#zeno-portfolio .zg-field [aria-invalid="true"]{border-color:var(--zg-err)}
-#zeno-portfolio .zg-err{display:block;margin-top:6px;font-size:12px;color:var(--zg-err)}
-#zeno-portfolio .zg-err:empty{display:none}
-#zeno-portfolio .zg-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
-#zeno-portfolio .zg-status{padding:12px 14px;font-size:14px;border:1px solid var(--line);color:var(--text)}
-#zeno-portfolio .zg-status:empty{display:none}
-#zeno-portfolio .zg-status.ok{border-color:var(--accent)}
-#zeno-portfolio .zg-status.err{border-color:var(--zg-err)}
-#zeno-portfolio .zg-form .z-btn[disabled]{opacity:.6;pointer-events:none}
-
 /* footer additions */
 #zeno-portfolio .zg-foot-top{display:grid;gap:18px;padding:12px 0 26px;margin-bottom:22px;border-bottom:1px solid rgba(0,0,0,.14)}
 @media(min-width:900px){#zeno-portfolio .zg-foot-top{grid-template-columns:1fr auto;align-items:center}}
@@ -2098,7 +2058,7 @@
 #zeno-portfolio .zg-foot-nav a,#zeno-portfolio .zg-foot-social a{min-height:44px;display:inline-flex;align-items:center;font-size:13px;color:#2a2a2a!important}
 #zeno-portfolio .zg-foot-nav a:hover,#zeno-portfolio .zg-foot-social a:hover{color:#846347!important}
 
-/* floating: back-to-top, assistant, toast */
+/* floating: back-to-top, assistant */
 #zeno-portfolio .zg-top{position:fixed;right:18px;bottom:86px;z-index:9990;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .3s,transform .3s,visibility 0s .3s;background:#141210;color:#D4B494;border-color:#5a4a3a}
 #zeno-portfolio .zg-top.zg-show{opacity:1;visibility:visible;transform:none;transition:opacity .3s,transform .3s}
 #zeno-portfolio .zg-ai-fab{position:fixed;right:18px;bottom:18px;z-index:9990;width:56px;height:56px;border-radius:50%;border:1px solid #B89B7B;background:#141210;color:#D4B494;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(0,0,0,.45)}
@@ -2115,8 +2075,41 @@
 #zeno-portfolio .zg-ai-form{display:flex;gap:8px;padding:10px;border-top:1px solid rgba(229,229,229,.16)}
 #zeno-portfolio .zg-ai-form input{flex:1;min-width:0;min-height:44px;padding:10px 12px;background:#000;border:1px solid rgba(229,229,229,.2);color:#F5F5F5;font:14px "DM Sans",sans-serif;border-radius:0}
 #zeno-portfolio .zg-ai-form .zg-icon-btn{background:#D4B494;color:#141210;border-color:#D4B494}
-#zeno-portfolio .zg-toast{position:fixed;left:50%;bottom:24px;z-index:10002;transform:translate(-50%,16px);opacity:0;pointer-events:none;padding:11px 18px;background:#D4B494;color:#141210;font:600 13px "DM Sans",sans-serif;transition:opacity .3s,transform .3s}
-#zeno-portfolio .zg-toast.zg-show{opacity:1;transform:translate(-50%,0)}
+
+/* ===== v2 upgrades to v1 sections (backgrounds, graphics, extra items) ===== */
+@keyframes zg-rot{to{transform:rotate(360deg)}}
+@keyframes zg-spin{to{transform:translate(-50%,-50%) rotate(360deg)}}
+#zeno-portfolio .zg-hero-meta{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
+#zeno-portfolio .zg-hero-meta li{display:inline-flex;align-items:center;gap:8px;font:12px "JetBrains Mono",monospace;color:var(--muted)}
+#zeno-portfolio .zg-hero-meta svg{width:16px;height:16px;color:var(--accent)}
+#zeno-portfolio .zg-float-three{right:-12px;bottom:-24px}
+@media(max-width:1050px){#zeno-portfolio .zg-float-three{display:none}}
+#zeno-portfolio .z-techbar{background:linear-gradient(90deg,#0d0b09,#17130f 50%,#0d0b09);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+#zeno-portfolio .z-about{background:radial-gradient(circle at 12% 28%,rgba(184,155,123,.3),transparent 42%),radial-gradient(circle at 92% 82%,rgba(184,155,123,.18),transparent 40%),radial-gradient(rgba(0,0,0,.09) 1px,transparent 1.3px) 0 0/22px 22px,#E5E5E5}
+#zeno-portfolio .zg-facts{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:520px}
+#zeno-portfolio .zg-facts li{padding:11px 13px;border:1px solid rgba(0,0,0,.14);background:rgba(255,255,255,.62)}
+#zeno-portfolio .zg-facts strong{display:block;font:600 15px/1.3 "Space Grotesk",sans-serif;color:#090909;letter-spacing:-.02em}
+#zeno-portfolio .zg-facts span{display:block;margin-top:2px;font:11px/1.4 "JetBrains Mono",monospace;color:#5a4a3c}
+@media(max-width:560px){#zeno-portfolio .zg-facts{grid-template-columns:1fr}}
+#zeno-portfolio .zg-about-deco{position:absolute;left:-30px;top:-30px;width:96px;height:96px;color:#8B6B4F;opacity:.6;z-index:2;animation:zg-rot 40s linear infinite;pointer-events:none}
+@media(max-width:767px){#zeno-portfolio .zg-about-deco{left:-8px;top:-18px;width:70px;height:70px}}
+#zeno-portfolio .z-orbit-section{background:radial-gradient(ellipse at 50% 72%,rgba(184,155,123,.17),transparent 55%),repeating-radial-gradient(ellipse at 50% 72%,transparent 0 90px,rgba(212,180,148,.07) 90px 91px),#080808}
+#zeno-portfolio .z-story{background:radial-gradient(ellipse at 18% 35%,rgba(184,155,123,.15),transparent 50%),radial-gradient(ellipse at 92% 92%,rgba(184,155,123,.09),transparent 45%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/64px 64px,linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/64px 64px,#000}
+#zeno-portfolio .z-story-screen{box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(212,180,148,.08),0 0 90px rgba(184,155,123,.12)}
+#zeno-portfolio .zg-story-dots{position:absolute;top:20px;right:24px;display:flex;gap:6px;z-index:2}
+#zeno-portfolio .zg-story-dots i{width:16px;height:3px;background:rgba(212,180,148,.25);transition:background .3s,width .3s}
+#zeno-portfolio .zg-story-dots i.on{width:30px;background:#D4B494}
+#zeno-portfolio .z-services{background:radial-gradient(circle at 88% 6%,rgba(184,155,123,.26),transparent 40%),radial-gradient(circle at 4% 96%,rgba(184,155,123,.16),transparent 40%),linear-gradient(rgba(0,0,0,.045) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(0,0,0,.045) 1px,transparent 1px) 0 0/48px 48px,#E5E5E5}
+#zeno-portfolio .z-tools{background:radial-gradient(ellipse at 75% 50%,rgba(184,155,123,.17),transparent 55%),repeating-linear-gradient(135deg,transparent 0 22px,rgba(255,255,255,.022) 22px 23px),#000}
+#zeno-portfolio .z-work{background:radial-gradient(ellipse at 50% 100%,rgba(184,155,123,.28),transparent 55%),radial-gradient(rgba(0,0,0,.08) 1px,transparent 1.3px) 0 0/24px 24px,#E5E5E5}
+#zeno-portfolio .z-contact{overflow:hidden}
+#zeno-portfolio .z-contact-box{position:relative;z-index:1}
+#zeno-portfolio .zg-contact-art{position:absolute;left:50%;top:50%;width:min(760px,140vw);transform:translate(-50%,-50%);color:rgba(212,180,148,.16);pointer-events:none;animation:zg-spin 120s linear infinite}
+#zeno-portfolio .zg-contact-cta{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px 22px;margin-top:34px}
+#zeno-portfolio .zg-avail{display:inline-flex;align-items:center;gap:9px;font:12px "JetBrains Mono",monospace;color:var(--muted)}
+#zeno-portfolio .zg-foot-blurb{grid-column:1/-1;font-size:14px;color:#454545}
+#zeno-portfolio .zg-foot-blurb strong{color:#090909;font-family:"Space Grotesk",sans-serif}
+@media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-about-deco,#zeno-portfolio .zg-contact-art{animation:none}}
 
 /* light theme — overrides for v1 dark sections */
 #zeno-portfolio[data-zg-theme="light"] .z-header{background:rgba(244,240,234,.94)}
@@ -2135,15 +2128,12 @@
 #zeno-portfolio[data-zg-theme="light"] .z-tool-marquee-ready .z-tool-tag{color:#4a3726;background:#fff;border-color:rgba(0,0,0,.12)}
 #zeno-portfolio[data-zg-theme="light"] .z-tool-marquee-heading{color:#7A5C42}
 #zeno-portfolio[data-zg-theme="light"] .z-contact{background:radial-gradient(ellipse at 50% 60%,#E7D6C2,transparent 65%),#EFE9E1}
-#zeno-portfolio[data-zg-theme="light"] .zg-panel{background:rgba(255,255,255,.75)}
-#zeno-portfolio[data-zg-theme="light"] .zg-field input,#zeno-portfolio[data-zg-theme="light"] .zg-field select,#zeno-portfolio[data-zg-theme="light"] .zg-field textarea{background-color:#fff}
 #zeno-portfolio[data-zg-theme="light"] .zg-cta{background:linear-gradient(115deg,#E2D2BE,#F4F0EA 62%);border-top-color:rgba(122,92,66,.25)}
 #zeno-portfolio[data-zg-theme="light"] .zg-glyph{opacity:.28}
 
 @media(prefers-reduced-motion:reduce){
   #zeno-portfolio.zg-js .zg-rv{opacity:1;translate:none;transition:none}
   #zeno-portfolio .zg-blob,#zeno-portfolio .zg-glyph,#zeno-portfolio .zg-node rect,#zeno-portfolio .zg-wire-flow,#zeno-portfolio .z-work.zg-filtered .z-project{animation:none}
-  #zeno-portfolio .zg-tm-track{scroll-behavior:auto}
   #zeno-portfolio .zg-card{transform:none}
 }
 </style>
@@ -2251,6 +2241,13 @@
             Get in Touch <span>→</span>
           </a>
         </div>
+
+        <!-- DRAFT: Zeno to review -->
+        <ul class="zg-hero-meta" aria-label="Highlights">
+          <li><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg>WordPress · Shopify · Next.js</li>
+          <li><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></svg>AI &amp; automation</li>
+          <li><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18M12 3c-5 5-5 13 0 18"/></svg>Remote · GMT+8</li>
+        </ul>
 
       </div>
 
@@ -2371,6 +2368,10 @@
           &lt;/&gt; creative developer
         </div>
 
+        <div class="z-dev-floating zg-float-three" aria-hidden="true">
+          <span class="ok">✓</span> staging → live
+        </div>
+
       </div>
 
     </div>
@@ -2414,6 +2415,16 @@
         <span>Git</span>
         <span>Figma</span>
         <span>PHP</span>
+        <span>React</span>
+        <span>Next.js</span>
+        <span>TypeScript</span>
+        <span>Tailwind</span>
+        <span>WooCommerce</span>
+        <span>GoHighLevel</span>
+        <span>n8n</span>
+        <span>Claude Code</span>
+        <span>GA4 / GTM</span>
+        <span>Vercel</span>
       </div>
       <div class="z-techbar-marquee-group" aria-hidden="true">
         <span>WordPress</span>
@@ -2427,6 +2438,16 @@
         <span>Git</span>
         <span>Figma</span>
         <span>PHP</span>
+        <span>React</span>
+        <span>Next.js</span>
+        <span>TypeScript</span>
+        <span>Tailwind</span>
+        <span>WooCommerce</span>
+        <span>GoHighLevel</span>
+        <span>n8n</span>
+        <span>Claude Code</span>
+        <span>GA4 / GTM</span>
+        <span>Vercel</span>
       </div>
     </div>
   </div>
@@ -2460,7 +2481,11 @@
           <span>Genesis Montilla / Zeno</span>
           <span class="z-green">$ current_focus</span>
           <span>Web Development + Design</span>
+          <span class="z-green">$ stack --short</span>
+          <span>WP · Shopify · Next.js · n8n</span>
         </div>
+
+        <svg class="zg-about-deco" viewBox="0 0 120 120" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M44 30 18 60l26 30M76 30l26 30-26 30"/><circle cx="60" cy="60" r="56" stroke-dasharray="3 7"/></g></svg>
 
       </div>
 
@@ -2493,7 +2518,19 @@
           <span>Shopify Apps</span>
           <span>Hosting &amp; DNS</span>
           <span>AI Tools</span>
+          <!-- DRAFT: added in v2 -->
+          <span>Next.js / React</span>
+          <span>n8n Automation</span>
+          <span>Technical SEO</span>
+          <span>GA4 &amp; GTM</span>
         </div>
+
+        <!-- DRAFT: Zeno to review -->
+        <ul class="zg-facts">
+          <li><strong>Siargao, PH</strong><span>based · GMT+8</span></li>
+          <li><strong>US · UK · AU</strong><span>remote clients</span></li>
+          <li><strong>Staging-first</strong><span>Git-backed builds</span></li>
+        </ul>
 
       </div>
 
@@ -2663,6 +2700,35 @@
             </p>
           </article>
 
+          <!-- DRAFT: added in v2 -->
+          <article
+            class="z-story-step"
+            data-command="n8n workflow:run lead-intake"
+            data-output="Webhook received...&#10;Lead validated and logged...&#10;✓ Notification sent"
+            data-label="06 / Automation"
+          >
+            <span class="z-step-no">06 / AUTOMATE</span>
+            <h3>Automation &amp; AI Agents</h3>
+            <p>
+              n8n workflows, MCP and Claude-powered helpers
+              that capture, sort and answer leads.
+            </p>
+          </article>
+
+          <article
+            class="z-story-step"
+            data-command="npx next build"
+            data-output="Compiling app routes...&#10;Optimizing pages...&#10;✓ Ready to deploy"
+            data-label="07 / Full-Stack"
+          >
+            <span class="z-step-no">07 / ENGINEER</span>
+            <h3>Full-Stack Builds</h3>
+            <p>
+              React and Next.js front ends, APIs, and
+              headless setups for custom projects.
+            </p>
+          </article>
+
         </div>
 
       </div>
@@ -2812,6 +2878,53 @@
 
         </article>
 
+        <!-- DRAFT: 7–9 added in v2 -->
+        <!-- 7 FULL-STACK -->
+        <article class="z-service z-reveal">
+          <div class="z-service-bg-draw" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#8B6B4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><rect pathLength="100" x="20" y="30" width="160" height="110" rx="9"/><path pathLength="100" d="M20 56h160M76 82l-20 18 20 18M124 82l20 18-20 18M108 76l-16 48"/><path pathLength="100" d="M70 168h60M100 140v28"/></svg></div>
+          <div class="z-service-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 4l-4 16"/>
+            </svg>
+          </div>
+          <h3>Full-Stack Web Apps</h3>
+          <p>
+            React, Next.js and TypeScript builds,
+            APIs and headless WordPress or Shopify.
+          </p>
+        </article>
+
+        <!-- 8 AUTOMATION -->
+        <article class="z-service z-reveal">
+          <div class="z-service-bg-draw" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#8B6B4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="100" cx="36" cy="100" r="16"/><circle pathLength="100" cx="100" cy="46" r="16"/><circle pathLength="100" cx="100" cy="154" r="16"/><circle pathLength="100" cx="164" cy="100" r="16"/><path pathLength="100" d="M50 90l36-34M50 110l36 34M114 56l36 34M114 144l36-34"/></svg></div>
+          <div class="z-service-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="12" r="2"/>
+              <path d="M7 11l3.5-4.5M7 13l3.5 4.5M13.5 6.5 17 11M13.5 17.5 17 13"/>
+            </svg>
+          </div>
+          <h3>Automation &amp; AI Agents</h3>
+          <p>
+            n8n workflows, MCP integrations and
+            Claude-powered assistants with guardrails.
+          </p>
+        </article>
+
+        <!-- 9 TECHNICAL SEO -->
+        <article class="z-service z-reveal">
+          <div class="z-service-bg-draw" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" stroke="#8B6B4F" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="100" cx="88" cy="88" r="52"/><path pathLength="100" d="m126 126 44 44M62 96l18 18 34-38"/></svg></div>
+          <div class="z-service-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="11" cy="11" r="7"/><path d="m20 20-4-4M8 11l2 2 4-4"/>
+            </svg>
+          </div>
+          <h3>Technical SEO &amp; AI Search</h3>
+          <p>
+            Schema, llms.txt, Core Web Vitals and
+            AI-crawler readiness.
+          </p>
+        </article>
+
       </div>
 
     </div>
@@ -2851,7 +2964,7 @@
           <g class="zg-node"><rect x="30" y="530" width="240" height="74" rx="6"/><text class="k" x="150" y="554" text-anchor="middle">05 · respond</text><text class="t" x="150" y="580" text-anchor="middle">Email</text><text class="s" x="150" y="598" text-anchor="middle">notify + auto-reply</text></g>
         </svg>
       </figure>
-      <p class="zg-flow-cap">// example flow: the contact form on this page is built to plug straight into it</p>
+      <p class="zg-flow-cap">// example flow: a website form wired to n8n, an AI step, your CRM and email</p>
 
       <div class="zg-grid c3">
         <article class="zg-card zg-tilt zg-rv">
@@ -2910,6 +3023,23 @@
         <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 5 4h14l2 6v10H3V10Zm0 0h18M8 20v-7h8v7"/></svg>Google Business Profile</span>
         <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z"/></svg>AI Tools</span>
 
+        <!-- DRAFT: added in v2 -->
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="2"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>React</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 16V8l7 9"/></svg>Next.js</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10h6m-3 0v7m5-1c1 1 4 1 4-1s-4-1-4-3 3-2 4-1"/></svg>TypeScript</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11c2-4 5-5 8-3s5 1 8-2c-2 4-5 5-8 3s-5-1-8 2Zm0 7c2-4 5-5 8-3s5 1 8-2c-2 4-5 5-8 3s-5-1-8 2Z"/></svg>Tailwind CSS</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 9 5v10l-9 5-9-5V7l9-5Z"/><path d="M12 8v8"/></svg>Node.js</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="12" rx="10" ry="6"/><path d="M7 15l1-6h2a1.5 1.5 0 0 1 0 3H8m5 3 1-6m0 3h3"/></svg>PHP</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="6" width="20" height="12" rx="3"/><path d="m6 10 1.5 4 1.5-3 1.5 3 1.5-4m3 0v4m3-4v4"/></svg>WooCommerce</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="8" height="6" rx="1"/><rect x="13" y="14" width="8" height="6" rx="1"/></svg>Gutenberg</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20v-7M12 20V8M19 20v-4"/><path d="m3 9 4-4 4 4"/></svg>GoHighLevel</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="9" r="2"/><path d="M6 8v8M18 11c0 4-6 3-11 5"/></svg>Git &amp; GitHub</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4 22 20H2L12 4Z"/></svg>Vercel</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c2-8 5-8 9 0s7 8 9 0"/></svg>Meta Pixel</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2" width="5" height="6" rx="2.5"/><rect x="12" y="2" width="5" height="6" rx="2.5"/><rect x="7" y="8" width="5" height="6" rx="2.5"/><circle cx="14.5" cy="11" r="2.5"/><path d="M12 14v5.5A2.5 2.5 0 1 1 9.5 17H12"/></svg>Figma</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2"/><circle cx="12" cy="5" r="2"/><circle cx="12" cy="19" r="2"/><circle cx="19" cy="12" r="2"/><path d="M7 11l3.5-4.5M7 13l3.5 4.5M13.5 6.5 17 11M13.5 17.5 17 13"/></svg>n8n</span>
+        <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0V8ZM12 17v4"/></svg>MCP</span>
+
         <span class="z-ai-stack-heading">// my_ai_stack</span>
         <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4-2 8 1 8 5 3 3 2 7-1 9-1 4-6 5-9 3-4 1-8-2-8-6-2-3-1-7 2-9 2-3 6-4 8-2Z"/><path d="m8 9 4-2 5 3v5l-5 3-5-3v-5"/></svg>ChatGPT</span>
         <span class="z-tool-tag"><svg class="z-tool-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1.5 6 4 8.5 10 10-6 1.5-8.5 4-10 10-1.5-6-4-8.5-10-10 6-1.5 8.5-4 10-10Z"/></svg>Gemini Advanced</span>
@@ -2964,6 +3094,50 @@
       <div class="z-marquee-track">
 
         <div class="z-project-group">
+
+          <!-- DRAFT (v2): PROJECT 13 — Lov Spa. Add screenshot URL + domain. -->
+
+          <article class="z-project" data-zg-cat="shopify">
+
+            <div class="z-project-browser">
+              <i class="z-dot"></i>
+              <i class="z-dot"></i>
+              <i class="z-dot"></i>
+              <span class="z-browser-address">[DOMAIN: lov spa]</span>
+            </div>
+
+            <div class="z-project-image">
+              <span class="z-project-placeholder">&lt;13/&gt;</span>
+            </div>
+
+            <div class="z-project-info">
+              <h3>Shopify / Theme Customization</h3>
+              <p>Customized the Shopify theme to match the brand, refining layouts and sections so the store presents its services more clearly.</p>
+            </div>
+
+          </article>
+
+          <!-- DRAFT (v2): PROJECT 14 — BankReady Boardroom. Add screenshot URL + domain. -->
+
+          <article class="z-project" data-zg-cat="design">
+
+            <div class="z-project-browser">
+              <i class="z-dot"></i>
+              <i class="z-dot"></i>
+              <i class="z-dot"></i>
+              <span class="z-browser-address">[DOMAIN: bankready boardroom]</span>
+            </div>
+
+            <div class="z-project-image">
+              <span class="z-project-placeholder">&lt;14/&gt;</span>
+            </div>
+
+            <div class="z-project-info">
+              <h3>GoHighLevel / Landing Page</h3>
+              <p>Built a GoHighLevel landing page from an HTML reference, matching the original design and keeping it responsive across devices.</p>
+            </div>
+
+          </article>
 
           <!-- PROJECT 6 — Appliances USA Pro -->
 
@@ -3316,20 +3490,18 @@
   </section>
 
   <!-- ========== V2: WAYS TO WORK WITH ME ========== -->
-  <!-- DRAFT: Zeno to review. Replace every [PRICE], [X] and timeline before publishing. -->
+  <!-- DRAFT: Zeno to review. Replace the [X] values before publishing. -->
   <section class="zg-sec" id="zeno-pricing" aria-labelledby="zg-pricing-title">
     <div class="z-wrap">
       <div class="z-head zg-rv">
         <span class="z-label">// ways_to_work.list()</span>
         <h2 class="z-title" id="zg-pricing-title">Ways to work with me.</h2>
-        <p class="z-copy">Fixed-scope packages with starting prices. Every project gets a written scope before work begins.</p>
+        <p class="z-copy">Fixed-scope packages. Every project gets a written scope and quote after a short call.</p>
       </div>
       <div class="zg-pk-grid">
         <article class="zg-card zg-pk zg-tilt zg-rv">
           <span class="zg-kicker">WORDPRESS / ELEMENTOR</span>
           <h3>Website build</h3>
-          <p class="zg-pk-price"><small>starting from</small>[PRICE]</p>
-          <span class="zg-kicker">// [X]–[X] weeks</span>
           <ul>
             <li>Up to [X] responsive pages in Elementor or Gutenberg</li>
             <li>On-page SEO, schema basics and llms.txt</li>
@@ -3341,8 +3513,6 @@
         <article class="zg-card zg-pk zg-tilt zg-rv" style="--zg-d:1">
           <span class="zg-kicker">SHOPIFY</span>
           <h3>Shopify store</h3>
-          <p class="zg-pk-price"><small>starting from</small>[PRICE]</p>
-          <span class="zg-kicker">// [X]–[X] weeks</span>
           <ul>
             <li>Theme setup and customization (Dawn or premium themes)</li>
             <li>Custom Liquid sections and product templates</li>
@@ -3354,8 +3524,6 @@
         <article class="zg-card zg-pk zg-tilt zg-rv" style="--zg-d:2">
           <span class="zg-kicker">AI / AUTOMATION</span>
           <h3>AI &amp; automation setup</h3>
-          <p class="zg-pk-price"><small>starting from</small>[PRICE]</p>
-          <span class="zg-kicker">// [X]–[X] weeks</span>
           <ul>
             <li>n8n workflow: form → CRM/Sheet → email</li>
             <li>AI classification or reply drafting, with human review</li>
@@ -3367,8 +3535,6 @@
         <article class="zg-card zg-pk zg-pk-care zg-tilt zg-rv" style="--zg-d:3">
           <span class="zg-kicker">ONGOING</span>
           <h3>Monthly care plan</h3>
-          <p class="zg-pk-price"><small>starting from</small>[PRICE]/mo</p>
-          <span class="zg-kicker">// month to month</span>
           <ul>
             <li>Updates, backups and uptime checks</li>
             <li>Up to [X] hours of edits each month</li>
@@ -3379,29 +3545,6 @@
         </article>
       </div>
       <p class="zg-note">// need something custom? Next.js apps, GoHighLevel funnels and one-off fixes are quoted per project.</p>
-    </div>
-  </section>
-
-  <!-- ========== V2: TESTIMONIALS ========== -->
-  <!-- DRAFT: placeholders only. Add real, approved client quotes. -->
-  <section class="zg-sec zg-alt" id="zeno-testimonials" aria-labelledby="zg-tm-title">
-    <div class="z-wrap">
-      <div class="z-head zg-rv">
-        <span class="z-label">// feedback.read()</span>
-        <h2 class="z-title" id="zg-tm-title">What clients say.</h2>
-      </div>
-      <div class="zg-tm" aria-roledescription="carousel" aria-label="Client testimonials">
-        <div class="zg-tm-track" tabindex="0">
-          <figure class="zg-card zg-tm-card" aria-roledescription="slide" aria-label="1 of 3"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-4 6M15 7h4v4c0 3-2 5-4 6"/></svg><blockquote>[TESTIMONIAL: client quote]</blockquote><figcaption>[TESTIMONIAL: client name] · [ROLE, COMPANY]</figcaption></figure>
-          <figure class="zg-card zg-tm-card" aria-roledescription="slide" aria-label="2 of 3"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-4 6M15 7h4v4c0 3-2 5-4 6"/></svg><blockquote>[TESTIMONIAL: client quote]</blockquote><figcaption>[TESTIMONIAL: client name] · [ROLE, COMPANY]</figcaption></figure>
-          <figure class="zg-card zg-tm-card" aria-roledescription="slide" aria-label="3 of 3"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h4v4c0 3-2 5-4 6M15 7h4v4c0 3-2 5-4 6"/></svg><blockquote>[TESTIMONIAL: client quote]</blockquote><figcaption>[TESTIMONIAL: client name] · [ROLE, COMPANY]</figcaption></figure>
-        </div>
-        <div class="zg-tm-nav">
-          <button type="button" class="zg-icon-btn" data-zg-tm="-1" aria-label="Previous testimonial"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg></button>
-          <button type="button" class="zg-icon-btn" data-zg-tm="1" aria-label="Next testimonial"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></button>
-          <span class="zg-tm-count" aria-live="polite">1 / 3</span>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -3491,57 +3634,16 @@
 
       </div>
 
-    </div>
-
-    <!-- ===== V2: CONTACT FORM + QUICK ACTIONS ===== -->
-    <!-- DRAFT: Zeno to review. Form posts JSON to ZG_CONFIG.webhookUrl (n8n). -->
-    <div class="z-wrap zg-contact-grid">
-      <div class="zg-panel zg-rv">
-        <h3>Quick details</h3>
-        <p class="zg-time"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>It's <strong class="zg-clock">--:--</strong> in Siargao (GMT+8)</span></p>
-        <span class="zg-meta">// usually replies within <span class="zg-reply">[X]</span> hours</span>
-        <div class="zg-quick">
-          <a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-event="book_call" data-zg-label="contact_panel"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Book a call</a>
-          <button type="button" class="z-btn z-btn-dark zg-copy" data-zg-copy="lenogenesis@gmail.com" data-zg-event="copy_email" data-zg-label="contact_panel"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg>Copy email</button>
-          <a class="z-btn z-btn-dark" href="#zeno-contact" data-zg-href="cv" target="_blank" rel="noopener" data-zg-event="cv_download" data-zg-label="contact_panel" hidden><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m-5-5 5 5 5-5M5 20h14"/></svg>Download CV</a>
-        </div>
+      <!-- DRAFT: Zeno to review -->
+      <div class="zg-contact-cta">
+        <span class="zg-avail"><span class="z-status-dot" aria-hidden="true"></span>Open to new projects · GMT+8</span>
+        <a class="z-btn z-btn-primary zg-magnetic" href="#zeno-contact" data-zg-href="calendly" data-zg-event="book_call" data-zg-label="contact">Book a call <span>→</span></a>
       </div>
 
-      <div class="zg-panel zg-rv" style="--zg-d:1">
-        <h3>Send a project brief</h3>
-        <form class="zg-form" novalidate data-zg-form>
-          <div class="zg-row">
-            <div class="zg-field"><label for="zg-f-name">Name</label><input id="zg-f-name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="zg-e-name"><span class="zg-err" id="zg-e-name"></span></div>
-            <div class="zg-field"><label for="zg-f-email">Email</label><input id="zg-f-email" name="email" type="email" autocomplete="email" required maxlength="160" aria-describedby="zg-e-email"><span class="zg-err" id="zg-e-email"></span></div>
-          </div>
-          <div class="zg-row">
-            <div class="zg-field"><label for="zg-f-type">Project type</label>
-              <select id="zg-f-type" name="project_type" required aria-describedby="zg-e-type">
-                <option value="">Choose one</option>
-                <option>WordPress / Elementor website</option>
-                <option>Shopify store</option>
-                <option>Full-stack / Next.js app</option>
-                <option>AI / automation (n8n, agents)</option>
-                <option>SEO / tracking setup</option>
-                <option>Fixes &amp; maintenance</option>
-                <option>Something else</option>
-              </select><span class="zg-err" id="zg-e-type"></span></div>
-            <div class="zg-field"><label for="zg-f-budget">Budget range (USD)</label>
-              <select id="zg-f-budget" name="budget">
-                <option value="">Not sure yet</option>
-                <option>Under $500</option>
-                <option>$500 – $1,500</option>
-                <option>$1,500 – $5,000</option>
-                <option>$5,000+</option>
-              </select></div>
-          </div>
-          <div class="zg-field"><label for="zg-f-msg">Message</label><textarea id="zg-f-msg" name="message" required minlength="20" maxlength="4000" aria-describedby="zg-e-msg" placeholder="What do you need, and by when?"></textarea><span class="zg-err" id="zg-e-msg"></span></div>
-          <div class="zg-hp" aria-hidden="true"><label for="zg-f-hp">Leave this empty</label><input id="zg-f-hp" name="company_website" type="text" tabindex="-1" autocomplete="off"></div>
-          <button type="submit" class="z-btn z-btn-primary" data-zg-event="form_submit" data-zg-label="contact_form">Send message <span>→</span></button>
-          <p class="zg-status" role="status" aria-live="polite"></p>
-        </form>
-      </div>
     </div>
+
+    <svg class="zg-contact-art" viewBox="0 0 600 600" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="300" cy="300" r="290" stroke-dasharray="2 10"/><circle cx="300" cy="300" r="210"/><circle cx="300" cy="300" r="130" stroke-dasharray="6 12"/></svg>
+
 
   </section>
 
@@ -3550,6 +3652,8 @@
   <footer class="z-footer">
 
     <div class="z-wrap zg-foot-top">
+      <!-- DRAFT: Zeno to review -->
+      <p class="zg-foot-blurb"><strong>Zana-G</strong> · Websites, stores and automations, built remotely from Siargao.</p>
       <nav class="zg-foot-nav" aria-label="Footer navigation">
         <a href="#zeno-about">About</a>
         <a href="#zeno-services">Services</a>
@@ -3634,7 +3738,7 @@
     </div>
   </dialog>
 
-  <!-- ========== V2: FLOATING UI (back to top, optional assistant, toast) ========== -->
+  <!-- ========== V2: FLOATING UI (back to top, optional assistant) ========== -->
   <a class="zg-icon-btn zg-top" href="#zeno-home" aria-label="Back to top"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></a>
 
   <!-- OPTIONAL (v2): FAQ assistant. UI only, answers from this page's FAQ. Delete this block + .zg-ai-* CSS to remove. -->
@@ -3645,8 +3749,6 @@
     <div class="zg-ai-chips"></div>
     <form class="zg-ai-form"><label class="zg-sr" for="zg-ai-q">Your question</label><input id="zg-ai-q" type="text" maxlength="300" placeholder="Ask about time zone, pricing…" autocomplete="off"><button type="submit" class="zg-icon-btn" aria-label="Send question"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m4 12 16-8-6 16-3-7-7-1Z"/></svg></button></form>
   </div>
-
-  <div class="zg-toast" role="status" aria-live="polite"></div>
 
 </div>
 
@@ -4503,7 +4605,6 @@
    No API keys or tracking IDs belong here.
 ================================================== */
 window.ZG_CONFIG = window.ZG_CONFIG || {
-  webhookUrl: "ZG_WEBHOOK_URL",     /* n8n production webhook (contact form) */
   calendlyUrl: "ZG_CALENDLY_URL",   /* e.g. https://calendly.com/<you>/30min */
   cvUrl: "ZG_CV_URL",               /* CV PDF in the WP media library */
   upworkUrl: "ZG_UPWORK_URL",       /* Upwork profile URL */
@@ -4549,7 +4650,6 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
         a.hidden = true; /* CV / Upwork stay hidden until configured */
       }
     });
-    if (cfg.replyHours) $$(".zg-reply").forEach(function (s) { s.textContent = cfg.replyHours; });
 
     /* ---------- theme toggle (default dark) ---------- */
     var themeBtn = $(".zg-theme");
@@ -4661,7 +4761,7 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
       var domain = addr.textContent.trim();
       var html = "";
       if (card.dataset.zgCase) html += '<button type="button" class="zg-plink" data-zg-open="zg-case-' + card.dataset.zgCase + '" data-zg-event="case_study_open" data-zg-label="' + card.dataset.zgCase + '_card">View case study →</button>';
-      html += '<a class="zg-plink" href="https://' + domain + '" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="' + domain + '">Visit site ↗</a>';
+      if (domain.charAt(0) !== "[") html += '<a class="zg-plink" href="https://' + domain + '" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="' + domain + '">Visit site ↗</a>';
       box.innerHTML = html;
       if (hidden) $$("a,button", box).forEach(function (el) { el.tabIndex = -1; });
       info.appendChild(box);
@@ -4686,6 +4786,24 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
         zgTrack("project_filter", f);
       });
     });
+
+    /* ---------- workflow story: progress dots follow the active step ---------- */
+    var storySteps = $$(".z-story-step"), storyScreen = $(".z-story-screen");
+    if (storySteps.length && storyScreen) {
+      var dots = document.createElement("div");
+      dots.className = "zg-story-dots";
+      dots.setAttribute("aria-hidden", "true");
+      storySteps.forEach(function () { dots.appendChild(document.createElement("i")); });
+      storyScreen.appendChild(dots);
+      var syncDots = function () {
+        storySteps.forEach(function (s, i) { dots.children[i].classList.toggle("on", s.classList.contains("active")); });
+      };
+      if ("MutationObserver" in window) {
+        var mo = new MutationObserver(syncDots);
+        storySteps.forEach(function (s) { mo.observe(s, { attributes: true, attributeFilter: ["class"] }); });
+      }
+      syncDots();
+    }
 
     /* ---------- case study modals ---------- */
     var lastOpener = null;
@@ -4713,109 +4831,6 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
       });
     });
 
-    /* ---------- testimonials slider ---------- */
-    var track = $(".zg-tm-track"), countEl = $(".zg-tm-count");
-    if (track) {
-      var slides = $$(".zg-tm-card", track);
-      function zgIndex() {
-        var w = slides[0].getBoundingClientRect().width + 16;
-        return Math.min(slides.length - 1, Math.round(track.scrollLeft / w));
-      }
-      $$("[data-zg-tm]").forEach(function (b) {
-        b.addEventListener("click", function () {
-          var i = Math.max(0, Math.min(slides.length - 1, zgIndex() + parseInt(b.dataset.zgTm, 10)));
-          track.scrollTo({ left: slides[i].offsetLeft - slides[0].offsetLeft, behavior: reduce ? "auto" : "smooth" });
-        });
-      });
-      track.addEventListener("scroll", function () { if (countEl) countEl.textContent = (zgIndex() + 1) + " / " + slides.length; }, { passive: true });
-    }
-
-    /* ---------- local time + copy email + toast ---------- */
-    var clock = $(".zg-clock");
-    function zgClock() {
-      try { clock.textContent = new Intl.DateTimeFormat("en-US", { timeZone: "Asia/Manila", hour: "numeric", minute: "2-digit" }).format(new Date()); } catch (err) {}
-    }
-    if (clock) { zgClock(); setInterval(zgClock, 30000); }
-
-    var toast = $(".zg-toast"), toastTimer;
-    function zgToast(msg) {
-      if (!toast) return;
-      toast.textContent = msg;
-      toast.classList.add("zg-show");
-      clearTimeout(toastTimer);
-      toastTimer = setTimeout(function () { toast.classList.remove("zg-show"); }, 2200);
-    }
-    $$(".zg-copy").forEach(function (b) {
-      b.addEventListener("click", function () {
-        var text = b.dataset.zgCopy;
-        function fallback() {
-          var t = document.createElement("textarea");
-          t.value = text; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
-          document.body.appendChild(t); t.select();
-          try { document.execCommand("copy"); zgToast("Copied: " + text); } catch (err) { zgToast(text); }
-          t.remove();
-        }
-        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(function () { zgToast("Copied: " + text); }, fallback);
-        else fallback();
-      });
-    });
-
-    /* ---------- contact form → n8n webhook ---------- */
-    var form = $("[data-zg-form]");
-    if (form) {
-      var formStatus = $(".zg-status", form), submitBtn = $('[type="submit"]', form);
-      var rules = {
-        name: function (v) { return v.trim().length >= 2 ? "" : "Please enter your name."; },
-        email: function (v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? "" : "Please enter a valid email address."; },
-        project_type: function (v) { return v ? "" : "Please choose a project type."; },
-        message: function (v) { return v.trim().length >= 20 ? "" : "Please add a few more details (20+ characters)."; }
-      };
-      function zgCheck(field) {
-        var rule = rules[field.name];
-        if (!rule) return true;
-        var msg = rule(field.value);
-        field.setAttribute("aria-invalid", msg ? "true" : "false");
-        var err = document.getElementById(field.getAttribute("aria-describedby"));
-        if (err) err.textContent = msg;
-        return !msg;
-      }
-      $$("input,select,textarea", form).forEach(function (f) {
-        f.addEventListener("blur", function () { if (f.value) zgCheck(f); });
-      });
-      function zgStatus(type, msg) { formStatus.className = "zg-status " + type; formStatus.textContent = msg; }
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var fields = $$("input:not(#zg-f-hp),select,textarea", form);
-        var bad = fields.filter(function (f) { return !zgCheck(f); });
-        if (bad.length) { bad[0].focus(); zgStatus("err", "Please fix the highlighted fields."); return; }
-        var data = {};
-        new FormData(form).forEach(function (v, k) { data[k] = String(v).slice(0, 4000); });
-        zgTrack("form_submit", "contact_form", { zg_project_type: data.project_type || "", zg_budget: data.budget || "" });
-        if (data.company_website) { form.reset(); zgStatus("ok", "Thanks! Your message is on its way."); return; } /* honeypot */
-        delete data.company_website;
-        if (!zgSet(cfg.webhookUrl)) {
-          zgStatus("err", "The form isn't connected yet. Please email lenogenesis@gmail.com instead.");
-          return;
-        }
-        data.page = location.href; data.submitted_at = new Date().toISOString();
-        submitBtn.disabled = true;
-        zgStatus("", "Sending…");
-        fetch(cfg.webhookUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
-          .then(function (r) { if (!r.ok) throw new Error(r.status); })
-          .then(function () {
-            form.reset();
-            $$("[aria-invalid]", form).forEach(function (f) { f.removeAttribute("aria-invalid"); });
-            zgStatus("ok", "Thanks! Your message is in. I'll reply within " + (cfg.replyHours || "a few") + " hours.");
-            zgTrack("form_submit_success", "contact_form");
-          })
-          .catch(function () {
-            zgStatus("err", "Something went wrong. Please email lenogenesis@gmail.com instead.");
-            zgTrack("form_submit_error", "contact_form");
-          })
-          .then(function () { submitBtn.disabled = false; });
-      });
-    }
-
     /* ---------- optional assistant: answers from on-page FAQ ---------- */
     var fab = $(".zg-ai-fab"), panel = $("#zg-ai-panel");
     if (fab && panel) {
@@ -4825,8 +4840,8 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
         return { q: q, a: $(".zg-faq-a", d).textContent.trim(), k: (q + " " + (d.dataset.zgKeys || "")).toLowerCase() };
       });
       kb.push({ q: "What services do you offer?", a: "WordPress / Elementor builds, Shopify stores, full-stack React / Next.js work, AI & automation (n8n, MCP, Claude), technical SEO and GA4 / GTM tracking.", k: "services offer help build website store seo tracking what do you do" });
-      kb.push({ q: "How much does it cost?", a: "See 'Ways to work with me' for starting prices. Every project gets a written scope first.", k: "price pricing cost rate budget quote how much package" });
-      kb.push({ q: "How do I book a call?", a: "Use any 'Book a call' button, or send a brief with the contact form.", k: "book call meeting calendly talk contact hire start" });
+      kb.push({ q: "How much does it cost?", a: "Every project is quoted after a short call, with a written scope before work starts. See 'Ways to work with me' for what each package covers.", k: "price pricing cost rate budget quote how much package" });
+      kb.push({ q: "How do I book a call?", a: "Use any 'Book a call' button, or email lenogenesis@gmail.com.", k: "book call meeting calendly talk contact hire start" });
       function zgMsg(text, me) {
         var m = document.createElement("div");
         m.className = "zg-ai-msg" + (me ? " me" : "");
@@ -4841,7 +4856,7 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
           words.forEach(function (w) { if (item.k.indexOf(w) > -1) s++; });
           if (s > score) { score = s; best = item; }
         });
-        return best ? best.a : "I'm not sure about that one. Email lenogenesis@gmail.com or use the contact form and Zeno will reply.";
+        return best ? best.a : "I'm not sure about that one. Email lenogenesis@gmail.com and Zeno will reply.";
       }
       function zgAsk(q) {
         if (!q) return;
@@ -4876,6 +4891,19 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
     /* ---------- scroll: header shrink, progress, back-to-top, process line ---------- */
     var header = $(".z-header"), bar = $(".zg-progress"), topBtn = $(".zg-top");
     var proc = $(".zg-proc"), procSteps = $$(".zg-step"), ticking = false;
+    var procSec = $("#zeno-process"), procInner = procSec && $(":scope > .z-wrap", procSec), procPinned = false;
+    /* Desktop: pin "How a project runs" until every step is highlighted. */
+    function zgPinProcess() {
+      if (!procSec || !procInner) return;
+      procSec.classList.remove("zg-pin");
+      procSec.style.removeProperty("--zg-pin-h");
+      var vh = window.innerHeight;
+      procPinned = !reduce && window.innerWidth >= 1050 && procInner.offsetHeight + 90 <= vh;
+      if (!procPinned) return;
+      var stage = Math.max(160, Math.round(vh * 0.32));
+      procSec.style.setProperty("--zg-pin-h", (vh + stage * (procSteps.length + 1)) + "px");
+      procSec.classList.add("zg-pin");
+    }
     function zgScroll() {
       ticking = false;
       var y = window.scrollY, rootRect = root.getBoundingClientRect();
@@ -4884,14 +4912,24 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
       if (header) header.classList.toggle("zg-scrolled", y > 40);
       if (topBtn) topBtn.classList.toggle("zg-show", y > window.innerHeight * 1.2);
       if (proc) {
-        var r = proc.getBoundingClientRect(), vh = window.innerHeight;
-        var p = reduce ? 1 : Math.min(1, Math.max(0, (vh * 0.75 - r.top) / (r.height + vh * 0.25)));
+        var vh = window.innerHeight, p, n = procSteps.length;
+        if (procPinned) {
+          /* Steps light one by one; the last stage holds the finished line. */
+          var sr = procSec.getBoundingClientRect();
+          var raw = Math.min(1, Math.max(0, -sr.top / Math.max(1, sr.height - vh)));
+          p = Math.min(1, raw * (n + 1) / n);
+          procSteps.forEach(function (s, i) { s.classList.toggle("zg-on", raw * (n + 1) >= i + 0.15); });
+        } else {
+          var r = proc.getBoundingClientRect();
+          p = reduce ? 1 : Math.min(1, Math.max(0, (vh * 0.75 - r.top) / (r.height + vh * 0.25)));
+          procSteps.forEach(function (s, i) { s.classList.toggle("zg-on", p >= (i + 0.5) / n || p === 1); });
+        }
         proc.style.setProperty("--zg-pp", p.toFixed(3));
-        procSteps.forEach(function (s, i) { s.classList.toggle("zg-on", p >= (i + 0.5) / procSteps.length || p === 1); });
       }
     }
     window.addEventListener("scroll", function () { if (!ticking) { ticking = true; requestAnimationFrame(zgScroll); } }, { passive: true });
-    window.addEventListener("resize", zgScroll, { passive: true });
+    window.addEventListener("resize", function () { zgPinProcess(); zgScroll(); }, { passive: true });
+    zgPinProcess();
     zgScroll();
   }
 
