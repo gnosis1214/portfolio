@@ -10,44 +10,33 @@ File: `zeno-portfolio-elementor.html` (one Elementor HTML widget). A copy is sav
 - Size: about 229 KB raw, about 52 KB gzipped. That's over the 200 KB target because v1 alone is 125 KB. I left the source readable rather than minifying it.
 
 ## Section order
-Sticky nav → Hero → Trust bar → Tech strip → About → Stats → Project orbit → Workflow story → Services → AI & automation → Toolbox → Projects (filter tabs) → Case studies (modals) → Process (pinned on desktop) → Ways to work with me → FAQ → Final CTA → Contact → Footer · Floating: back-to-top, optional FAQ assistant.
+Sticky nav → Hero → Trust bar → Tech strip → About → Stats → Project orbit → Workflow story → Services → AI & automation → Toolbox → Projects (filter tabs) → Case studies (modals) → Process (pinned on desktop, with the former CTA-band background) → Ways to work with me → FAQ → Contact → Footer · Floating: back-to-top, optional FAQ assistant.
 
 **Removed (round 2):** testimonials, the contact form, the Quick details panel (local time, copy email, CV), package prices and package delivery times.
+
+**Round 3:** removed the About fact tiles and the "Have a project?" CTA band (its gradient + code-bracket graphic now sit on the Process section). Location is now "Mindanao, Philippines" everywhere. Every placeholder is replaced: stats are 15+ projects, 8+ platforms, 3+ years and 5+ countries (estimates; adjust if needed). Case-study results are factual outcomes, not invented metrics. Phone mockups and the empty LinkedIn links are removed, and GitHub links to `github.com/gnosis1214`.
 
 ## Round 2 upgrades to the original sections
 | Section | Design / graphics | Added items (DRAFT) |
 |---|---|---|
 | Hero | Third floating chip (`✓ staging → live`) | Highlights row: WordPress · Shopify · Next.js / AI & automation / Remote · GMT+8 |
 | Tech strip | Gradient band, faded edges | React, Next.js, TypeScript, Tailwind, WooCommerce, GoHighLevel, n8n, Claude Code, GA4 / GTM, Vercel |
-| About | Sand glow + dot pattern, rotating `</>` badge | 4 tags (Next.js / React, n8n Automation, Technical SEO, GA4 & GTM), 3 fact tiles, extra `$ stack` line |
+| About | Sand glow + dot pattern, rotating `</>` badge | 4 tags (Next.js / React, n8n Automation, Technical SEO, GA4 & GTM), extra `$ stack` line |
 | Project orbit | Concentric ring background + glow | — |
 | Workflow story | Glow + grid background, screen glow, progress dots | Steps 06 Automation & AI Agents, 07 Full-Stack Builds |
 | Services | Glow + grid background | Full-Stack Web Apps, Automation & AI Agents, Technical SEO & AI Search (now 9 cards) |
 | Toolbox | Glow + diagonal line background | React, Next.js, TypeScript, Tailwind CSS, Node.js, PHP, WooCommerce, Gutenberg, GoHighLevel, Git & GitHub, Vercel, Meta Pixel, Figma, n8n, MCP |
 | Projects | Dot pattern + bottom glow | Lov Spa (Shopify) and BankReady Boardroom (GoHighLevel) cards. They need a screenshot and domain. |
 | Contact | Rotating ring graphic | "Open to new projects · GMT+8" + Book a call button |
-| Footer | — | Brand line: "Zana-G · Websites, stores and automations, built remotely from Siargao." |
+| Footer | — | Brand line: "Zana-G · Websites, stores and automations, built remotely from Mindanao, Philippines." |
 
 **Process section:** at ≥1050 px, if the content fits the screen, the section pins while you scroll. Steps light up one by one with the progress line, then it releases after all five are on. Mobile and tablet keep normal scrolling. Reduced-motion users get no pin.
 
-## 1. Placeholders to fill
+## 1. Still to set
 
-**Config (top of the last `<script>`, `window.ZG_CONFIG`)**
-| Key | What |
-|---|---|
-| `calendlyUrl` | Calendly link. Until it's set, every "Book a call" scrolls to Contact. |
-| `upworkUrl` | Upwork profile. Upwork links stay hidden until it's set. |
-| `cvUrl` | Not used on the page any more. Leave it or delete it. |
-| `assistantUrl` | Optional future n8n/Claude endpoint that returns `{reply}`. Leave it as is for now. |
+**Config (top of the last `<script>`, `window.ZG_CONFIG`)**: `calendlyUrl` (until it is set, "Book a call" scrolls to Contact) and `upworkUrl` (Upwork links stay hidden until it is set). `assistantUrl` is optional.
 
-**On the page**
-- Stats: 4 × `data-zg-to="[X]"` (and the visible `[X]`).
-- Packages: "Up to [X] responsive pages", "Up to [X] hours of edits".
-- FAQ: `[HOURS]`, turnaround `[X]`, revisions `[X]`, `[PAYMENT]`. **Update the matching text in the FAQPage JSON-LD too.** The "How long does a project take?" question still mentions a timeline. Delete that `<details>` block and its JSON-LD entry if you don't want any delivery times on the page.
-- Case studies: 3 × `[RESULT: …]`, 6 × `[IMAGE: mobile screenshot]` phone slots. To fill one, add an `<img>` inside `.zg-phone`.
-- Projects 13–14 (Lov Spa, BankReady Boardroom): domain in `.z-browser-address`, plus an `<img>` in `.z-project-image` (copy the format of the other cards). Check the draft descriptions.
-- AI card: `[CASE STUDY: add first AI/automation project]`.
-- Socials: LinkedIn and GitHub still point to `linkedin.com/` and `github.com/` (v1 placeholders), in Contact and in the footer.
+**Worth checking:** the stat numbers, FAQ answers (turnaround 1–3 days / 2–4 weeks, 2 revision rounds, Wise or PayPal, 50/50), package limits (8 pages, 5 hours/month), and the draft Lov Spa / BankReady Boardroom card text. Those two cards still need a screenshot `<img>`. If you edit an FAQ answer, update the FAQPage JSON-LD too.
 
 ## 2. SEO pack
 

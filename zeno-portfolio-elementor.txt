@@ -2,7 +2,7 @@
  ZENO PORTFOLIO — DEVELOPER EDITION · v2
  One Elementor HTML widget | No framework required
  Replace images, email, projects, and social links.
- v2: fill ZG_CONFIG (bottom script) + every [PLACEHOLDER].
+ v2: fill ZG_CONFIG (bottom script) with your Calendly / Upwork links.
  New copy is marked DRAFT: Zeno to review. See V2-NOTES.md.
 ================================================== -->
 
@@ -2042,15 +2042,12 @@
 #zeno-portfolio .zg-faq-a{padding:0 0 22px 50px}
 #zeno-portfolio .zg-faq-a p{font-size:15px}
 
-/* final CTA band */
-#zeno-portfolio .zg-cta{padding:clamp(64px,8vw,100px) 0;background:linear-gradient(115deg,#22190f,#000 62%);border-top:1px solid rgba(212,180,148,.25);position:relative;overflow:hidden}
-#zeno-portfolio .zg-cta-art{position:absolute;right:-60px;top:50%;width:min(520px,70vw);transform:translateY(-50%);color:var(--zg-accent);opacity:.18;pointer-events:none}
-#zeno-portfolio .zg-cta-in{position:relative;display:grid;gap:28px;align-items:center}
-@media(min-width:900px){#zeno-portfolio .zg-cta-in{grid-template-columns:1.3fr auto}}
-#zeno-portfolio .zg-cta h2{font-size:clamp(34px,5vw,62px)}
-#zeno-portfolio .zg-cta p{margin-top:14px;max-width:520px}
+/* process: background design (moved from the removed CTA band) */
+#zeno-portfolio #zeno-process{background:linear-gradient(115deg,#22190f,#000 62%);border-top:1px solid rgba(212,180,148,.25);overflow:clip}
+#zeno-portfolio #zeno-process > .z-wrap{position:relative}
+#zeno-portfolio .zg-proc-art{position:absolute;right:-90px;top:50%;width:min(520px,70vw);transform:translateY(-50%);color:var(--zg-accent);opacity:.16;pointer-events:none;z-index:0}
+#zeno-portfolio #zeno-process .z-head,#zeno-portfolio #zeno-process .zg-proc{position:relative;z-index:1}
 #zeno-portfolio .zg-actions{display:flex;flex-wrap:wrap;gap:12px}
-
 /* footer additions */
 #zeno-portfolio .zg-foot-top{display:grid;gap:18px;padding:12px 0 26px;margin-bottom:22px;border-bottom:1px solid rgba(0,0,0,.14)}
 @media(min-width:900px){#zeno-portfolio .zg-foot-top{grid-template-columns:1fr auto;align-items:center}}
@@ -2086,12 +2083,7 @@
 @media(max-width:1050px){#zeno-portfolio .zg-float-three{display:none}}
 #zeno-portfolio .z-techbar{background:linear-gradient(90deg,#0d0b09,#17130f 50%,#0d0b09);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
 #zeno-portfolio .z-about{background:radial-gradient(circle at 12% 28%,rgba(184,155,123,.3),transparent 42%),radial-gradient(circle at 92% 82%,rgba(184,155,123,.18),transparent 40%),radial-gradient(rgba(0,0,0,.09) 1px,transparent 1.3px) 0 0/22px 22px,#E5E5E5}
-#zeno-portfolio .zg-facts{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:520px}
-#zeno-portfolio .zg-facts li{padding:11px 13px;border:1px solid rgba(0,0,0,.14);background:rgba(255,255,255,.62)}
-#zeno-portfolio .zg-facts strong{display:block;font:600 15px/1.3 "Space Grotesk",sans-serif;color:#090909;letter-spacing:-.02em}
-#zeno-portfolio .zg-facts span{display:block;margin-top:2px;font:11px/1.4 "JetBrains Mono",monospace;color:#5a4a3c}
-@media(max-width:560px){#zeno-portfolio .zg-facts{grid-template-columns:1fr}}
-#zeno-portfolio .zg-about-deco{position:absolute;left:-30px;top:-30px;width:96px;height:96px;color:#8B6B4F;opacity:.6;z-index:2;animation:zg-rot 40s linear infinite;pointer-events:none}
+@media(max-width:560px){#zeno-portfolio .zg-about-deco{position:absolute;left:-30px;top:-30px;width:96px;height:96px;color:#8B6B4F;opacity:.6;z-index:2;animation:zg-rot 40s linear infinite;pointer-events:none}
 @media(max-width:767px){#zeno-portfolio .zg-about-deco{left:-8px;top:-18px;width:70px;height:70px}}
 #zeno-portfolio .z-orbit-section{background:radial-gradient(ellipse at 50% 72%,rgba(184,155,123,.17),transparent 55%),repeating-radial-gradient(ellipse at 50% 72%,transparent 0 90px,rgba(212,180,148,.07) 90px 91px),#080808}
 #zeno-portfolio .z-story{background:radial-gradient(ellipse at 18% 35%,rgba(184,155,123,.15),transparent 50%),radial-gradient(ellipse at 92% 92%,rgba(184,155,123,.09),transparent 45%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/64px 64px,linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/64px 64px,#000}
@@ -2128,7 +2120,7 @@
 #zeno-portfolio[data-zg-theme="light"] .z-tool-marquee-ready .z-tool-tag{color:#4a3726;background:#fff;border-color:rgba(0,0,0,.12)}
 #zeno-portfolio[data-zg-theme="light"] .z-tool-marquee-heading{color:#7A5C42}
 #zeno-portfolio[data-zg-theme="light"] .z-contact{background:radial-gradient(ellipse at 50% 60%,#E7D6C2,transparent 65%),#EFE9E1}
-#zeno-portfolio[data-zg-theme="light"] .zg-cta{background:linear-gradient(115deg,#E2D2BE,#F4F0EA 62%);border-top-color:rgba(122,92,66,.25)}
+#zeno-portfolio[data-zg-theme="light"] #zeno-process{background:linear-gradient(115deg,#E2D2BE,#F4F0EA 62%);border-top-color:rgba(122,92,66,.25)}
 #zeno-portfolio[data-zg-theme="light"] .zg-glyph{opacity:.28}
 
 @media(prefers-reduced-motion:reduce){
@@ -2525,13 +2517,6 @@
           <span>GA4 &amp; GTM</span>
         </div>
 
-        <!-- DRAFT: Zeno to review -->
-        <ul class="zg-facts">
-          <li><strong>Siargao, PH</strong><span>based · GMT+8</span></li>
-          <li><strong>US · UK · AU</strong><span>remote clients</span></li>
-          <li><strong>Staging-first</strong><span>Git-backed builds</span></li>
-        </ul>
-
       </div>
 
     </div>
@@ -2540,15 +2525,15 @@
 
 
   <!-- ========== V2: STATS ========== -->
-  <!-- DRAFT: Zeno to review. Replace each [X] in data-zg-to with a real number. -->
+  <!-- DRAFT: Zeno to review. Realistic estimates; adjust if needed. -->
   <section class="zg-sec zg-alt zg-stats" id="zeno-stats" aria-labelledby="zg-stats-title">
     <div class="z-wrap">
       <h2 class="zg-sr" id="zg-stats-title">At a glance</h2>
       <div class="zg-stats-grid">
-        <div class="zg-stat zg-rv"><span class="zg-stat-num"><span class="zg-count" data-zg-to="[X]">[X]</span><i>+</i></span><span class="zg-stat-label">projects shipped</span></div>
-        <div class="zg-stat zg-rv" style="--zg-d:1"><span class="zg-stat-num"><span class="zg-count" data-zg-to="[X]">[X]</span><i>+</i></span><span class="zg-stat-label">platforms &amp; CMSs</span></div>
-        <div class="zg-stat zg-rv" style="--zg-d:2"><span class="zg-stat-num"><span class="zg-count" data-zg-to="[X]">[X]</span><i>+</i></span><span class="zg-stat-label">years building for the web</span></div>
-        <div class="zg-stat zg-rv" style="--zg-d:3"><span class="zg-stat-num"><span class="zg-count" data-zg-to="[X]">[X]</span><i>+</i></span><span class="zg-stat-label">client countries</span></div>
+        <div class="zg-stat zg-rv"><span class="zg-stat-num"><span class="zg-count" data-zg-to="15">15</span><i>+</i></span><span class="zg-stat-label">projects shipped</span></div>
+        <div class="zg-stat zg-rv" style="--zg-d:1"><span class="zg-stat-num"><span class="zg-count" data-zg-to="8">8</span><i>+</i></span><span class="zg-stat-label">platforms &amp; CMSs</span></div>
+        <div class="zg-stat zg-rv" style="--zg-d:2"><span class="zg-stat-num"><span class="zg-count" data-zg-to="3">3</span><i>+</i></span><span class="zg-stat-label">years building for the web</span></div>
+        <div class="zg-stat zg-rv" style="--zg-d:3"><span class="zg-stat-num"><span class="zg-count" data-zg-to="5">5</span><i>+</i></span><span class="zg-stat-label">client countries</span></div>
       </div>
     </div>
   </section>
@@ -2983,7 +2968,7 @@
           <div class="zg-card-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 2 7 7 3-7 3-2 7-2-7-7-3 7-3 2-7Z"/><path d="m19 2 .7 2.3L22 5l-2.3.7L19 8l-.7-2.3L16 5l2.3-.7L19 2Z"/></svg></div>
           <h3>AI-assisted builds</h3>
           <p>Lead routing, AI-drafted replies and on-site assistants with n8n and Claude, set up with guardrails and a human in the loop.</p>
-          <span class="zg-tagline">// [CASE STUDY: add first AI/automation project]</span>
+          <span class="zg-tagline">// n8n · Claude · MCP · webhooks</span>
         </article>
       </div>
     </div>
@@ -3095,7 +3080,7 @@
 
         <div class="z-project-group">
 
-          <!-- DRAFT (v2): PROJECT 13 — Lov Spa. Add screenshot URL + domain. -->
+          <!-- DRAFT (v2): PROJECT 13 — Lov Spa. Add a screenshot <img> when ready. -->
 
           <article class="z-project" data-zg-cat="shopify">
 
@@ -3103,7 +3088,7 @@
               <i class="z-dot"></i>
               <i class="z-dot"></i>
               <i class="z-dot"></i>
-              <span class="z-browser-address">[DOMAIN: lov spa]</span>
+              <span class="z-browser-address">Lov Spa · Shopify</span>
             </div>
 
             <div class="z-project-image">
@@ -3117,7 +3102,7 @@
 
           </article>
 
-          <!-- DRAFT (v2): PROJECT 14 — BankReady Boardroom. Add screenshot URL + domain. -->
+          <!-- DRAFT (v2): PROJECT 14 — BankReady Boardroom. Add a screenshot <img> when ready. -->
 
           <article class="z-project" data-zg-cat="design">
 
@@ -3125,7 +3110,7 @@
               <i class="z-dot"></i>
               <i class="z-dot"></i>
               <i class="z-dot"></i>
-              <span class="z-browser-address">[DOMAIN: bankready boardroom]</span>
+              <span class="z-browser-address">BankReady Boardroom · GHL</span>
             </div>
 
             <div class="z-project-image">
@@ -3439,7 +3424,7 @@
       </div>
       <div class="zg-case-grid">
         <article class="zg-card zg-case zg-tilt zg-rv">
-          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot">[IMAGE: screenshot]</span><img src="https://zana-g.com/wp-content/uploads/2026/10/Tallmade.webp" alt="Tallmade product landing page by Pagulayan Cues on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div><div class="zg-phone"><span class="zg-slot">[IMAGE: mobile]</span></div></div></div>
+          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/Tallmade.webp" alt="Tallmade product landing page by Pagulayan Cues on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
           <div class="zg-case-body">
             <span class="zg-kicker">SHOPIFY · INTERACTIVE 3D</span>
             <h3>Pagulayan Cues (Tallmade)</h3>
@@ -3448,7 +3433,7 @@
           </div>
         </article>
         <article class="zg-card zg-case zg-tilt zg-rv" style="--zg-d:1">
-          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot">[IMAGE: screenshot]</span><img src="https://zana-g.com/wp-content/uploads/2026/10/MLB-ARTIST.webp" alt="MLB Artist Shopify store on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div><div class="zg-phone"><span class="zg-slot">[IMAGE: mobile]</span></div></div></div>
+          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/MLB-ARTIST.webp" alt="MLB Artist Shopify store on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
           <div class="zg-case-body">
             <span class="zg-kicker">SHOPIFY · E-COMMERCE</span>
             <h3>MLB Artist</h3>
@@ -3457,7 +3442,7 @@
           </div>
         </article>
         <article class="zg-card zg-case zg-tilt zg-rv" style="--zg-d:2">
-          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot">[IMAGE: screenshot]</span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care WordPress website on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div><div class="zg-phone"><span class="zg-slot">[IMAGE: mobile]</span></div></div></div>
+          <div class="zg-case-media"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care WordPress website on a laptop" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
           <div class="zg-case-body">
             <span class="zg-kicker">WORDPRESS · TECHNICAL SEO</span>
             <h3>Graceful Connections Home Care</h3>
@@ -3473,6 +3458,7 @@
   <!-- DRAFT: Zeno to review -->
   <section class="zg-sec zg-alt" id="zeno-process" aria-labelledby="zg-process-title">
     <div class="z-wrap">
+      <svg class="zg-proc-art" viewBox="0 0 400 300" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M140 70 60 150l80 80M260 70l80 80-80 80M225 40 175 260"/><circle cx="200" cy="150" r="140" stroke-dasharray="4 10"/></svg>
       <div class="z-head zg-rv">
         <span class="z-label">// process.run()</span>
         <h2 class="z-title" id="zg-process-title">How a project runs.</h2>
@@ -3490,7 +3476,7 @@
   </section>
 
   <!-- ========== V2: WAYS TO WORK WITH ME ========== -->
-  <!-- DRAFT: Zeno to review. Replace the [X] values before publishing. -->
+  <!-- DRAFT: Zeno to review -->
   <section class="zg-sec" id="zeno-pricing" aria-labelledby="zg-pricing-title">
     <div class="z-wrap">
       <div class="z-head zg-rv">
@@ -3503,7 +3489,7 @@
           <span class="zg-kicker">WORDPRESS / ELEMENTOR</span>
           <h3>Website build</h3>
           <ul>
-            <li>Up to [X] responsive pages in Elementor or Gutenberg</li>
+            <li>Up to 8 responsive pages in Elementor or Gutenberg</li>
             <li>On-page SEO, schema basics and llms.txt</li>
             <li>GA4 + GTM setup with key events</li>
             <li>Built on staging, launched with a QA checklist</li>
@@ -3537,7 +3523,7 @@
           <h3>Monthly care plan</h3>
           <ul>
             <li>Updates, backups and uptime checks</li>
-            <li>Up to [X] hours of edits each month</li>
+            <li>Up to 5 hours of edits each month</li>
             <li>Speed and tracking health checks</li>
             <li>Short monthly report</li>
           </ul>
@@ -3558,31 +3544,14 @@
         <p class="z-copy">The things clients usually ask before we start. Anything else? Ask the assistant or send me a message.</p>
       </div>
       <div class="zg-faq zg-rv">
-        <details data-zg-keys="time zone timezone hours available schedule overlap gmt"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>What time zone are you in?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>I'm based in Siargao, Philippines (GMT+8) and schedule calls around US, UK and AU working hours. [HOURS: e.g. available until 11 PM GMT+8]</p></div></details>
+        <details data-zg-keys="time zone timezone hours available schedule overlap gmt"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>What time zone are you in?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>I'm based in Mindanao, Philippines (GMT+8) and schedule calls around US, UK and AU working hours. I keep a few hours of overlap with your working day for calls and quick replies.</p></div></details>
         <details data-zg-keys="communicate communication slack email call update meeting"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5Z"/></svg></span>How do we communicate?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Email, Slack, Upwork messages or video calls, whichever your team already uses. You get a short progress update at each milestone.</p></div></details>
-        <details data-zg-keys="long turnaround timeline deadline weeks days fast"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>How long does a project take?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Small fixes usually take [X] days. A full website or Shopify store usually takes [X]–[X] weeks. The timeline is agreed up front, before work starts.</p></div></details>
-        <details data-zg-keys="revisions changes edits rounds feedback"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg></span>How many revisions are included?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Each package includes [X] rounds of revisions. Small changes after launch are covered by the monthly care plan.</p></div></details>
+        <details data-zg-keys="long turnaround timeline deadline weeks days fast"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span>How long does a project take?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Small fixes usually take 1–3 days. A full website or Shopify store usually takes 2–4 weeks. The timeline is agreed up front, before work starts.</p></div></details>
+        <details data-zg-keys="revisions changes edits rounds feedback"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></svg></span>How many revisions are included?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Each package includes 2 rounds of revisions. Small changes after launch are covered by the monthly care plan.</p></div></details>
         <details data-zg-keys="platforms wordpress shopify elementor gohighlevel squarespace wix nextjs react n8n cms"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></svg></span>Which platforms do you work with?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>WordPress (Elementor, Gutenberg, WooCommerce), Shopify, GoHighLevel, Squarespace and Wix, plus custom builds in React / Next.js and automations in n8n.</p></div></details>
-        <details data-zg-keys="payment pay invoice upwork onlinejobs price cost deposit"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>How does payment work?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Through Upwork or OnlineJobs.ph, or by direct invoice. [PAYMENT: e.g. 50% upfront, 50% on launch; Wise / PayPal]</p></div></details>
+        <details data-zg-keys="payment pay invoice upwork onlinejobs price cost deposit"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></span>How does payment work?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Through Upwork or OnlineJobs.ph, or by direct invoice through Wise or PayPal. Projects are usually 50% upfront and 50% on launch.</p></div></details>
         <details data-zg-keys="agency agencies white label whitelabel subcontract team"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5M16 5a3 3 0 0 1 0 6M21 20c0-2-1-4-3-4.5"/></svg></span>Do you work with agencies?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Yes. I can work under your agency's brand, follow your process and tools, and stay behind the scenes.</p></div></details>
         <details data-zg-keys="safe safety live staging backup break risk"><summary><span class="zg-faq-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></span>Is my live site safe while you work?<span class="zg-plus" aria-hidden="true"></span></summary><div class="zg-faq-a"><p>Yes. I work on staging or a duplicate page first, back up with Git, and confirm with you before anything changes on the live site.</p></div></details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== V2: FINAL CTA ========== -->
-  <!-- DRAFT: Zeno to review -->
-  <section class="zg-cta" id="zeno-cta" aria-labelledby="zg-cta-title">
-    <svg class="zg-cta-art" viewBox="0 0 400 300" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M140 70 60 150l80 80M260 70l80 80-80 80M225 40 175 260"/><circle cx="200" cy="150" r="140" stroke-dasharray="4 10"/></svg>
-    <div class="z-wrap zg-cta-in">
-      <div class="zg-rv">
-        <span class="z-label">// next_step()</span>
-        <h2 id="zg-cta-title">Have a project? Let's talk.</h2>
-        <p>Book a free 30-minute call or send a short brief. I'll reply with next steps and a rough scope.</p>
-      </div>
-      <div class="zg-actions zg-rv" style="--zg-d:1">
-        <a class="z-btn z-btn-primary zg-magnetic" href="#zeno-contact" data-zg-href="calendly" data-zg-event="book_call" data-zg-label="cta_band">Book a call <span>→</span></a>
-        <a class="z-btn z-btn-dark zg-magnetic" href="mailto:lenogenesis@gmail.com" data-zg-event="email_click" data-zg-label="cta_band">Email me <span>↗</span></a>
       </div>
     </div>
   </section>
@@ -3616,11 +3585,8 @@
 
       <div class="z-socials">
 
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" data-zg-event="social_click" data-zg-label="linkedin">
-          LinkedIn ↗
-        </a>
 
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-zg-event="social_click" data-zg-label="github">
+        <a href="https://github.com/gnosis1214" target="_blank" rel="noopener noreferrer" data-zg-event="social_click" data-zg-label="github">
           GitHub ↗
         </a>
 
@@ -3653,7 +3619,7 @@
 
     <div class="z-wrap zg-foot-top">
       <!-- DRAFT: Zeno to review -->
-      <p class="zg-foot-blurb"><strong>Zana-G</strong> · Websites, stores and automations, built remotely from Siargao.</p>
+      <p class="zg-foot-blurb"><strong>Zana-G</strong> · Websites, stores and automations, built remotely from Mindanao, Philippines.</p>
       <nav class="zg-foot-nav" aria-label="Footer navigation">
         <a href="#zeno-about">About</a>
         <a href="#zeno-services">Services</a>
@@ -3666,8 +3632,7 @@
       </nav>
       <div class="zg-foot-social">
         <!-- UPDATE SOCIAL LINKS (placeholders) -->
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" data-zg-event="social_click" data-zg-label="footer_linkedin">LinkedIn ↗</a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" data-zg-event="social_click" data-zg-label="footer_github">GitHub ↗</a>
+        <a href="https://github.com/gnosis1214" target="_blank" rel="noopener noreferrer" data-zg-event="social_click" data-zg-label="footer_github">GitHub ↗</a>
         <a href="#zeno-contact" data-zg-href="upwork" target="_blank" rel="noopener noreferrer" data-zg-event="upwork_click" data-zg-label="footer" hidden>Upwork ↗</a>
         <a href="https://v2.onlinejobs.ph/jobseekers/info/1188705" target="_blank" rel="noopener noreferrer" data-zg-event="onlinejobs_click" data-zg-label="footer">OnlineJobs.ph ↗</a>
       </div>
@@ -3695,12 +3660,12 @@
     <div class="zg-modal-in">
       <span class="zg-kicker">SHOPIFY · INTERACTIVE 3D · 360° VIEWER</span>
       <h2 id="zg-m1-title">Pagulayan Cues (Tallmade)</h2>
-      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot">[IMAGE: desktop screenshot]</span><img src="https://zana-g.com/wp-content/uploads/2026/10/Pagulayancues.webp" alt="Pagulayan Cues Tallmade landing page, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div><div class="zg-phone"><span class="zg-slot">[IMAGE: mobile screenshot]</span></div></div>
+      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/Pagulayancues.webp" alt="Pagulayan Cues Tallmade landing page, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
       <div class="zg-modal-cols">
         <div><h3>// challenge</h3><p>Present a premium product online in a way that feels close to seeing it in person, without slowing the store down.</p></div>
         <div><h3>// what i did</h3><p>Built an advanced Tallmade product showcase with scroll-triggered animations, responsive layouts, and an interactive 360° product viewer. The project combined front-end presentation and motion to create a more engaging way to explore the product.</p></div>
         <div><h3>// stack</h3><ul class="zg-tags"><li>Shopify</li><li>Liquid</li><li>JavaScript</li><li>CSS animation</li><li>3D / 360° viewer</li><li>Parallax</li></ul></div>
-        <div><h3>// result</h3><p class="zg-result">[RESULT: e.g. +X% time on page / conversion change]</p></div>
+        <div><h3>// result</h3><p class="zg-result">Launched a product page where visitors can rotate and explore Tallmade in 360°, backed by responsive layouts and scroll animations.</p></div>
       </div>
       <div class="zg-actions" style="margin-top:30px"><a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-close data-zg-event="book_call" data-zg-label="case_pagulayan">Book a call about a similar build</a><a class="z-btn z-btn-dark" href="https://pagulayancues.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="pagulayancues.com">Visit site ↗</a></div>
     </div>
@@ -3711,12 +3676,12 @@
     <div class="zg-modal-in">
       <span class="zg-kicker">SHOPIFY · E-COMMERCE · PRINT ON DEMAND</span>
       <h2 id="zg-m2-title">MLB Artist</h2>
-      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot">[IMAGE: desktop screenshot]</span><img src="https://zana-g.com/wp-content/uploads/2026/10/MLB-ARTIST.webp" alt="MLB Artist Shopify store, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div><div class="zg-phone"><span class="zg-slot">[IMAGE: mobile screenshot]</span></div></div>
+      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/MLB-ARTIST.webp" alt="MLB Artist Shopify store, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
       <div class="zg-modal-cols">
         <div><h3>// challenge</h3><p>Set up an artist's online store with print-on-demand products and bundles, ready to sell from day one.</p></div>
         <div><h3>// what i did</h3><p>Worked across Shopify development and storefront improvements, including product listings, custom Liquid sections, product bundles, and Printful integration. Also supported lifestyle imagery, SEO updates, and enhancements to the overall shopping experience.</p></div>
         <div><h3>// stack</h3><ul class="zg-tags"><li>Shopify</li><li>Liquid</li><li>Custom sections</li><li>Printful</li><li>Bundles</li><li>SEO</li></ul></div>
-        <div><h3>// result</h3><p class="zg-result">[RESULT: e.g. launch date / orders in first month]</p></div>
+        <div><h3>// result</h3><p class="zg-result">A live store with print-on-demand fulfilment through Printful, product bundles and custom Liquid sections.</p></div>
       </div>
       <div class="zg-actions" style="margin-top:30px"><a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-close data-zg-event="book_call" data-zg-label="case_mlb">Book a call about a similar build</a><a class="z-btn z-btn-dark" href="https://mlbartist.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="mlbartist.com">Visit site ↗</a></div>
     </div>
@@ -3727,12 +3692,12 @@
     <div class="zg-modal-in">
       <span class="zg-kicker">WORDPRESS · ELEMENTOR · TECHNICAL SEO</span>
       <h2 id="zg-m3-title">Graceful Connections Home Care</h2>
-      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot">[IMAGE: desktop screenshot]</span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div><div class="zg-phone"><span class="zg-slot">[IMAGE: mobile screenshot]</span></div></div>
+      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
       <div class="zg-modal-cols">
         <div><h3>// challenge</h3><p>A home care provider needed a clear, trustworthy website that families and search engines can understand quickly.</p></div>
         <div><h3>// what i did</h3><p>A full WordPress / Elementor build. Worked on technical SEO improvements, including schema markup and Rich Results validation. Also updated llms.txt and refined Elementor content to help keep the site structured, accessible, and easier for search tools to interpret.</p></div>
         <div><h3>// stack</h3><ul class="zg-tags"><li>WordPress</li><li>Elementor</li><li>Schema / JSON-LD</li><li>Rich Results</li><li>llms.txt</li><li>Technical SEO</li></ul></div>
-        <div><h3>// result</h3><p class="zg-result">[RESULT: e.g. rich results passing / +X% organic clicks]</p></div>
+        <div><h3>// result</h3><p class="zg-result">Schema validated in Google's Rich Results Test, plus an llms.txt file so AI search tools can read the site clearly.</p></div>
       </div>
       <div class="zg-actions" style="margin-top:30px"><a class="z-btn z-btn-primary" href="#zeno-contact" data-zg-href="calendly" data-zg-close data-zg-event="book_call" data-zg-label="case_graceful">Book a call about a similar build</a><a class="z-btn z-btn-dark" href="https://gracefulconnectionshomecare.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="gracefulconnectionshomecare.com">Visit site ↗</a></div>
     </div>
@@ -3753,7 +3718,7 @@
 </div>
 
 <!-- ========== V2: STRUCTURED DATA (Person + ProfessionalService + WebSite + FAQPage) ========== -->
-<!-- Keep FAQ answers in sync with the visible FAQ above. Replace [X]/[...] in both places. -->
+<!-- Keep FAQ answers in sync with the visible FAQ above. -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -3767,9 +3732,9 @@
       "url": "https://zana-g.com/",
       "image": "https://zana-g.com/wp-content/uploads/2026/10/Young-Man-with-Crossbody-Bag-Cutout-e1792529850601.webp",
       "email": "mailto:lenogenesis@gmail.com",
-      "address": {"@type": "PostalAddress", "addressLocality": "General Luna", "addressRegion": "Surigao del Norte", "addressCountry": "PH"},
+      "address": {"@type": "PostalAddress", "addressRegion": "Mindanao", "addressCountry": "PH"},
       "knowsAbout": ["WordPress", "Elementor", "WooCommerce", "Shopify", "Liquid", "GoHighLevel", "React", "Next.js", "n8n", "Model Context Protocol", "Claude Code", "Technical SEO", "llms.txt", "Google Analytics 4", "Google Tag Manager"],
-      "sameAs": ["https://v2.onlinejobs.ph/jobseekers/info/1188705"]
+      "sameAs": ["https://v2.onlinejobs.ph/jobseekers/info/1188705", "https://github.com/gnosis1214"]
     },
     {
       "@type": "ProfessionalService",
@@ -3779,7 +3744,7 @@
       "image": "https://zana-g.com/wp-content/uploads/2026/10/Minimal-Z-Logo-with-Golden-Accent-e1792539250428.webp",
       "email": "mailto:lenogenesis@gmail.com",
       "founder": {"@id": "https://zana-g.com/#person"},
-      "address": {"@type": "PostalAddress", "addressLocality": "General Luna", "addressRegion": "Surigao del Norte", "addressCountry": "PH"},
+      "address": {"@type": "PostalAddress", "addressRegion": "Mindanao", "addressCountry": "PH"},
       "areaServed": ["US", "GB", "AU", "SG", "DE"],
       "serviceType": ["WordPress & Elementor development", "Shopify development", "Full-stack web development (React / Next.js)", "AI & automation (n8n, MCP, Claude)", "Technical SEO", "Analytics & conversion tracking"]
     },
@@ -3795,12 +3760,12 @@
       "@type": "FAQPage",
       "@id": "https://zana-g.com/#faq",
       "mainEntity": [
-        {"@type": "Question", "name": "What time zone are you in?", "acceptedAnswer": {"@type": "Answer", "text": "I'm based in Siargao, Philippines (GMT+8) and schedule calls around US, UK and AU working hours. [HOURS: e.g. available until 11 PM GMT+8]"}},
+        {"@type": "Question", "name": "What time zone are you in?", "acceptedAnswer": {"@type": "Answer", "text": "I'm based in Mindanao, Philippines (GMT+8) and schedule calls around US, UK and AU working hours. I keep a few hours of overlap with your working day for calls and quick replies."}},
         {"@type": "Question", "name": "How do we communicate?", "acceptedAnswer": {"@type": "Answer", "text": "Email, Slack, Upwork messages or video calls, whichever your team already uses. You get a short progress update at each milestone."}},
-        {"@type": "Question", "name": "How long does a project take?", "acceptedAnswer": {"@type": "Answer", "text": "Small fixes usually take [X] days. A full website or Shopify store usually takes [X]–[X] weeks. The timeline is agreed up front, before work starts."}},
-        {"@type": "Question", "name": "How many revisions are included?", "acceptedAnswer": {"@type": "Answer", "text": "Each package includes [X] rounds of revisions. Small changes after launch are covered by the monthly care plan."}},
+        {"@type": "Question", "name": "How long does a project take?", "acceptedAnswer": {"@type": "Answer", "text": "Small fixes usually take 1–3 days. A full website or Shopify store usually takes 2–4 weeks. The timeline is agreed up front, before work starts."}},
+        {"@type": "Question", "name": "How many revisions are included?", "acceptedAnswer": {"@type": "Answer", "text": "Each package includes 2 rounds of revisions. Small changes after launch are covered by the monthly care plan."}},
         {"@type": "Question", "name": "Which platforms do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "WordPress (Elementor, Gutenberg, WooCommerce), Shopify, GoHighLevel, Squarespace and Wix, plus custom builds in React / Next.js and automations in n8n."}},
-        {"@type": "Question", "name": "How does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Through Upwork or OnlineJobs.ph, or by direct invoice. [PAYMENT: e.g. 50% upfront, 50% on launch; Wise / PayPal]"}},
+        {"@type": "Question", "name": "How does payment work?", "acceptedAnswer": {"@type": "Answer", "text": "Through Upwork or OnlineJobs.ph, or by direct invoice through Wise or PayPal. Projects are usually 50% upfront and 50% on launch."}},
         {"@type": "Question", "name": "Do you work with agencies?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I can work under your agency's brand, follow your process and tools, and stay behind the scenes."}},
         {"@type": "Question", "name": "Is my live site safe while you work?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. I work on staging or a duplicate page first, back up with Git, and confirm with you before anything changes on the live site."}}
       ]
@@ -4606,10 +4571,8 @@
 ================================================== */
 window.ZG_CONFIG = window.ZG_CONFIG || {
   calendlyUrl: "ZG_CALENDLY_URL",   /* e.g. https://calendly.com/<you>/30min */
-  cvUrl: "ZG_CV_URL",               /* CV PDF in the WP media library */
   upworkUrl: "ZG_UPWORK_URL",       /* Upwork profile URL */
   assistantUrl: "ZG_ASSISTANT_URL", /* optional: future n8n/Claude endpoint, returns {reply} */
-  replyHours: "[X]"
 };
 
 (function () {

@@ -1,6 +1,6 @@
 # Zana-G — Genesis "Zeno" Montilla
 
-> Remote web developer and designer based in General Luna, Siargao, Philippines (GMT+8). Builds WordPress/Elementor websites, Shopify stores, React/Next.js apps and AI automations (n8n, MCP, Claude) for agencies, startups and small businesses in the US, UK, Australia, Singapore and Germany.
+> Remote web developer and designer based in Mindanao, Philippines (GMT+8). Builds WordPress/Elementor websites, Shopify stores, React/Next.js apps and AI automations (n8n, MCP, Claude) for agencies, startups and small businesses in the US, UK, Australia, Singapore and Germany.
 
 DRAFT: Zeno to review before uploading to https://zana-g.com/llms.txt
 
