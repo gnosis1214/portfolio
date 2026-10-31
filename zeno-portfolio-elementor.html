@@ -1843,6 +1843,7 @@
 #zeno-portfolio a:focus-visible,#zeno-portfolio button:focus-visible,#zeno-portfolio input:focus-visible,#zeno-portfolio select:focus-visible,#zeno-portfolio textarea:focus-visible,#zeno-portfolio summary:focus-visible,#zeno-portfolio [tabindex]:focus-visible{outline:2px solid var(--zg-accent);outline-offset:3px}
 #zeno-portfolio .zg-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 #zeno-portfolio button{cursor:pointer}
+#zeno-portfolio [hidden]{display:none!important}
 
 /* progress bar + grain */
 #zeno-portfolio .zg-progress{position:fixed;top:0;left:0;right:0;height:3px;z-index:10001;background:linear-gradient(90deg,var(--zg-brown),var(--zg-accent));transform-origin:0 50%;transform:scaleX(var(--zg-p,0));pointer-events:none}
@@ -1924,9 +1925,9 @@
 /* AI & automation flow */
 #zeno-portfolio .zg-flow{margin:0 0 18px;border:1px solid var(--zg-line);background:var(--zg-panel);padding:clamp(14px,2.5vw,26px)}
 #zeno-portfolio .zg-flow svg{width:100%;height:auto;display:block}
-#zeno-portfolio .zg-flow-h{display:none}
-#zeno-portfolio .zg-flow-v{max-width:300px;margin:auto}
-@media(min-width:768px){#zeno-portfolio .zg-flow-h{display:block}#zeno-portfolio .zg-flow-v{display:none}}
+#zeno-portfolio .zg-flow .zg-flow-h{display:none}
+#zeno-portfolio .zg-flow .zg-flow-v{max-width:300px;margin:auto}
+@media(min-width:768px){#zeno-portfolio .zg-flow .zg-flow-h{display:block}#zeno-portfolio .zg-flow .zg-flow-v{display:none}}
 #zeno-portfolio .zg-node rect{fill:var(--zg-panel2);stroke:var(--zg-brown);stroke-width:1.2;animation:zg-glow 6s ease-in-out infinite}
 #zeno-portfolio .zg-node:nth-of-type(2) rect{animation-delay:1.2s}#zeno-portfolio .zg-node:nth-of-type(3) rect{animation-delay:2.4s}#zeno-portfolio .zg-node:nth-of-type(4) rect{animation-delay:3.6s}#zeno-portfolio .zg-node:nth-of-type(5) rect{animation-delay:4.8s}
 @keyframes zg-glow{0%,30%,100%{stroke:var(--zg-brown);stroke-width:1.2}12%{stroke:var(--zg-accent);stroke-width:2.4}}
@@ -2849,7 +2850,7 @@
           <g class="zg-node"><rect x="30" y="530" width="240" height="74" rx="6"/><text class="k" x="150" y="554" text-anchor="middle">05 · respond</text><text class="t" x="150" y="580" text-anchor="middle">Email</text><text class="s" x="150" y="598" text-anchor="middle">notify + auto-reply</text></g>
         </svg>
       </figure>
-      <p class="zg-flow-cap">// example: the contact form on this page runs on this exact flow</p>
+      <p class="zg-flow-cap">// example flow: the contact form on this page is built to plug straight into it</p>
 
       <div class="zg-grid c3">
         <article class="zg-card zg-tilt zg-rv">
