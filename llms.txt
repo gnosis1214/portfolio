@@ -1,0 +1,35 @@
+# Zana-G — Genesis "Zeno" Montilla
+
+> Remote web developer and designer based in General Luna, Siargao, Philippines (GMT+8). Builds WordPress/Elementor websites, Shopify stores, React/Next.js apps and AI automations (n8n, MCP, Claude) for agencies, startups and small businesses in the US, UK, Australia, Singapore and Germany.
+
+DRAFT: Zeno to review before uploading to https://zana-g.com/llms.txt
+
+## Services
+- WordPress & Elementor: custom pages, full site builds, fixes, WooCommerce, Gutenberg
+- Shopify: theme customization, custom Liquid sections, apps, bundles, Printful, 3D/360° product viewers
+- Full-stack: React, Next.js, TypeScript, REST/GraphQL APIs, Vercel
+- AI & automation: n8n workflows, AI agents, MCP, Claude Code, lead routing and AI-drafted replies
+- Technical SEO: schema (JSON-LD), llms.txt and AI-crawler readiness, Core Web Vitals, Search Console
+- Tracking: GA4, Google Tag Manager, Meta Pixel, booking and form conversion tracking
+- Hosting & ops: cPanel, DNS, domains, staging, migrations, maintenance
+
+## Selected clients
+- Graceful Connections Home Care: WordPress/Elementor build, schema, technical SEO, llms.txt
+- MLB Artist: Shopify store, custom Liquid sections, Printful, bundles
+- Pagulayan Cues (Tallmade): Shopify landing page with interactive 360° viewer and scroll animations
+- The Walker Group: llms.txt and AI-crawler optimization
+- MPP Legal: attorney profiles, SEO, internal linking
+- Luxe Aura Hair: Vagaro booking and Meta Pixel conversion tracking
+- Also: Control V Symphony, Appliance USA Pro, Simple Forwarding, Lov Spa, Athedah Staffing, New Leaf Counseling, Heroic Hearts Project, BankReady Boardroom
+
+## Key pages
+- [Portfolio home](https://zana-g.com/): services, projects, case studies, process, pricing, FAQ, contact
+- [Case studies](https://zana-g.com/#zeno-cases)
+- [Ways to work with me](https://zana-g.com/#zeno-pricing)
+- [FAQ](https://zana-g.com/#zeno-faq)
+- [Contact](https://zana-g.com/#zeno-contact)
+
+## Contact
+- Email: lenogenesis@gmail.com
+- OnlineJobs.ph: https://v2.onlinejobs.ph/jobseekers/info/1188705
+- Time zone: GMT+8 (Asia/Manila); calls scheduled around US, UK and AU hours
