@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>gnosis1214 · Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf9; --fg: #1c1917; --muted: #78716c; --card: #ffffff;
+      --border: #e7e5e4; --accent: #2563eb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: #0c0a09; --fg: #f5f5f4; --muted: #a8a29e; --card: #1c1917; --border: #292524; --accent: #60a5fa; }
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
+    main { max-width: 760px; margin: 0 auto; padding: 72px 16px; }
+    header { margin-bottom: 56px; }
+    .avatar { width: 88px; height: 88px; border-radius: 50%; border: 1px solid var(--border); margin-bottom: 20px; }
+    h1 { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; }
+    .tagline { color: var(--muted); font-size: 1.125rem; margin-top: 4px; }
+    .links { display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap; }
+    a { color: var(--accent); text-decoration: none; font-weight: 500; }
+    a:hover { text-decoration: underline; }
+    section { margin-bottom: 48px; }
+    h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 16px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+    .card h3 { font-size: 1rem; margin-bottom: 6px; }
+    .card p { color: var(--muted); font-size: 0.925rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag { border: 1px solid var(--border); border-radius: 999px; padding: 4px 12px; font-size: 0.875rem; }
+    footer { color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 24px; }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img class="avatar" src="https://github.com/gnosis1214.png" alt="gnosis1214 avatar">
+      <h1>Hi, I'm gnosis1214</h1>
+      <p class="tagline">Builder, learner, and maker of things on the web.</p>
+      <div class="links">
+        <a href="https://github.com/gnosis1214">GitHub</a>
+        <a href="mailto:hello@example.com">Email</a>
+      </div>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>This is my portfolio. I'm exploring software, design, and AI-assisted development. Replace this paragraph with a few sentences about who you are and what you're working on.</p>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Project One</h3>
+          <p>A short description of what this project does and why it matters.</p>
+        </div>
+        <div class="card">
+          <h3>Project Two</h3>
+          <p>Another project. Link it to its repo once it's on GitHub.</p>
+        </div>
+        <div class="card">
+          <h3>Project Three</h3>
+          <p>Something you're proud of, or something you're building next.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <div class="tags">
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+        <span class="tag">Git</span><span class="tag">AI tools</span>
+      </div>
+    </section>
+
+    <footer>© 2026 gnosis1214 · Hosted on GitHub Pages</footer>
+  </main>
+</body>
+</html>
