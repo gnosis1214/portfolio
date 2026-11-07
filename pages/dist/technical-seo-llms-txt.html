@@ -89,6 +89,8 @@
 @media(max-width:400px){#zeno-portfolio .zg-book{padding:10px 13px;font-size:12px}
 #zeno-portfolio .zg-book span{display:none}
 #zeno-portfolio .z-nav{gap:8px}}
+#zeno-portfolio.zg-js .zg-rv{opacity:0;translate:0 26px;transition-property:opacity,translate,transform,border-color,background;transition-duration:.7s,.7s,.35s,.3s,.3s;transition-timing-function:cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--zg-d,0) * 90ms),calc(var(--zg-d,0) * 90ms),0s,0s,0s}
+#zeno-portfolio.zg-js .zg-rv.zg-in{opacity:1;translate:0 0}
 #zeno-portfolio .zg-sec{padding:var(--zg-sp) 0;background:var(--zg-bg);position:relative;scroll-margin-top:70px}
 #zeno-portfolio .zg-sec.zg-alt{background:var(--zg-bg2)}
 #zeno-portfolio .zg-sec p{color:var(--zg-muted)}
@@ -98,11 +100,18 @@
 #zeno-portfolio .zg-card h3{margin-bottom:10px}
 #zeno-portfolio .zg-card p{font-size:14px}
 #zeno-portfolio .zg-grid{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
-@media(min-width:768px){#zeno-portfolio .zg-grid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:768px){#zeno-portfolio .zg-grid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#zeno-portfolio .zg-grid.c2{grid-template-columns:repeat(2,minmax(0,1fr))}}
 #zeno-portfolio .zg-plinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:16px}
 #zeno-portfolio .zg-plink{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:8px 13px;border:1px solid rgba(255,170,180,.15);background:rgba(255,255,255,.03);color:var(--zg-blush);font:11px "JetBrains Mono",monospace;transition:border-color .25s,color .25s}
 #zeno-portfolio .zg-plink:hover{border-color:var(--zg-hi);color:#fff}
 #zeno-portfolio .zg-kicker{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent);letter-spacing:.06em}
+#zeno-portfolio .zg-cs-chip{position:absolute;z-index:3;padding:7px 11px;border:1px solid var(--zg-edge);background:rgba(6,9,17,.92);color:var(--zg-blush);font:11px "JetBrains Mono",monospace;box-shadow:0 10px 24px rgba(0,0,0,.4);animation:zg-bob 5s ease-in-out infinite}
+#zeno-portfolio .zg-cs-chip.c1{top:4px;left:4px}
+#zeno-portfolio .zg-cs-chip.c2{top:34%;right:0;animation-delay:-1.7s}
+#zeno-portfolio .zg-cs-chip.c3{bottom:8%;left:0;animation-delay:-3.4s}
+@keyframes zg-bob{50%{transform:translateY(-9px)}}
+@media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-cs-chip{animation:none}}
 #zeno-portfolio .zg-dev{position:relative;max-width:520px;margin:0 auto;padding-bottom:10px}
 #zeno-portfolio .zg-laptop-screen{position:relative;border:7px solid var(--zg-ink-2);border-bottom-width:11px;border-radius:9px 9px 0 0;background:var(--zg-ink-0);aspect-ratio:16/10;overflow:hidden}
 #zeno-portfolio .zg-laptop-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:1}
@@ -134,8 +143,9 @@
 #zeno-portfolio[data-zg-theme="light"] .z-contact{background:radial-gradient(ellipse at 50% 60%,#FBDDE1,transparent 65%),var(--bg2)}
 #ast-scroll-top{display:none!important}
 #zeno-portfolio .z-footer-inner{padding-right:72px}
-@media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-card{transform:none}}
-#zeno-portfolio .zg-pg-hero{padding:calc(74px + clamp(44px,6vw,84px)) 0 clamp(56px,7vw,92px);background:radial-gradient(ellipse at 82% 30%,rgba(255,51,70,.16),transparent 58%),var(--zg-bg);border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-hero-in{display:grid;gap:40px} @media(min-width:960px){#zeno-portfolio .zg-pg-hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}} #zeno-portfolio .zg-pg-hero .zg-dev{width:100%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.45))} #zeno-portfolio .zg-laptop-screen{aspect-ratio:1264/585} #zeno-portfolio .zg-pg-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;margin-bottom:20px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)} #zeno-portfolio .zg-pg-crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-crumb a:hover{color:var(--zg-accent)} #zeno-portfolio .zg-pg-h1{font-size:clamp(34px,4.6vw,56px);margin-bottom:20px;overflow-wrap:anywhere} #zeno-portfolio .zg-sec p.zg-pg-lead{max-width:620px;font-size:17px;line-height:1.65} #zeno-portfolio .zg-sec p.zg-pg-lead+p.zg-pg-lead{margin-top:12px} #zeno-portfolio .zg-pg-actions{margin-top:28px} #zeno-portfolio .zg-pg-term{border:1px solid var(--zg-edge);background:var(--zg-ink-1);font:12px/1.65 "JetBrains Mono",monospace;box-shadow:0 26px 50px rgba(0,0,0,.28)} #zeno-portfolio .zg-pg-term-top{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,170,180,.15)} #zeno-portfolio .zg-pg-term-top i{width:9px;height:9px;border-radius:50%;background:var(--zg-faint)} #zeno-portfolio .zg-pg-term-top i:first-child{background:var(--zg-hi)} #zeno-portfolio .zg-sec p.zg-pg-term-cmd{padding:16px 16px 0;color:var(--zg-hi)} #zeno-portfolio .zg-pg-term dl{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:8px 16px;margin:0;padding:14px 16px 20px} #zeno-portfolio .zg-pg-term dt{color:var(--zg-faint)} #zeno-portfolio .zg-pg-term dd{margin:0;color:var(--zg-on-ink)} #zeno-portfolio .zg-pg-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;color:var(--zg-accent);font-size:14px;font-weight:600} #zeno-portfolio .zg-pg-more:hover{text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-note{max-width:760px} #zeno-portfolio .zg-pg-note h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px} #zeno-portfolio .zg-pg-note p{font-size:16px} #zeno-portfolio .zg-pg-proj{display:grid;gap:24px;padding:32px 0;border-top:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj:last-child{border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj .zg-dev{width:100%;max-width:440px;margin:0 auto} #zeno-portfolio .zg-pg-proj h3{margin:8px 0 10px} #zeno-portfolio .zg-pg-proj p{font-size:15px} #zeno-portfolio .zg-pg-proj .zg-plinks{margin-top:4px} @media(min-width:768px){#zeno-portfolio .zg-pg-proj{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;align-items:center}#zeno-portfolio .zg-pg-proj.no-img{grid-template-columns:minmax(0,1fr)}} #zeno-portfolio[data-zg-theme="light"] .zg-plink{background:var(--zg-panel);border-color:var(--zg-line);color:var(--zg-accent)} #zeno-portfolio[data-zg-theme="light"] .zg-plink:hover{border-color:var(--zg-accent);color:var(--zg-text)} #zeno-portfolio .zg-pg-steps{display:grid;gap:14px;margin:0;padding:0;list-style:none} #zeno-portfolio .zg-pg-steps .zg-card{padding:22px 20px} #zeno-portfolio .zg-pg-steps h3{margin:8px 0} @media(min-width:640px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(2,minmax(0,1fr))}} @media(min-width:1050px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(5,minmax(0,1fr))}} #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0} #zeno-portfolio .zg-pg-case{display:grid;grid-template-columns:minmax(0,1fr);gap:40px} @media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}} #zeno-portfolio .zg-pg-block h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px} #zeno-portfolio .zg-pg-block p{font-size:16px} #zeno-portfolio .zg-pg-block .zg-pipe{margin:0} @media(max-width:560px){#zeno-portfolio .zg-pg-block .zg-pipe{flex-wrap:wrap;overflow:visible;gap:8px}#zeno-portfolio .zg-pg-block .zg-pipe li+li{margin-left:0}#zeno-portfolio .zg-pg-block .zg-pipe li+li::before{display:none}} #zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px} #zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)} #zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent)} #zeno-portfolio .zg-pg-foot-more{grid-column:1/-1} #zeno-portfolio .z-footer-inner{padding-right:0}
+@media(prefers-reduced-motion:reduce){#zeno-portfolio.zg-js .zg-rv{opacity:1;translate:none;transition:none}
+#zeno-portfolio .zg-card{transform:none}}
+#zeno-portfolio .zg-pg-hero{padding:calc(74px + clamp(44px,6vw,84px)) 0 clamp(56px,7vw,92px);background:radial-gradient(ellipse at 82% 30%,rgba(255,51,70,.16),transparent 58%),var(--zg-bg);border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-hero-in{display:grid;grid-template-columns:minmax(0,1fr);gap:40px} @media(min-width:960px){#zeno-portfolio .zg-pg-hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}} #zeno-portfolio .zg-pg-hero .zg-dev{width:100%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.45))} #zeno-portfolio .zg-laptop-screen{aspect-ratio:1264/585} #zeno-portfolio .zg-pg-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;margin-bottom:20px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)} #zeno-portfolio .zg-pg-crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-crumb a:hover{color:var(--zg-accent)} #zeno-portfolio .zg-pg-h1{font-size:clamp(34px,4.6vw,56px);margin-bottom:20px;overflow-wrap:anywhere} #zeno-portfolio .zg-sec p.zg-pg-lead{max-width:620px;font-size:17px;line-height:1.65} #zeno-portfolio .zg-sec p.zg-pg-lead+p.zg-pg-lead{margin-top:12px} #zeno-portfolio .zg-pg-actions{margin-top:28px} #zeno-portfolio .zg-pg-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;color:var(--zg-accent);font-size:14px;font-weight:600} #zeno-portfolio .zg-pg-more:hover{text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-note{max-width:760px} #zeno-portfolio .zg-pg-note h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px} #zeno-portfolio .zg-pg-note p{font-size:16px} #zeno-portfolio .zg-pg-proj{display:grid;gap:24px;padding:32px 0;border-top:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj:last-child{border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj .zg-dev{width:100%;max-width:440px;margin:0 auto} #zeno-portfolio .zg-pg-proj h3{margin:8px 0 10px} #zeno-portfolio .zg-pg-proj p{font-size:15px} #zeno-portfolio .zg-pg-proj .zg-plinks{margin-top:4px} @media(min-width:768px){#zeno-portfolio .zg-pg-proj{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;align-items:center}#zeno-portfolio .zg-pg-proj.no-img{grid-template-columns:minmax(0,1fr)}} #zeno-portfolio[data-zg-theme="light"] .zg-plink{background:var(--zg-panel);border-color:var(--zg-line);color:var(--zg-accent)} #zeno-portfolio[data-zg-theme="light"] .zg-plink:hover{border-color:var(--zg-accent);color:var(--zg-text)} #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0} #zeno-portfolio .zg-pg-case{display:grid;grid-template-columns:minmax(0,1fr);gap:40px} @media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}} #zeno-portfolio .zg-pg-block>h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px} #zeno-portfolio .zg-pg-block>p{font-size:16px} #zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px} #zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)} #zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent);transition:transform .25s} #zeno-portfolio .zg-pg-link:hover .zg-pg-arrow{transform:translateX(6px)} #zeno-portfolio .zg-pg-foot-more{grid-column:1/-1} #zeno-portfolio .z-footer-inner{padding-right:0} #zeno-portfolio .zg-pg-grid{border:1px solid var(--zg-line);background:radial-gradient(circle at 28% 30%,rgba(255,51,70,.14),transparent 55%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)} #zeno-portfolio[data-zg-theme="light"] .zg-pg-grid{background:radial-gradient(circle at 28% 30%,rgba(200,16,46,.1),transparent 55%),linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)} #zeno-portfolio .zg-sec p.zg-pg-hint{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)} #zeno-portfolio [data-zg-tilt]{transform:perspective(900px) rotateX(var(--zg-rx,0deg)) rotateY(var(--zg-ry,0deg));transition:transform .25s ease} #zeno-portfolio .zg-pg-art{position:relative;display:grid;place-items:center;aspect-ratio:1/1;max-width:400px;width:100%;margin:0 auto;padding:13%;color:var(--zg-accent)} #zeno-portfolio .zg-pg-art svg{width:100%;height:auto;display:block;overflow:visible} #zeno-portfolio .zg-pg-art svg>*{stroke-dasharray:100;stroke-dashoffset:100;animation:zg-pg-draw 1.8s ease-out forwards} #zeno-portfolio .zg-pg-art svg>:nth-child(2){animation-delay:.2s} #zeno-portfolio .zg-pg-art svg>:nth-child(3){animation-delay:.35s} #zeno-portfolio .zg-pg-art svg>:nth-child(4){animation-delay:.5s} #zeno-portfolio .zg-pg-art svg>:nth-child(n+5){animation-delay:.65s} @keyframes zg-pg-draw{to{stroke-dashoffset:0}} #zeno-portfolio .zg-pg-explore{display:grid;grid-template-columns:minmax(0,1fr);gap:18px} #zeno-portfolio .zg-pg-fig{margin:0;padding:12px 14px;position:sticky;top:62px;z-index:5;align-self:start} #zeno-portfolio .zg-pg-fig svg{display:block;width:100%;max-height:172px;color:var(--zg-faint)} #zeno-portfolio .zg-pg-cap{min-height:18px;margin-bottom:8px;font:12px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent)} #zeno-portfolio .zg-pg-fig .zg-pg-hint{margin-top:8px} #zeno-portfolio .zg-pg-hint-fine{display:none} #zeno-portfolio .zg-pg-part{cursor:pointer;opacity:.5;transition:opacity .25s,color .25s} #zeno-portfolio .zg-pg-part.on{opacity:1;color:var(--zg-accent);filter:drop-shadow(0 0 7px rgba(255,77,94,.4))} #zeno-portfolio .zg-pg-hit{fill:transparent;stroke:none;pointer-events:all} #zeno-portfolio .zg-pg-svg-t{font:12px "JetBrains Mono",monospace;fill:currentColor;stroke:none} #zeno-portfolio .zg-pg-dot{fill:currentColor;stroke:none;opacity:.8;transform-box:fill-box;transform-origin:center} #zeno-portfolio .zg-pg-part.on .zg-pg-dot{animation:zg-pg-pulse 1.6s ease-in-out infinite} @keyframes zg-pg-pulse{50%{transform:scale(1.5);opacity:.45}} #zeno-portfolio .zg-pg-list{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)} #zeno-portfolio .zg-pg-item{padding:20px 22px;transition:border-color .25s,background .25s} #zeno-portfolio .zg-pg-item.on{border-color:var(--zg-accent);background:linear-gradient(90deg,rgba(255,77,94,.09),transparent 70%),var(--zg-panel)} @media(hover:hover){#zeno-portfolio .zg-pg-hint-fine{display:block}#zeno-portfolio .zg-pg-hint-touch{display:none}} @media(min-width:768px){ #zeno-portfolio .zg-pg-explore{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px} #zeno-portfolio .zg-pg-fig{top:90px;padding:20px;z-index:1} #zeno-portfolio .zg-pg-fig svg{max-height:none} #zeno-portfolio .zg-pg-cap{margin-bottom:12px} } #zeno-portfolio .zg-pg-stepper>.zg-pg-hint{margin-bottom:16px} #zeno-portfolio .zg-pg-nodes{position:relative;display:grid;grid-template-columns:repeat(var(--zg-n),minmax(0,1fr));margin-bottom:20px} #zeno-portfolio .zg-pg-track{position:absolute;top:21px;left:calc(100% / var(--zg-n) / 2);right:calc(100% / var(--zg-n) / 2);height:2px;background:var(--zg-line)} #zeno-portfolio .zg-pg-fill{display:block;height:100%;width:calc(var(--zg-s,0) * 100%);background:var(--zg-accent);transition:width .45s ease} #zeno-portfolio .zg-pg-node{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 3px;border:0;background:none;box-shadow:none;color:var(--zg-muted);font:600 13px/1.25 "Space Grotesk",sans-serif;transition:color .25s} #zeno-portfolio .zg-pg-num{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--zg-line);background:var(--zg-panel);font:500 12px "JetBrains Mono",monospace;transition:background .25s,border-color .25s,color .25s} #zeno-portfolio .zg-pg-node:hover .zg-pg-num{border-color:var(--zg-accent)} #zeno-portfolio .zg-pg-node.done .zg-pg-num{border-color:var(--zg-accent);color:var(--zg-accent)} #zeno-portfolio .zg-pg-node[aria-selected="true"]{color:var(--zg-text)} #zeno-portfolio .zg-pg-node[aria-selected="true"] .zg-pg-num{background:var(--zg-accent);border-color:var(--zg-accent);color:var(--zg-on-accent)} #zeno-portfolio .zg-pg-step{padding:22px;border:1px solid var(--zg-line);background:var(--zg-panel);margin-top:10px} #zeno-portfolio .zg-pg-step h3{margin:6px 0 8px} #zeno-portfolio .zg-pg-step p{font-size:15px} #zeno-portfolio.zg-js .zg-pg-step{display:none;margin-top:0;animation:zg-pg-in .3s ease} #zeno-portfolio.zg-js .zg-pg-step.on{display:block} @keyframes zg-pg-in{from{opacity:0;transform:translateY(8px)}} @media(max-width:480px){#zeno-portfolio .zg-pg-node{font-size:11px;padding:0 1px}} #zeno-portfolio .zg-pg-views{min-width:0} #zeno-portfolio .zg-pg-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px} #zeno-portfolio .zg-pg-tab{min-height:44px;padding:8px 14px;border:1px solid var(--zg-line);background:transparent;box-shadow:none;color:var(--zg-muted);font:12px "JetBrains Mono",monospace;transition:border-color .25s,color .25s,background .25s} #zeno-portfolio .zg-pg-tab:hover{border-color:var(--zg-accent);color:var(--zg-text)} #zeno-portfolio .zg-pg-tab[aria-selected="true"]{border-color:var(--zg-accent);background:var(--zg-accent);color:var(--zg-on-accent)} #zeno-portfolio.zg-js .zg-pg-view{display:none;animation:zg-pg-in .3s ease} #zeno-portfolio.zg-js .zg-pg-view.on{display:block} #zeno-portfolio .zg-sec p.zg-pg-view-note{margin-top:12px;font-size:13px} #zeno-portfolio .zg-pg-view-note a{display:inline-flex;align-items:center;min-height:32px;color:var(--zg-accent)} #zeno-portfolio .zg-pg-code{border:1px solid var(--zg-edge);background:var(--zg-ink-1)} #zeno-portfolio .zg-pg-code-top{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid rgba(255,170,180,.15)} #zeno-portfolio .zg-pg-code-top i{width:9px;height:9px;border-radius:50%;background:var(--zg-faint)} #zeno-portfolio .zg-pg-code-top i:first-child{background:var(--zg-hi)} #zeno-portfolio .zg-pg-code-top span{margin-left:8px;font:11px "JetBrains Mono",monospace;color:var(--zg-on-ink-2)} #zeno-portfolio .zg-pg-code pre{margin:0;padding:16px;border:0;background:none;font:12px/1.7 "JetBrains Mono",monospace;color:var(--zg-on-ink);white-space:pre-wrap;overflow-wrap:anywhere} #zeno-portfolio .zg-pg-cube-stage{display:grid;place-items:center;height:300px;overflow:hidden;perspective:800px;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab} #zeno-portfolio .zg-pg-cube-stage.dragging{cursor:grabbing} #zeno-portfolio .zg-pg-cube{position:relative;width:160px;height:160px;transform-style:preserve-3d;transform:rotateX(var(--zg-cx,-18deg)) rotateY(var(--zg-cy,30deg))} #zeno-portfolio .zg-pg-cube span{position:absolute;inset:0;display:grid;place-items:center;padding:10px;border:1px solid var(--zg-hi);background:rgba(11,16,29,.93);color:var(--zg-on-ink);font:500 13px/1.3 "JetBrains Mono",monospace;text-align:center} #zeno-portfolio .zg-pg-cube .f1{transform:translateZ(80px)} #zeno-portfolio .zg-pg-cube .f2{transform:rotateY(90deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f3{transform:rotateY(180deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f4{transform:rotateY(-90deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f5{transform:rotateX(90deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f6{transform:rotateX(-90deg) translateZ(80px)} @media(prefers-reduced-motion:reduce){ #zeno-portfolio .zg-pg-art svg>*{animation:none;stroke-dashoffset:0} #zeno-portfolio .zg-pg-part.on .zg-pg-dot,#zeno-portfolio.zg-js .zg-pg-step,#zeno-portfolio.zg-js .zg-pg-view{animation:none} #zeno-portfolio .zg-pg-fill,#zeno-portfolio [data-zg-tilt]{transition:none} }
 </style>
 <div id="zeno-portfolio" data-zg-theme="dark">
 <script>try{if(localStorage.getItem("zg-theme")==="light")document.getElementById("zeno-portfolio").setAttribute("data-zg-theme","light")}catch(e){}</script>
@@ -181,29 +191,37 @@
             <a class="z-btn z-btn-dark" href="#zg-pg-work">See the work</a>
         </div>
       </div>
-      <div class="zg-pg-term"><div class="zg-pg-term-top" aria-hidden="true"><i></i><i></i><i></i></div><p class="zg-pg-term-cmd">$ zeno --service technical-seo</p><dl><dt>schema</dt><dd>JSON-LD, Rich Results checks</dd><dt>ai search</dt><dd>llms.txt, AI crawlers</dd><dt>on-page</dt><dd>structure, internal links</dd><dt>tools</dt><dd>Search Console, GA4, GTM</dd><dt>hours</dt><dd>GMT+8, around US, UK and AU</dd></dl></div>
+      <div class="zg-pg-art zg-pg-grid" data-zg-tilt aria-hidden="true"><svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle pathLength="100" cx="88" cy="88" r="52"/><path pathLength="100" d="m126 126 44 44M62 96l18 18 34-38"/></svg><span class="zg-cs-chip c1">Schema</span><span class="zg-cs-chip c2">llms.txt</span><span class="zg-cs-chip c3">AI crawlers</span></div>
     </div>
   </section>
 
   <section class="zg-sec">
     <div class="z-wrap">
-      <div class="z-head">
+      <div class="z-head zg-rv">
         <span class="z-label">// what_i_do</span>
         <h2 class="z-title">What the work covers.</h2>
       </div>
-      <div class="zg-grid c3">
-        <article class="zg-card"><h3>Schema markup</h3><p>JSON-LD schema, validated in Google's Rich Results Test.</p></article>
-        <article class="zg-card"><h3>llms.txt setup</h3><p>An llms.txt file that points AI tools straight to the key pages and services.</p></article>
-        <article class="zg-card"><h3>AI crawler readiness</h3><p>AI-readable content organization, so existing site information is more clearly structured for automated discovery.</p></article>
-        <article class="zg-card"><h3>Internal linking and on-page SEO</h3><p>On-page SEO and internal links between related pages, so visitors and search engines move through the site more easily.</p></article>
-        <article class="zg-card"><h3>Core Web Vitals</h3><p>Core Web Vitals and page speed checks as part of the technical review.</p></article>
-        <article class="zg-card"><h3>Search Console and analytics</h3><p>Basic GA4, GTM, Search Console, and Google Business Profile setups.</p></article>
+      <div class="zg-pg-explore" data-zg-explore>
+        <figure class="zg-pg-fig zg-pg-grid" aria-hidden="true">
+          <figcaption class="zg-pg-cap">// <span>Schema markup</span></figcaption>
+          <svg viewBox="0 0 480 340" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><g class="zg-pg-part" data-part="console"><rect class="zg-pg-hit" x="24" y="16" width="134" height="100"/><path d="M40 110V30M40 110h110M66 110V84M92 110V62M118 110V42"/><circle class="zg-pg-dot" cx="146" cy="96" r="5"/></g><g class="zg-pg-part" data-part="llms"><rect class="zg-pg-hit" x="186" y="14" width="84" height="116"/><path d="M190 20h52l22 22v52h-74zM242 20v22h22M215 94v36"/><text class="zg-pg-svg-t" x="227" y="70" text-anchor="middle">llms.txt</text><circle class="zg-pg-dot" cx="190" cy="94" r="5"/></g><g class="zg-pg-part" data-part="crawl"><rect class="zg-pg-hit" x="270" y="2" width="170" height="94"/><rect x="330" y="30" width="84" height="60" rx="10"/><circle cx="354" cy="58" r="6"/><circle cx="390" cy="58" r="6"/><path d="M372 30V16M360 76h24"/><circle cx="372" cy="11" r="4"/><path d="M330 60h-62" stroke-dasharray="4 6"/><circle class="zg-pg-dot" cx="298" cy="60" r="5"/></g><g class="zg-pg-part" data-part="schema"><rect class="zg-pg-hit" x="20" y="126" width="150" height="66"/><rect x="24" y="130" width="112" height="58" rx="7"/><text class="zg-pg-svg-t" x="80" y="164" text-anchor="middle">{ JSON-LD }</text><path d="M136 159h34" stroke-dasharray="4 6"/><circle class="zg-pg-dot" cx="24" cy="130" r="5"/></g><g class="zg-pg-part" data-part="links"><rect class="zg-pg-hit" x="36" y="128" width="360" height="184"/><rect x="170" y="130" width="90" height="58" rx="7"/><text class="zg-pg-svg-t" x="215" y="164" text-anchor="middle">home</text><rect x="40" y="250" width="90" height="58" rx="7"/><rect x="170" y="250" width="90" height="58" rx="7"/><rect x="300" y="250" width="90" height="58" rx="7"/><path d="M215 188v62M85 250v-30h260v30M58 272h54M58 288h34M188 272h54M188 288h34M318 272h54M318 288h34"/><circle class="zg-pg-dot" cx="345" cy="220" r="5"/></g><g class="zg-pg-part" data-part="vitals"><rect class="zg-pg-hit" x="290" y="136" width="170" height="72"/><path d="M300 190a40 40 0 0 1 80 0m-40 0 20-24M398 190h56M398 172h36"/><circle class="zg-pg-dot" cx="398" cy="152" r="5"/></g></svg>
+          <p class="zg-pg-hint zg-pg-hint-fine">Hover a card or click the drawing.</p>
+          <p class="zg-pg-hint zg-pg-hint-touch">Scroll the cards or tap the drawing.</p>
+        </figure>
+        <div class="zg-pg-list">
+          <article class="zg-card zg-pg-item" data-part="schema"><h3>Schema markup</h3><p>JSON-LD schema, validated in Google's Rich Results Test.</p></article>
+          <article class="zg-card zg-pg-item" data-part="llms"><h3>llms.txt setup</h3><p>An llms.txt file that points AI tools straight to the key pages and services.</p></article>
+          <article class="zg-card zg-pg-item" data-part="crawl"><h3>AI crawler readiness</h3><p>AI-readable content organization, so existing site information is more clearly structured for automated discovery.</p></article>
+          <article class="zg-card zg-pg-item" data-part="links"><h3>Internal linking and on-page SEO</h3><p>On-page SEO and internal links between related pages, so visitors and search engines move through the site more easily.</p></article>
+          <article class="zg-card zg-pg-item" data-part="vitals"><h3>Core Web Vitals</h3><p>Core Web Vitals and page speed checks as part of the technical review.</p></article>
+          <article class="zg-card zg-pg-item" data-part="console"><h3>Search Console and analytics</h3><p>Basic GA4, GTM, Search Console, and Google Business Profile setups.</p></article>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="zg-sec zg-alt">
-    <div class="z-wrap zg-pg-note">
+    <div class="z-wrap zg-pg-note zg-rv">
       <h2>What llms.txt can and can't do.</h2>
       <p>llms.txt is a proposed format, not an official standard, and no AI tool is guaranteed to read it. I set it up as a low-cost extra on top of the basics that come first: crawlable pages, clear structure and valid schema. I don't promise rankings or AI mentions.</p>
     </div>
@@ -211,14 +229,14 @@
 
   <section class="zg-sec zg-alt" id="zg-pg-work">
     <div class="z-wrap">
-      <div class="z-head">
+      <div class="z-head zg-rv">
         <span class="z-label">// selected_work</span>
         <h2 class="z-title">Technical SEO projects.</h2>
         <p class="z-copy">A few websites and projects I've worked on.</p>
       </div>
       <div class="zg-pg-work">
-        <article class="zg-pg-proj">
-          <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/thewalkergroup.webp" alt="The Walker Group website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
+        <article class="zg-pg-proj zg-rv">
+          <div data-zg-tilt><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/thewalkergroup.webp" alt="The Walker Group website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
           <div>
             <span class="zg-kicker">Technical SEO</span>
             <h3>The Walker Group</h3>
@@ -226,8 +244,8 @@
             <div class="zg-plinks"><a class="zg-plink" href="https://zana-g.com/walker-group-case-study/" data-zg-event="case_page_open" data-zg-label="walker">Full case study →</a><a class="zg-plink" href="https://thewalkergroup.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="thewalkergroup.com">Visit site ↗</a></div>
           </div>
         </article>
-        <article class="zg-pg-proj">
-          <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
+        <article class="zg-pg-proj zg-rv">
+          <div data-zg-tilt><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
           <div>
             <span class="zg-kicker">WordPress / Technical SEO</span>
             <h3>Graceful Connections Home Care</h3>
@@ -235,8 +253,8 @@
             <div class="zg-plinks"><a class="zg-plink" href="https://zana-g.com/graceful-connections-case-study/" data-zg-event="case_page_open" data-zg-label="graceful">Full case study →</a><a class="zg-plink" href="https://gracefulconnectionshomecare.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="gracefulconnectionshomecare.com">Visit site ↗</a></div>
           </div>
         </article>
-        <article class="zg-pg-proj">
-          <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/mpplegal.webp" alt="MPP Legal website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
+        <article class="zg-pg-proj zg-rv">
+          <div data-zg-tilt><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/mpplegal.webp" alt="MPP Legal website, desktop view" loading="lazy" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div>
           <div>
             <span class="zg-kicker">WordPress / Elementor</span>
             <h3>MPP Legal</h3>
@@ -250,24 +268,22 @@
 
   <section class="zg-sec">
     <div class="z-wrap">
-      <div class="z-head">
+      <div class="z-head zg-rv">
         <span class="z-label">// process.run()</span>
         <h2 class="z-title">How a project runs.</h2>
         <p class="z-copy">Five steps, the same every time, so you always know what happens next.</p>
       </div>
-      <ol class="zg-pg-steps">
-        <li class="zg-card"><span class="zg-kicker">01</span><h3>Discover</h3><p>A short call or brief to understand your goals, users, platform and deadline.</p></li>
-        <li class="zg-card"><span class="zg-kicker">02</span><h3>Plan</h3><p>Scope, task list, time-box and a clear definition of done, agreed before I start.</p></li>
-        <li class="zg-card"><span class="zg-kicker">03</span><h3>Build</h3><p>Built on staging or a duplicate page first, with Git backups at every milestone.</p></li>
-        <li class="zg-card"><span class="zg-kicker">04</span><h3>QA</h3><p>Mobile, speed, links, forms and tracking checked before anything goes live.</p></li>
-        <li class="zg-card"><span class="zg-kicker">05</span><h3>Launch &amp; support</h3><p>Go-live, handoff notes, and optional monthly care so the site stays healthy.</p></li>
-      </ol>
+      <div class="zg-pg-stepper zg-rv" data-zg-tabs style="--zg-n:5">
+        <p class="zg-pg-hint">// Pick a step.</p>
+        <div class="zg-pg-nodes" role="tablist" aria-label="How a project runs"><i class="zg-pg-track" aria-hidden="true"><i class="zg-pg-fill"></i></i><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s0-tab" aria-controls="zg-pg-s0" aria-selected="true" data-zg-event="process_step" data-zg-label="Discover"><span class="zg-pg-num">01</span><span class="zg-pg-node-t">Discover</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s1-tab" aria-controls="zg-pg-s1" aria-selected="false" data-zg-event="process_step" data-zg-label="Plan"><span class="zg-pg-num">02</span><span class="zg-pg-node-t">Plan</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s2-tab" aria-controls="zg-pg-s2" aria-selected="false" data-zg-event="process_step" data-zg-label="Build"><span class="zg-pg-num">03</span><span class="zg-pg-node-t">Build</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s3-tab" aria-controls="zg-pg-s3" aria-selected="false" data-zg-event="process_step" data-zg-label="QA"><span class="zg-pg-num">04</span><span class="zg-pg-node-t">QA</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s4-tab" aria-controls="zg-pg-s4" aria-selected="false" data-zg-event="process_step" data-zg-label="Launch &amp; support"><span class="zg-pg-num">05</span><span class="zg-pg-node-t">Launch &amp; support</span></button></div>
+        <div class="zg-pg-step" role="tabpanel" id="zg-pg-s0" aria-labelledby="zg-pg-s0-tab"><span class="zg-kicker">STEP 01 OF 05</span><h3>Discover</h3><p>A short call or brief to understand your goals, users, platform and deadline.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s1" aria-labelledby="zg-pg-s1-tab"><span class="zg-kicker">STEP 02 OF 05</span><h3>Plan</h3><p>Scope, task list, time-box and a clear definition of done, agreed before I start.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s2" aria-labelledby="zg-pg-s2-tab"><span class="zg-kicker">STEP 03 OF 05</span><h3>Build</h3><p>Built on staging or a duplicate page first, with Git backups at every milestone.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s3" aria-labelledby="zg-pg-s3-tab"><span class="zg-kicker">STEP 04 OF 05</span><h3>QA</h3><p>Mobile, speed, links, forms and tracking checked before anything goes live.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s4" aria-labelledby="zg-pg-s4-tab"><span class="zg-kicker">STEP 05 OF 05</span><h3>Launch &amp; support</h3><p>Go-live, handoff notes, and optional monthly care so the site stays healthy.</p></div>
+      </div>
     </div>
   </section>
 
   <section class="zg-sec zg-alt">
     <div class="z-wrap zg-faq-layout">
-      <div class="z-head">
+      <div class="z-head zg-rv">
         <span class="z-label">// faq.md</span>
         <h2 class="z-title">Questions, answered.</h2>
       </div>
@@ -282,14 +298,14 @@
 
   <section class="zg-sec">
     <div class="z-wrap">
-      <div class="z-head">
+      <div class="z-head zg-rv">
         <span class="z-label">// related</span>
         <h2 class="z-title">Keep reading.</h2>
       </div>
       <div class="zg-grid c3">
-        <a class="zg-card zg-pg-link" href="https://zana-g.com/walker-group-case-study/"><span class="zg-kicker">CASE STUDY</span><strong>The Walker Group</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
-        <a class="zg-card zg-pg-link" href="https://zana-g.com/graceful-connections-case-study/"><span class="zg-kicker">CASE STUDY</span><strong>Graceful Connections</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
-        <a class="zg-card zg-pg-link" href="https://zana-g.com/wordpress-elementor-developer/"><span class="zg-kicker">SERVICE</span><strong>WordPress &amp; Elementor</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
+        <a class="zg-card zg-pg-link zg-rv" href="https://zana-g.com/walker-group-case-study/"><span class="zg-kicker">CASE STUDY</span><strong>The Walker Group</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
+        <a class="zg-card zg-pg-link zg-rv" href="https://zana-g.com/graceful-connections-case-study/"><span class="zg-kicker">CASE STUDY</span><strong>Graceful Connections</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
+        <a class="zg-card zg-pg-link zg-rv" href="https://zana-g.com/wordpress-elementor-developer/"><span class="zg-kicker">SERVICE</span><strong>WordPress &amp; Elementor</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -350,6 +366,13 @@
   var root = document.getElementById("zeno-portfolio");
   if (!root || root.dataset.zgReady === "true") return;
   root.dataset.zgReady = "true";
+  root.classList.add("zg-js");
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var all = function (selector, within) {
+    return Array.prototype.slice.call((within || root).querySelectorAll(selector));
+  };
 
   var header = root.querySelector(".z-header");
   var menu = root.querySelector(".z-menu");
@@ -360,6 +383,7 @@
 
   if (year) year.textContent = new Date().getFullYear();
 
+  /* ---------- tracking ---------- */
   function zgTrack(name, label, url) {
     window.dataLayer = window.dataLayer || [];
     var data = { event: "zg_event", zg_event: name, zg_label: label || "" };
@@ -371,6 +395,7 @@
     if (el) zgTrack(el.dataset.zgEvent, el.dataset.zgLabel, el.href);
   });
 
+  /* ---------- mobile menu ---------- */
   function zgMenu(open) {
     links.classList.toggle("open", open);
     menu.setAttribute("aria-expanded", String(open));
@@ -387,6 +412,7 @@
     if (e.key === "Escape") zgMenu(false);
   });
 
+  /* ---------- theme ---------- */
   function zgTheme(theme) {
     root.setAttribute("data-zg-theme", theme);
     themeBtn.setAttribute("aria-pressed", String(theme === "light"));
@@ -400,6 +426,7 @@
     zgTrack("theme_toggle", next);
   });
 
+  /* ---------- header + progress bar ---------- */
   var ticking = false;
   function zgScroll() {
     ticking = false;
@@ -412,5 +439,167 @@
     if (!ticking) { ticking = true; window.requestAnimationFrame(zgScroll); }
   }, { passive: true });
   zgScroll();
+
+  /* ---------- reveal on scroll ---------- */
+  var reveal = all(".zg-rv");
+  if ("IntersectionObserver" in window && !reduce) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("zg-in");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+    reveal.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    reveal.forEach(function (el) { el.classList.add("zg-in"); });
+  }
+
+  /* ---------- 360° demo cube ---------- */
+  all("[data-zg-cube]").forEach(function (stage) {
+    var cube = stage.querySelector(".zg-pg-cube");
+    var rx = -18;
+    var ry = 30;
+    var drag = null;
+    var touched = false;
+    var frame = 0;
+    function draw() {
+      cube.style.setProperty("--zg-cx", rx + "deg");
+      cube.style.setProperty("--zg-cy", ry + "deg");
+    }
+    function spin() {
+      if (touched || !stage.offsetParent) { frame = 0; return; }
+      ry += 0.35;
+      draw();
+      frame = window.requestAnimationFrame(spin);
+    }
+    stage.zgStart = function () {
+      if (!frame && !touched && !reduce) frame = window.requestAnimationFrame(spin);
+    };
+    stage.addEventListener("pointerdown", function (e) {
+      touched = true;
+      drag = { x: e.clientX, y: e.clientY, rx: rx, ry: ry };
+      stage.setPointerCapture(e.pointerId);
+      stage.classList.add("dragging");
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      ry = drag.ry + (e.clientX - drag.x) * 0.6;
+      rx = Math.max(-70, Math.min(70, drag.rx - (e.clientY - drag.y) * 0.4));
+      draw();
+    });
+    function stop() {
+      drag = null;
+      stage.classList.remove("dragging");
+    }
+    stage.addEventListener("pointerup", stop);
+    stage.addEventListener("pointercancel", stop);
+    cube.addEventListener("keydown", function (e) {
+      var step = { ArrowLeft: [0, -15], ArrowRight: [0, 15], ArrowUp: [15, 0], ArrowDown: [-15, 0] }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      touched = true;
+      rx = Math.max(-70, Math.min(70, rx + step[0]));
+      ry += step[1];
+      draw();
+    });
+    draw();
+  });
+
+  /* ---------- tabs: the case study views and the numbered steps ---------- */
+  all("[data-zg-tabs]").forEach(function (box) {
+    var tabs = all('[role="tab"]', box);
+    var panels = all('[role="tabpanel"]', box);
+    function show(index, focus) {
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.setAttribute("aria-selected", String(on));
+        tab.tabIndex = on ? 0 : -1;
+        tab.classList.toggle("done", i < index);
+        panels[i].classList.toggle("on", on);
+      });
+      box.style.setProperty("--zg-s", String(tabs.length > 1 ? index / (tabs.length - 1) : 0));
+      if (focus) tabs[index].focus();
+      var cube = panels[index].querySelector("[data-zg-cube]");
+      if (cube) cube.zgStart();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { show(i); });
+      tab.addEventListener("keydown", function (e) {
+        var last = tabs.length - 1;
+        var to = -1;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") to = i === last ? 0 : i + 1;
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") to = i === 0 ? last : i - 1;
+        if (e.key === "Home") to = 0;
+        if (e.key === "End") to = last;
+        if (to < 0) return;
+        e.preventDefault();
+        show(to, true);
+      });
+    });
+    show(0);
+  });
+
+  /* ---------- service cards light up their part of the drawing ---------- */
+  all("[data-zg-explore]").forEach(function (box) {
+    var cards = all(".zg-pg-item", box);
+    var parts = all(".zg-pg-part", box);
+    var caption = box.querySelector(".zg-pg-cap span");
+    var hovering = false;
+    var lockedUntil = 0;
+    function light(name) {
+      parts.forEach(function (part) {
+        part.classList.toggle("on", part.dataset.part === name || part.dataset.with === name);
+      });
+      cards.forEach(function (card) {
+        var on = card.dataset.part === name;
+        card.classList.toggle("on", on);
+        if (on) caption.textContent = card.querySelector("h3").textContent;
+      });
+    }
+    cards.forEach(function (card) {
+      card.addEventListener("mouseenter", function () { if (finePointer) light(card.dataset.part); });
+      card.addEventListener("click", function () {
+        lockedUntil = Date.now() + 700;
+        light(card.dataset.part);
+      });
+    });
+    parts.forEach(function (part) {
+      part.addEventListener("click", function () {
+        var name = part.dataset.part;
+        var card = box.querySelector('.zg-pg-item[data-part="' + name + '"]');
+        lockedUntil = Date.now() + 900;
+        light(name);
+        card.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      });
+    });
+    box.addEventListener("mouseenter", function () { hovering = finePointer; });
+    box.addEventListener("mouseleave", function () { hovering = false; });
+    if ("IntersectionObserver" in window) {
+      var cardObserver = new IntersectionObserver(function (entries) {
+        if (hovering || Date.now() < lockedUntil) return;
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) light(entry.target.dataset.part);
+        });
+      }, { rootMargin: "-55% 0px -35% 0px" });
+      cards.forEach(function (card) { cardObserver.observe(card); });
+    }
+    light(cards[0].dataset.part);
+  });
+
+  /* ---------- graphics that lean toward the mouse ---------- */
+  if (finePointer && !reduce) {
+    all("[data-zg-tilt]").forEach(function (el) {
+      el.addEventListener("pointermove", function (e) {
+        var rect = el.getBoundingClientRect();
+        el.style.setProperty("--zg-ry", ((e.clientX - rect.left) / rect.width - 0.5) * 10 + "deg");
+        el.style.setProperty("--zg-rx", (0.5 - (e.clientY - rect.top) / rect.height) * 8 + "deg");
+      });
+      el.addEventListener("pointerleave", function () {
+        el.style.removeProperty("--zg-rx");
+        el.style.removeProperty("--zg-ry");
+      });
+    });
+  }
 })();
 </script>

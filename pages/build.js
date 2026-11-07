@@ -20,7 +20,7 @@ const DIST = path.join(HERE, "dist");
 const WIDGET = path.join(HERE, "..", "zeno-portfolio-elementor.html");
 
 /* Classes added by the page script, so they never appear in the markup. */
-const RUNTIME_CLASSES = ["open", "zg-scrolled", "z-missing"];
+const RUNTIME_CLASSES = ["open", "zg-scrolled", "z-missing", "zg-js", "zg-in"];
 
 /* ---------- CSS parsing ---------- */
 
@@ -231,6 +231,15 @@ function checkPage(page, main, errors) {
   }
 }
 
+/* Every service card must light up a part of its drawing, and every part needs a card. */
+function checkParts(page, main, errors) {
+  if (page.type !== "service") return;
+  const inCards = new Set(page.cards.map((card) => card.part));
+  const inArt = new Set([...main.matchAll(/class="zg-pg-part" data-part="([^"]+)"/g)].map((m) => m[1]));
+  for (const name of inCards) if (!inArt.has(name)) errors.push(`${page.slug}: card part "${name}" has no matching drawing part`);
+  for (const name of inArt) if (!inCards.has(name)) errors.push(`${page.slug}: drawing part "${name}" has no matching card`);
+}
+
 function checkLinks(page, html, widgetHtml, errors) {
   const slugs = new Set(pages.map((p) => p.slug));
   for (const m of html.matchAll(/href="([^"]+)"/g)) {
@@ -279,6 +288,7 @@ function build() {
     const html = renderPage(page, { css, runtime, schema: renderSchema(page) });
 
     checkPage(page, main, errors);
+    checkParts(page, main, errors);
     checkLinks(page, html, widgetHtml, errors);
 
     fs.writeFileSync(path.join(DIST, `${page.slug}.html`), html);
@@ -295,9 +305,9 @@ function build() {
   });
 
   const notes = ["# New copy for Zeno to review", "", "Everything else on these pages is reused word for word from the home page.", ""];
-  for (const page of pages) {
-    notes.push(`## ${page.slug}`, "");
-    notes.push(...(newCopy[page.slug] || []).map((line) => `- ${line}`), "");
+  for (const key of Object.keys(newCopy)) {
+    notes.push(`## ${key}`, "");
+    notes.push(...newCopy[key].map((line) => `- ${line}`), "");
   }
   fs.writeFileSync(path.join(DIST, "new-copy.md"), notes.join("\n"));
 

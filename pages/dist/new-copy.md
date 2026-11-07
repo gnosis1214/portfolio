@@ -2,6 +2,13 @@
 
 Everything else on these pages is reused word for word from the home page.
 
+## every page
+
+- Hover a card or click the drawing.
+- Scroll the cards or tap the drawing.
+- Pick a step.
+- Switch view.
+
 ## wordpress-elementor-developer
 
 - Freelance WordPress and Elementor developer
@@ -63,11 +70,27 @@ Everything else on these pages is reused word for word from the home page.
 ## pagulayan-cues-case-study
 
 - Pagulayan Cues (Tallmade): a Shopify landing page with a 360° product viewer
+- Drag to spin, or use the arrow keys. A small demo of the idea, made for this page. The real product viewer is on the live site.
+- The product presented as a 3D model, so it can be seen from every side.
+- An interactive viewer where visitors rotate and explore the product in 360°.
+- Scroll-triggered animations and parallax that move the story along as visitors scroll.
+- All of it built into a Shopify landing page with responsive layouts.
 
 ## graceful-connections-case-study
 
 - Graceful Connections Home Care: a WordPress build with schema and llms.txt
+- Simplified from the schema on the live home page.
+- Shortened from the live file.
+- A full WordPress site built in Elementor, kept structured and accessible.
+- Schema markup, so search engines can understand the business.
+- The schema checked in Google's Rich Results Test.
+- An llms.txt file so AI search tools can read the site clearly.
 
 ## walker-group-case-study
 
 - The Walker Group: llms.txt and AI crawler optimization
+- Shortened from the live file.
+- A review of the firm's existing website content.
+- AI-readable content organization, with the information more clearly structured.
+- An llms.txt file that points AI tools straight to the key pages and services.
+- Technical SEO and AI crawler optimization for automated discovery.

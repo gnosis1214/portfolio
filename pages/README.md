@@ -6,8 +6,9 @@ Service pages and case studies, each built as one Elementor HTML widget on the E
 |---|---|
 | `content.js` | All page copy, SEO titles and descriptions |
 | `template.js` | Shared page markup |
-| `pages.css` | Layout rules only these pages use |
-| `runtime.js` | Menu, theme toggle, scroll state and dataLayer events |
+| `graphics.js` | Line drawings: the hero art and the drawings that light up with the service cards |
+| `pages.css` | Layout and graphics rules only these pages use |
+| `runtime.js` | Menu, theme toggle, tabs, card highlights, the demo cube and dataLayer events |
 | `build.js` | Takes the CSS these pages need from `../zeno-portfolio-elementor.html` and writes `dist/` |
 | `deploy.js` | Creates or updates the pages through the REST API |
 

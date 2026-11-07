@@ -142,6 +142,15 @@ const FAQ = {
   },
 };
 
+/* Small prompts shown next to the graphics. */
+currentSlug = "every page";
+const HINTS = {
+  fig: N("Hover a card or click the drawing."),
+  figTouch: N("Scroll the cards or tap the drawing."),
+  steps: N("Pick a step."),
+  views: N("Switch view."),
+};
+
 const pages = [];
 function add(page) {
   pages.push(page);
@@ -166,28 +175,20 @@ add({
     N("I build and fix WordPress sites in Elementor and Gutenberg for agencies, startups and small businesses, working remotely from Mindanao, Philippines."),
     "I work on staging or a duplicate page first, back up with Git, and confirm with you before anything changes on the live site.",
   ],
-  term: {
-    command: "$ zeno --service wordpress",
-    rows: [
-      ["builders", "Elementor, Gutenberg"],
-      ["store", "WooCommerce"],
-      ["hosting", "cPanel, DNS, domains, migrations"],
-      ["hours", "GMT+8, around US, UK and AU"],
-      ["safety", "staging first, Git backups"],
-    ],
-  },
+  art: "wordpress",
+  chips: ["Elementor", "Gutenberg", "WooCommerce"],
   cardsTitle: N("What I can do on your WordPress site."),
   cards: [
-    { title: N("Full site builds"), copy: "Up to 8 responsive pages in Elementor or Gutenberg, with on-page SEO, schema basics and llms.txt, built on staging and launched with a QA checklist." },
-    { title: N("Custom pages and layouts"), copy: N("Elementor pages, responsive layouts, navigation, forms and call-to-action buttons, styled to stay consistent with the rest of the site.") },
-    { title: N("Plugins and integrations"), copy: N("Google Reviews, Tutor LMS and Calendly calls to action, set up and troubleshot on real client sites.") },
-    { title: N("Fixes and mobile navigation"), copy: N("Broken links, mobile navigation and general website updates, reviewed in staging before changes go live.") },
+    { part: "build", title: N("Full site builds"), copy: "Up to 8 responsive pages in Elementor or Gutenberg, with on-page SEO, schema basics and llms.txt, built on staging and launched with a QA checklist." },
+    { part: "layout", title: N("Custom pages and layouts"), copy: N("Elementor pages, responsive layouts, navigation, forms and call-to-action buttons, styled to stay consistent with the rest of the site.") },
+    { part: "plugins", title: N("Plugins and integrations"), copy: N("Google Reviews, Tutor LMS and Calendly calls to action, set up and troubleshot on real client sites.") },
+    { part: "fixes", title: N("Fixes and mobile navigation"), copy: N("Broken links, mobile navigation and general website updates, reviewed in staging before changes go live.") },
     {
-      title: N("Technical SEO and tracking"),
+      part: "seo", title: N("Technical SEO and tracking"),
       copy: N("Schema markup, Rich Results validation, internal linking, and GA4 + GTM setup with key events."),
       link: { slug: "technical-seo-llms-txt", text: N("Technical SEO service") },
     },
-    { title: N("White-label work for agencies"), copy: "I can work under your agency's brand, follow your process and tools, and stay behind the scenes." },
+    { part: "agency", title: N("White-label work for agencies"), copy: "I can work under your agency's brand, follow your process and tools, and stay behind the scenes." },
   ],
   workTitle: N("WordPress projects."),
   projects: [PROJECTS.graceful, PROJECTS.mpp, PROJECTS.appliance, PROJECTS.simple],
@@ -214,28 +215,20 @@ add({
     N("I build and customize Shopify stores for agencies, startups and small businesses: themes, custom Liquid sections, product templates and app setup, working remotely from Mindanao, Philippines."),
     "Every project gets a written scope and quote after a short call.",
   ],
-  term: {
-    command: "$ zeno --service shopify",
-    rows: [
-      ["themes", "Dawn or premium themes"],
-      ["code", "Liquid, JavaScript, CSS animation"],
-      ["catalog", "products, collections, bundles"],
-      ["fulfilment", "Printful"],
-      ["hours", "GMT+8, around US, UK and AU"],
-    ],
-  },
+  art: "shopify",
+  chips: ["Liquid", "Bundles", "Printful"],
   cardsTitle: N("What I can do on your Shopify store."),
   cards: [
-    { title: N("Theme setup and customization"), copy: N("Dawn or premium themes, customized to match the brand, with layouts and sections refined so the store presents clearly.") },
-    { title: N("Custom Liquid sections"), copy: N("Custom Liquid sections and product templates, built into your theme.") },
-    { title: N("Products, collections and bundles"), copy: N("Product listings, collections and bundles, plus app setup.") },
-    { title: N("Print-on-demand with Printful"), copy: N("Printful integration, so print-on-demand products are fulfilled through the store.") },
+    { part: "theme", title: N("Theme setup and customization"), copy: N("Dawn or premium themes, customized to match the brand, with layouts and sections refined so the store presents clearly.") },
+    { part: "liquid", title: N("Custom Liquid sections"), copy: N("Custom Liquid sections and product templates, built into your theme.") },
+    { part: "catalog", title: N("Products, collections and bundles"), copy: N("Product listings, collections and bundles, plus app setup.") },
+    { part: "printful", title: N("Print-on-demand with Printful"), copy: N("Printful integration, so print-on-demand products are fulfilled through the store.") },
     {
-      title: N("Interactive product pages"),
+      part: "interactive", title: N("Interactive product pages"),
       copy: N("Interactive 360° product viewers, scroll-triggered animations and parallax on landing pages."),
       link: { slug: "pagulayan-cues-case-study", text: N("See the case study") },
     },
-    { title: N("Speed, SEO and tracking basics"), copy: N("Speed, SEO and tracking basics, checked before anything goes live.") },
+    { part: "speed", title: N("Speed, SEO and tracking basics"), copy: N("Speed, SEO and tracking basics, checked before anything goes live.") },
   ],
   workTitle: N("Shopify projects."),
   projects: [PROJECTS.pagulayan, PROJECTS.mlb, PROJECTS.lov],
@@ -262,24 +255,16 @@ add({
     "Structuring site content so AI search tools and crawlers can read it clearly: llms.txt, schema and a clean content hierarchy.",
     N("Used on The Walker Group and Graceful Connections Home Care, with on-page SEO and internal linking for MPP Legal."),
   ],
-  term: {
-    command: "$ zeno --service technical-seo",
-    rows: [
-      ["schema", "JSON-LD, Rich Results checks"],
-      ["ai search", "llms.txt, AI crawlers"],
-      ["on-page", "structure, internal links"],
-      ["tools", "Search Console, GA4, GTM"],
-      ["hours", "GMT+8, around US, UK and AU"],
-    ],
-  },
+  art: "seo",
+  chips: ["Schema", "llms.txt", "AI crawlers"],
   cardsTitle: N("What the work covers."),
   cards: [
-    { title: N("Schema markup"), copy: N("JSON-LD schema, validated in Google's Rich Results Test.") },
-    { title: N("llms.txt setup"), copy: N("An llms.txt file that points AI tools straight to the key pages and services.") },
-    { title: N("AI crawler readiness"), copy: N("AI-readable content organization, so existing site information is more clearly structured for automated discovery.") },
-    { title: N("Internal linking and on-page SEO"), copy: N("On-page SEO and internal links between related pages, so visitors and search engines move through the site more easily.") },
-    { title: N("Core Web Vitals"), copy: N("Core Web Vitals and page speed checks as part of the technical review.") },
-    { title: N("Search Console and analytics"), copy: "Basic GA4, GTM, Search Console, and Google Business Profile setups." },
+    { part: "schema", title: N("Schema markup"), copy: N("JSON-LD schema, validated in Google's Rich Results Test.") },
+    { part: "llms", title: N("llms.txt setup"), copy: N("An llms.txt file that points AI tools straight to the key pages and services.") },
+    { part: "crawl", title: N("AI crawler readiness"), copy: N("AI-readable content organization, so existing site information is more clearly structured for automated discovery.") },
+    { part: "links", title: N("Internal linking and on-page SEO"), copy: N("On-page SEO and internal links between related pages, so visitors and search engines move through the site more easily.") },
+    { part: "vitals", title: N("Core Web Vitals"), copy: N("Core Web Vitals and page speed checks as part of the technical review.") },
+    { part: "console", title: N("Search Console and analytics"), copy: "Basic GA4, GTM, Search Console, and Google Business Profile setups." },
   ],
   note: {
     title: N("What llms.txt can and can't do."),
@@ -307,12 +292,26 @@ add({
   h1: N("Pagulayan Cues (Tallmade): a Shopify landing page with a 360° product viewer"),
   lead: ["A Shopify landing page where visitors rotate the product in 360°, with parallax and scroll animations."],
   project: PROJECTS.pagulayan,
+  views: [
+    { label: "Website", type: "laptop" },
+    {
+      label: "360° demo",
+      type: "cube",
+      faces: ["Shopify", "Liquid", "JavaScript", "CSS animation", "360° viewer", "Parallax"],
+      note: N("Drag to spin, or use the arrow keys. A small demo of the idea, made for this page. The real product viewer is on the live site."),
+    },
+  ],
   caseStudy: {
     challenge: "Present a premium product online in a way that feels close to seeing it in person, without slowing the store down.",
     did: "Built an advanced Tallmade product showcase with scroll-triggered animations, responsive layouts, and an interactive 360° product viewer. The project combined front-end presentation and motion to create a more engaging way to explore the product.",
     stack: ["Shopify", "Liquid", "JavaScript", "CSS animation", "3D / 360° viewer", "Parallax"],
     result: "Launched a product page where visitors can rotate and explore Tallmade in 360°, backed by responsive layouts and scroll animations.",
-    pipeline: ["3D model", "360° viewer", "Scroll FX", "Shopify"],
+    pipeline: [
+      { step: "3D model", copy: N("The product presented as a 3D model, so it can be seen from every side.") },
+      { step: "360° viewer", copy: N("An interactive viewer where visitors rotate and explore the product in 360°.") },
+      { step: "Scroll FX", copy: N("Scroll-triggered animations and parallax that move the story along as visitors scroll.") },
+      { step: "Shopify", copy: N("All of it built into a Shopify landing page with responsive layouts.") },
+    ],
   },
   related: ["shopify-developer", "graceful-connections-case-study", "walker-group-case-study"],
 });
@@ -333,12 +332,49 @@ add({
   h1: N("Graceful Connections Home Care: a WordPress build with schema and llms.txt"),
   lead: ["A full WordPress / Elementor build with schema markup, Rich Results validation and an llms.txt file."],
   project: PROJECTS.graceful,
+  views: [
+    { label: "Website", type: "laptop" },
+    {
+      label: "Schema",
+      type: "code",
+      file: "JSON-LD",
+      code: `{
+  "@context": "https://schema.org",
+  "@type": ["LocalBusiness", "Organization"],
+  "name": "Graceful Connections Home Care",
+  "url": "https://gracefulconnectionshomecare.com/"
+}`,
+      note: N("Simplified from the schema on the live home page."),
+    },
+    {
+      label: "llms.txt",
+      type: "code",
+      file: "llms.txt",
+      code: `# Graceful Connections Home Care
+
+## Website
+- Home: https://gracefulconnectionshomecare.com/
+- About: https://gracefulconnectionshomecare.com/about-us/
+- Services: https://gracefulconnectionshomecare.com/services/
+
+## Services
+## Organization details
+## Notes for AI systems`,
+      note: N("Shortened from the live file."),
+      link: { href: "https://gracefulconnectionshomecare.com/llms.txt", text: "View the live file ↗" },
+    },
+  ],
   caseStudy: {
     challenge: "A home care provider needed a clear, trustworthy website that families and search engines can understand quickly.",
     did: "A full WordPress / Elementor build. Worked on technical SEO improvements, including schema markup and Rich Results validation. Also updated llms.txt and refined Elementor content to help keep the site structured, accessible, and easier for search tools to interpret.",
     stack: ["WordPress", "Elementor", "Schema / JSON-LD", "Rich Results", "llms.txt", "Technical SEO"],
     result: "Schema validated in Google's Rich Results Test, plus an llms.txt file so AI search tools can read the site clearly.",
-    pipeline: ["Elementor build", "Schema", "Rich Results", "llms.txt"],
+    pipeline: [
+      { step: "Elementor build", copy: N("A full WordPress site built in Elementor, kept structured and accessible.") },
+      { step: "Schema", copy: N("Schema markup, so search engines can understand the business.") },
+      { step: "Rich Results", copy: N("The schema checked in Google's Rich Results Test.") },
+      { step: "llms.txt", copy: N("An llms.txt file so AI search tools can read the site clearly.") },
+    ],
   },
   related: ["wordpress-elementor-developer", "technical-seo-llms-txt", "walker-group-case-study"],
 });
@@ -359,14 +395,40 @@ add({
   h1: N("The Walker Group: llms.txt and AI crawler optimization"),
   lead: ["Site content restructured so AI search tools and crawlers can find and read the key pages clearly."],
   project: PROJECTS.walker,
+  views: [
+    { label: "Website", type: "laptop" },
+    {
+      label: "llms.txt",
+      type: "code",
+      file: "llms.txt",
+      code: `# The Walker Group
+
+> The Walker Group is a Managed IT Services Provider (MSP)
+> based in Farmington, Connecticut...
+
+## Company
+## Managed IT Services
+## Cybersecurity & Compliance
+## Technology Solutions
+## Industries Served
+## Locations`,
+      note: N("Shortened from the live file."),
+      link: { href: "https://www.thewalkergroup.com/llms.txt", text: "View the live file ↗" },
+    },
+  ],
   caseStudy: {
     challenge: "Make the firm's existing website content easy for AI search tools and crawlers to find, read and understand.",
     did: "Worked on llms.txt updates and AI-readable content organization, with a focus on technical SEO and AI crawler optimization. The work centered on making existing website information more clearly structured for automated discovery.",
     stack: ["llms.txt", "Technical SEO", "Content structure", "AI crawlers"],
     result: "An llms.txt file and a clearer content structure that point AI tools straight to the key pages and services.",
-    pipeline: ["Content audit", "Structure", "llms.txt", "AI crawlers"],
+    pipeline: [
+      { step: "Content audit", copy: N("A review of the firm's existing website content.") },
+      { step: "Structure", copy: N("AI-readable content organization, with the information more clearly structured.") },
+      { step: "llms.txt", copy: N("An llms.txt file that points AI tools straight to the key pages and services.") },
+      { step: "AI crawlers", copy: N("Technical SEO and AI crawler optimization for automated discovery.") },
+    ],
   },
   related: ["technical-seo-llms-txt", "graceful-connections-case-study", "pagulayan-cues-case-study"],
 });
 
-module.exports = { SITE, BOOK_URL, PROCESS_STEPS, pages, newCopy };
+module.exports = { SITE, BOOK_URL, PROCESS_STEPS, HINTS, pages, newCopy };

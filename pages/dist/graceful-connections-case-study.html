@@ -7,7 +7,7 @@
 #zeno-portfolio *,#zeno-portfolio *:before,#zeno-portfolio *:after{box-sizing:border-box;}
 #zeno-portfolio a{color:inherit; text-decoration:none;}
 #zeno-portfolio button{font:inherit;}
-#zeno-portfolio h1,#zeno-portfolio h2{color:var(--text); font-family:"Space Grotesk",sans-serif; letter-spacing:-.045em; line-height:1.13; margin:0; padding:0;}
+#zeno-portfolio h1,#zeno-portfolio h2,#zeno-portfolio h3{color:var(--text); font-family:"Space Grotesk",sans-serif; letter-spacing:-.045em; line-height:1.13; margin:0; padding:0;}
 #zeno-portfolio p{margin:0; color:var(--muted);}
 #zeno-portfolio img{display:block; max-width:100%;}
 #zeno-portfolio .z-wrap{width:min(var(--max),calc(100% - 48px)); margin:auto;}
@@ -88,30 +88,19 @@
 @media(max-width:400px){#zeno-portfolio .zg-book{padding:10px 13px;font-size:12px}
 #zeno-portfolio .zg-book span{display:none}
 #zeno-portfolio .z-nav{gap:8px}}
+#zeno-portfolio.zg-js .zg-rv{opacity:0;translate:0 26px;transition-property:opacity,translate,transform,border-color,background;transition-duration:.7s,.7s,.35s,.3s,.3s;transition-timing-function:cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--zg-d,0) * 90ms),calc(var(--zg-d,0) * 90ms),0s,0s,0s}
+#zeno-portfolio.zg-js .zg-rv.zg-in{opacity:1;translate:0 0}
 #zeno-portfolio .zg-sec{padding:var(--zg-sp) 0;background:var(--zg-bg);position:relative;scroll-margin-top:70px}
 #zeno-portfolio .zg-sec.zg-alt{background:var(--zg-bg2)}
 #zeno-portfolio .zg-sec p{color:var(--zg-muted)}
+#zeno-portfolio .zg-sec h3{font-size:clamp(18px,2vw,22px)}
 #zeno-portfolio .zg-card{position:relative;padding:28px 24px;border:1px solid var(--zg-line);background:var(--zg-panel);transform:perspective(900px) rotateX(var(--zg-rx,0deg)) rotateY(var(--zg-ry,0deg));transition:transform .35s,border-color .3s}
 #zeno-portfolio .zg-card:hover{border-color:var(--zg-red)}
+#zeno-portfolio .zg-card h3{margin-bottom:10px}
 #zeno-portfolio .zg-card p{font-size:14px}
 #zeno-portfolio .zg-grid{display:grid;gap:14px;grid-template-columns:minmax(0,1fr)}
 @media(min-width:768px){#zeno-portfolio .zg-grid.c3{grid-template-columns:repeat(3,minmax(0,1fr))}}
 #zeno-portfolio .zg-kicker{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent);letter-spacing:.06em}
-#zeno-portfolio .zg-pipe{list-style:none;margin:20px 0 26px;padding:0;display:flex;flex-wrap:wrap;gap:10px 0}
-#zeno-portfolio .zg-pipe li{position:relative;padding:8px 12px;border:1px solid var(--zg-line);background:var(--zg-bg);color:var(--zg-muted);font:11px "JetBrains Mono",monospace;animation:zg-pipe-on .5s ease both}
-#zeno-portfolio .zg-pipe li+li{margin-left:26px}
-#zeno-portfolio .zg-pipe li+li::before{content:"";position:absolute;left:-27px;top:50%;width:26px;height:2px;background:linear-gradient(90deg,var(--zg-accent) 55%,transparent 0) 0 0/9px 2px;animation:zg-pipe-dash .7s linear infinite}
-#zeno-portfolio .zg-pipe li:nth-child(1){animation-delay:.3s}
-#zeno-portfolio .zg-pipe li:nth-child(2){animation-delay:.7s}
-#zeno-portfolio .zg-pipe li:nth-child(3){animation-delay:1.1s}
-#zeno-portfolio .zg-pipe li:nth-child(4){animation-delay:1.5s}
-@keyframes zg-pipe-on{from{opacity:.3}to{opacity:1;border-color:var(--zg-red);color:var(--zg-text)}}
-@keyframes zg-pipe-dash{to{background-position:9px 0}}
-@media(max-width:899px){#zeno-portfolio .zg-pipe{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
-#zeno-portfolio .zg-pipe::-webkit-scrollbar{display:none}
-#zeno-portfolio .zg-pipe li{flex:0 0 auto}}
-@media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-pipe li,#zeno-portfolio .zg-pipe li+li::before{animation:none}
-#zeno-portfolio .zg-pipe li{border-color:var(--zg-red);color:var(--zg-text)}}
 #zeno-portfolio .zg-dev{position:relative;max-width:520px;margin:0 auto;padding-bottom:10px}
 #zeno-portfolio .zg-laptop-screen{position:relative;border:7px solid var(--zg-ink-2);border-bottom-width:11px;border-radius:9px 9px 0 0;background:var(--zg-ink-0);aspect-ratio:16/10;overflow:hidden}
 #zeno-portfolio .zg-laptop-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;z-index:1}
@@ -134,8 +123,9 @@
 #zeno-portfolio[data-zg-theme="light"] .z-contact{background:radial-gradient(ellipse at 50% 60%,#FBDDE1,transparent 65%),var(--bg2)}
 #ast-scroll-top{display:none!important}
 #zeno-portfolio .z-footer-inner{padding-right:72px}
-@media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-card{transform:none}}
-#zeno-portfolio .zg-pg-hero{padding:calc(74px + clamp(44px,6vw,84px)) 0 clamp(56px,7vw,92px);background:radial-gradient(ellipse at 82% 30%,rgba(255,51,70,.16),transparent 58%),var(--zg-bg);border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-hero-in{display:grid;gap:40px} @media(min-width:960px){#zeno-portfolio .zg-pg-hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}} #zeno-portfolio .zg-pg-hero .zg-dev{width:100%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.45))} #zeno-portfolio .zg-laptop-screen{aspect-ratio:1264/585} #zeno-portfolio .zg-pg-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;margin-bottom:20px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)} #zeno-portfolio .zg-pg-crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-crumb a:hover{color:var(--zg-accent)} #zeno-portfolio .zg-pg-h1{font-size:clamp(34px,4.6vw,56px);margin-bottom:20px;overflow-wrap:anywhere} #zeno-portfolio .zg-sec p.zg-pg-lead{max-width:620px;font-size:17px;line-height:1.65} #zeno-portfolio .zg-sec p.zg-pg-lead+p.zg-pg-lead{margin-top:12px} #zeno-portfolio .zg-pg-actions{margin-top:28px} #zeno-portfolio .zg-pg-term{border:1px solid var(--zg-edge);background:var(--zg-ink-1);font:12px/1.65 "JetBrains Mono",monospace;box-shadow:0 26px 50px rgba(0,0,0,.28)} #zeno-portfolio .zg-pg-term-top{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,170,180,.15)} #zeno-portfolio .zg-pg-term-top i{width:9px;height:9px;border-radius:50%;background:var(--zg-faint)} #zeno-portfolio .zg-pg-term-top i:first-child{background:var(--zg-hi)} #zeno-portfolio .zg-sec p.zg-pg-term-cmd{padding:16px 16px 0;color:var(--zg-hi)} #zeno-portfolio .zg-pg-term dl{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:8px 16px;margin:0;padding:14px 16px 20px} #zeno-portfolio .zg-pg-term dt{color:var(--zg-faint)} #zeno-portfolio .zg-pg-term dd{margin:0;color:var(--zg-on-ink)} #zeno-portfolio .zg-pg-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;color:var(--zg-accent);font-size:14px;font-weight:600} #zeno-portfolio .zg-pg-more:hover{text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-note{max-width:760px} #zeno-portfolio .zg-pg-note h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px} #zeno-portfolio .zg-pg-note p{font-size:16px} #zeno-portfolio .zg-pg-proj{display:grid;gap:24px;padding:32px 0;border-top:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj:last-child{border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj .zg-dev{width:100%;max-width:440px;margin:0 auto} #zeno-portfolio .zg-pg-proj h3{margin:8px 0 10px} #zeno-portfolio .zg-pg-proj p{font-size:15px} #zeno-portfolio .zg-pg-proj .zg-plinks{margin-top:4px} @media(min-width:768px){#zeno-portfolio .zg-pg-proj{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;align-items:center}#zeno-portfolio .zg-pg-proj.no-img{grid-template-columns:minmax(0,1fr)}} #zeno-portfolio[data-zg-theme="light"] .zg-plink{background:var(--zg-panel);border-color:var(--zg-line);color:var(--zg-accent)} #zeno-portfolio[data-zg-theme="light"] .zg-plink:hover{border-color:var(--zg-accent);color:var(--zg-text)} #zeno-portfolio .zg-pg-steps{display:grid;gap:14px;margin:0;padding:0;list-style:none} #zeno-portfolio .zg-pg-steps .zg-card{padding:22px 20px} #zeno-portfolio .zg-pg-steps h3{margin:8px 0} @media(min-width:640px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(2,minmax(0,1fr))}} @media(min-width:1050px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(5,minmax(0,1fr))}} #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0} #zeno-portfolio .zg-pg-case{display:grid;grid-template-columns:minmax(0,1fr);gap:40px} @media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}} #zeno-portfolio .zg-pg-block h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px} #zeno-portfolio .zg-pg-block p{font-size:16px} #zeno-portfolio .zg-pg-block .zg-pipe{margin:0} @media(max-width:560px){#zeno-portfolio .zg-pg-block .zg-pipe{flex-wrap:wrap;overflow:visible;gap:8px}#zeno-portfolio .zg-pg-block .zg-pipe li+li{margin-left:0}#zeno-portfolio .zg-pg-block .zg-pipe li+li::before{display:none}} #zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px} #zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)} #zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent)} #zeno-portfolio .zg-pg-foot-more{grid-column:1/-1} #zeno-portfolio .z-footer-inner{padding-right:0}
+@media(prefers-reduced-motion:reduce){#zeno-portfolio.zg-js .zg-rv{opacity:1;translate:none;transition:none}
+#zeno-portfolio .zg-card{transform:none}}
+#zeno-portfolio .zg-pg-hero{padding:calc(74px + clamp(44px,6vw,84px)) 0 clamp(56px,7vw,92px);background:radial-gradient(ellipse at 82% 30%,rgba(255,51,70,.16),transparent 58%),var(--zg-bg);border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-hero-in{display:grid;grid-template-columns:minmax(0,1fr);gap:40px} @media(min-width:960px){#zeno-portfolio .zg-pg-hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}} #zeno-portfolio .zg-pg-hero .zg-dev{width:100%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.45))} #zeno-portfolio .zg-laptop-screen{aspect-ratio:1264/585} #zeno-portfolio .zg-pg-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;margin-bottom:20px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)} #zeno-portfolio .zg-pg-crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-crumb a:hover{color:var(--zg-accent)} #zeno-portfolio .zg-pg-h1{font-size:clamp(34px,4.6vw,56px);margin-bottom:20px;overflow-wrap:anywhere} #zeno-portfolio .zg-sec p.zg-pg-lead{max-width:620px;font-size:17px;line-height:1.65} #zeno-portfolio .zg-sec p.zg-pg-lead+p.zg-pg-lead{margin-top:12px} #zeno-portfolio .zg-pg-actions{margin-top:28px} #zeno-portfolio .zg-pg-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;color:var(--zg-accent);font-size:14px;font-weight:600} #zeno-portfolio .zg-pg-more:hover{text-decoration:underline;text-underline-offset:3px} #zeno-portfolio .zg-pg-note{max-width:760px} #zeno-portfolio .zg-pg-note h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px} #zeno-portfolio .zg-pg-note p{font-size:16px} #zeno-portfolio .zg-pg-proj{display:grid;gap:24px;padding:32px 0;border-top:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj:last-child{border-bottom:1px solid var(--zg-line)} #zeno-portfolio .zg-pg-proj .zg-dev{width:100%;max-width:440px;margin:0 auto} #zeno-portfolio .zg-pg-proj h3{margin:8px 0 10px} #zeno-portfolio .zg-pg-proj p{font-size:15px} #zeno-portfolio .zg-pg-proj .zg-plinks{margin-top:4px} @media(min-width:768px){#zeno-portfolio .zg-pg-proj{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;align-items:center}#zeno-portfolio .zg-pg-proj.no-img{grid-template-columns:minmax(0,1fr)}} #zeno-portfolio[data-zg-theme="light"] .zg-plink{background:var(--zg-panel);border-color:var(--zg-line);color:var(--zg-accent)} #zeno-portfolio[data-zg-theme="light"] .zg-plink:hover{border-color:var(--zg-accent);color:var(--zg-text)} #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0} #zeno-portfolio .zg-pg-case{display:grid;grid-template-columns:minmax(0,1fr);gap:40px} @media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}} #zeno-portfolio .zg-pg-block>h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px} #zeno-portfolio .zg-pg-block>p{font-size:16px} #zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px} #zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)} #zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent);transition:transform .25s} #zeno-portfolio .zg-pg-link:hover .zg-pg-arrow{transform:translateX(6px)} #zeno-portfolio .zg-pg-foot-more{grid-column:1/-1} #zeno-portfolio .z-footer-inner{padding-right:0} #zeno-portfolio .zg-pg-grid{border:1px solid var(--zg-line);background:radial-gradient(circle at 28% 30%,rgba(255,51,70,.14),transparent 55%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)} #zeno-portfolio[data-zg-theme="light"] .zg-pg-grid{background:radial-gradient(circle at 28% 30%,rgba(200,16,46,.1),transparent 55%),linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)} #zeno-portfolio .zg-sec p.zg-pg-hint{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)} #zeno-portfolio [data-zg-tilt]{transform:perspective(900px) rotateX(var(--zg-rx,0deg)) rotateY(var(--zg-ry,0deg));transition:transform .25s ease} #zeno-portfolio .zg-pg-art{position:relative;display:grid;place-items:center;aspect-ratio:1/1;max-width:400px;width:100%;margin:0 auto;padding:13%;color:var(--zg-accent)} #zeno-portfolio .zg-pg-art svg{width:100%;height:auto;display:block;overflow:visible} #zeno-portfolio .zg-pg-art svg>*{stroke-dasharray:100;stroke-dashoffset:100;animation:zg-pg-draw 1.8s ease-out forwards} #zeno-portfolio .zg-pg-art svg>:nth-child(2){animation-delay:.2s} #zeno-portfolio .zg-pg-art svg>:nth-child(3){animation-delay:.35s} #zeno-portfolio .zg-pg-art svg>:nth-child(4){animation-delay:.5s} #zeno-portfolio .zg-pg-art svg>:nth-child(n+5){animation-delay:.65s} @keyframes zg-pg-draw{to{stroke-dashoffset:0}} #zeno-portfolio .zg-pg-explore{display:grid;grid-template-columns:minmax(0,1fr);gap:18px} #zeno-portfolio .zg-pg-fig{margin:0;padding:12px 14px;position:sticky;top:62px;z-index:5;align-self:start} #zeno-portfolio .zg-pg-fig svg{display:block;width:100%;max-height:172px;color:var(--zg-faint)} #zeno-portfolio .zg-pg-cap{min-height:18px;margin-bottom:8px;font:12px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent)} #zeno-portfolio .zg-pg-fig .zg-pg-hint{margin-top:8px} #zeno-portfolio .zg-pg-hint-fine{display:none} #zeno-portfolio .zg-pg-part{cursor:pointer;opacity:.5;transition:opacity .25s,color .25s} #zeno-portfolio .zg-pg-part.on{opacity:1;color:var(--zg-accent);filter:drop-shadow(0 0 7px rgba(255,77,94,.4))} #zeno-portfolio .zg-pg-hit{fill:transparent;stroke:none;pointer-events:all} #zeno-portfolio .zg-pg-svg-t{font:12px "JetBrains Mono",monospace;fill:currentColor;stroke:none} #zeno-portfolio .zg-pg-dot{fill:currentColor;stroke:none;opacity:.8;transform-box:fill-box;transform-origin:center} #zeno-portfolio .zg-pg-part.on .zg-pg-dot{animation:zg-pg-pulse 1.6s ease-in-out infinite} @keyframes zg-pg-pulse{50%{transform:scale(1.5);opacity:.45}} #zeno-portfolio .zg-pg-list{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)} #zeno-portfolio .zg-pg-item{padding:20px 22px;transition:border-color .25s,background .25s} #zeno-portfolio .zg-pg-item.on{border-color:var(--zg-accent);background:linear-gradient(90deg,rgba(255,77,94,.09),transparent 70%),var(--zg-panel)} @media(hover:hover){#zeno-portfolio .zg-pg-hint-fine{display:block}#zeno-portfolio .zg-pg-hint-touch{display:none}} @media(min-width:768px){ #zeno-portfolio .zg-pg-explore{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px} #zeno-portfolio .zg-pg-fig{top:90px;padding:20px;z-index:1} #zeno-portfolio .zg-pg-fig svg{max-height:none} #zeno-portfolio .zg-pg-cap{margin-bottom:12px} } #zeno-portfolio .zg-pg-stepper>.zg-pg-hint{margin-bottom:16px} #zeno-portfolio .zg-pg-nodes{position:relative;display:grid;grid-template-columns:repeat(var(--zg-n),minmax(0,1fr));margin-bottom:20px} #zeno-portfolio .zg-pg-track{position:absolute;top:21px;left:calc(100% / var(--zg-n) / 2);right:calc(100% / var(--zg-n) / 2);height:2px;background:var(--zg-line)} #zeno-portfolio .zg-pg-fill{display:block;height:100%;width:calc(var(--zg-s,0) * 100%);background:var(--zg-accent);transition:width .45s ease} #zeno-portfolio .zg-pg-node{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 3px;border:0;background:none;box-shadow:none;color:var(--zg-muted);font:600 13px/1.25 "Space Grotesk",sans-serif;transition:color .25s} #zeno-portfolio .zg-pg-num{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--zg-line);background:var(--zg-panel);font:500 12px "JetBrains Mono",monospace;transition:background .25s,border-color .25s,color .25s} #zeno-portfolio .zg-pg-node:hover .zg-pg-num{border-color:var(--zg-accent)} #zeno-portfolio .zg-pg-node.done .zg-pg-num{border-color:var(--zg-accent);color:var(--zg-accent)} #zeno-portfolio .zg-pg-node[aria-selected="true"]{color:var(--zg-text)} #zeno-portfolio .zg-pg-node[aria-selected="true"] .zg-pg-num{background:var(--zg-accent);border-color:var(--zg-accent);color:var(--zg-on-accent)} #zeno-portfolio .zg-pg-step{padding:22px;border:1px solid var(--zg-line);background:var(--zg-panel);margin-top:10px} #zeno-portfolio .zg-pg-step h3{margin:6px 0 8px} #zeno-portfolio .zg-pg-step p{font-size:15px} #zeno-portfolio.zg-js .zg-pg-step{display:none;margin-top:0;animation:zg-pg-in .3s ease} #zeno-portfolio.zg-js .zg-pg-step.on{display:block} @keyframes zg-pg-in{from{opacity:0;transform:translateY(8px)}} @media(max-width:480px){#zeno-portfolio .zg-pg-node{font-size:11px;padding:0 1px}} #zeno-portfolio .zg-pg-views{min-width:0} #zeno-portfolio .zg-pg-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px} #zeno-portfolio .zg-pg-tab{min-height:44px;padding:8px 14px;border:1px solid var(--zg-line);background:transparent;box-shadow:none;color:var(--zg-muted);font:12px "JetBrains Mono",monospace;transition:border-color .25s,color .25s,background .25s} #zeno-portfolio .zg-pg-tab:hover{border-color:var(--zg-accent);color:var(--zg-text)} #zeno-portfolio .zg-pg-tab[aria-selected="true"]{border-color:var(--zg-accent);background:var(--zg-accent);color:var(--zg-on-accent)} #zeno-portfolio.zg-js .zg-pg-view{display:none;animation:zg-pg-in .3s ease} #zeno-portfolio.zg-js .zg-pg-view.on{display:block} #zeno-portfolio .zg-sec p.zg-pg-view-note{margin-top:12px;font-size:13px} #zeno-portfolio .zg-pg-view-note a{display:inline-flex;align-items:center;min-height:32px;color:var(--zg-accent)} #zeno-portfolio .zg-pg-code{border:1px solid var(--zg-edge);background:var(--zg-ink-1)} #zeno-portfolio .zg-pg-code-top{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid rgba(255,170,180,.15)} #zeno-portfolio .zg-pg-code-top i{width:9px;height:9px;border-radius:50%;background:var(--zg-faint)} #zeno-portfolio .zg-pg-code-top i:first-child{background:var(--zg-hi)} #zeno-portfolio .zg-pg-code-top span{margin-left:8px;font:11px "JetBrains Mono",monospace;color:var(--zg-on-ink-2)} #zeno-portfolio .zg-pg-code pre{margin:0;padding:16px;border:0;background:none;font:12px/1.7 "JetBrains Mono",monospace;color:var(--zg-on-ink);white-space:pre-wrap;overflow-wrap:anywhere} #zeno-portfolio .zg-pg-cube-stage{display:grid;place-items:center;height:300px;overflow:hidden;perspective:800px;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab} #zeno-portfolio .zg-pg-cube-stage.dragging{cursor:grabbing} #zeno-portfolio .zg-pg-cube{position:relative;width:160px;height:160px;transform-style:preserve-3d;transform:rotateX(var(--zg-cx,-18deg)) rotateY(var(--zg-cy,30deg))} #zeno-portfolio .zg-pg-cube span{position:absolute;inset:0;display:grid;place-items:center;padding:10px;border:1px solid var(--zg-hi);background:rgba(11,16,29,.93);color:var(--zg-on-ink);font:500 13px/1.3 "JetBrains Mono",monospace;text-align:center} #zeno-portfolio .zg-pg-cube .f1{transform:translateZ(80px)} #zeno-portfolio .zg-pg-cube .f2{transform:rotateY(90deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f3{transform:rotateY(180deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f4{transform:rotateY(-90deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f5{transform:rotateX(90deg) translateZ(80px)} #zeno-portfolio .zg-pg-cube .f6{transform:rotateX(-90deg) translateZ(80px)} @media(prefers-reduced-motion:reduce){ #zeno-portfolio .zg-pg-art svg>*{animation:none;stroke-dashoffset:0} #zeno-portfolio .zg-pg-part.on .zg-pg-dot,#zeno-portfolio.zg-js .zg-pg-step,#zeno-portfolio.zg-js .zg-pg-view{animation:none} #zeno-portfolio .zg-pg-fill,#zeno-portfolio [data-zg-tilt]{transition:none} }
 </style>
 <div id="zeno-portfolio" data-zg-theme="dark">
 <script>try{if(localStorage.getItem("zg-theme")==="light")document.getElementById("zeno-portfolio").setAttribute("data-zg-theme","light")}catch(e){}</script>
@@ -180,30 +170,52 @@
             <a class="z-btn z-btn-dark" href="https://gracefulconnectionshomecare.com" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="gracefulconnectionshomecare.com">Visit site ↗</a>
         </div>
       </div>
-      <div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care website, desktop view" fetchpriority="high" width="1264" height="585"></div><div class="zg-laptop-base"></div></div>
+      <div class="zg-pg-views" data-zg-tabs>
+        <p class="zg-pg-hint">// Switch view.</p>
+        <div class="zg-pg-tabs" role="tablist" aria-label="Views of this project"><button type="button" class="zg-pg-tab" role="tab" id="zg-pg-v0-tab" aria-controls="zg-pg-v0" aria-selected="true" data-zg-event="view_switch" data-zg-label="graceful_laptop_0">Website</button><button type="button" class="zg-pg-tab" role="tab" id="zg-pg-v1-tab" aria-controls="zg-pg-v1" aria-selected="false" data-zg-event="view_switch" data-zg-label="graceful_code_1">Schema</button><button type="button" class="zg-pg-tab" role="tab" id="zg-pg-v2-tab" aria-controls="zg-pg-v2" aria-selected="false" data-zg-event="view_switch" data-zg-label="graceful_code_2">llms.txt</button></div>
+        <div class="zg-pg-view" role="tabpanel" id="zg-pg-v0" aria-labelledby="zg-pg-v0-tab"><div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="https://zana-g.com/wp-content/uploads/2026/10/gracefulconnections.webp" alt="Graceful Connections Home Care website, desktop view" fetchpriority="high" width="1264" height="585"></div><div class="zg-laptop-base"></div></div></div><div class="zg-pg-view" role="tabpanel" id="zg-pg-v1" aria-labelledby="zg-pg-v1-tab"><div class="zg-pg-code"><div class="zg-pg-code-top"><i></i><i></i><i></i><span>JSON-LD</span></div><pre>{
+  &quot;@context&quot;: &quot;https://schema.org&quot;,
+  &quot;@type&quot;: [&quot;LocalBusiness&quot;, &quot;Organization&quot;],
+  &quot;name&quot;: &quot;Graceful Connections Home Care&quot;,
+  &quot;url&quot;: &quot;https://gracefulconnectionshomecare.com/&quot;
+}</pre></div><p class="zg-pg-view-note">Simplified from the schema on the live home page.</p></div><div class="zg-pg-view" role="tabpanel" id="zg-pg-v2" aria-labelledby="zg-pg-v2-tab"><div class="zg-pg-code"><div class="zg-pg-code-top"><i></i><i></i><i></i><span>llms.txt</span></div><pre># Graceful Connections Home Care
+
+## Website
+- Home: https://gracefulconnectionshomecare.com/
+- About: https://gracefulconnectionshomecare.com/about-us/
+- Services: https://gracefulconnectionshomecare.com/services/
+
+## Services
+## Organization details
+## Notes for AI systems</pre></div><p class="zg-pg-view-note">Shortened from the live file. <a href="https://gracefulconnectionshomecare.com/llms.txt" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="graceful_file">View the live file ↗</a></p></div>
+      </div>
     </div>
   </section>
 
   <section class="zg-sec">
     <div class="z-wrap zg-pg-case">
-      <div class="zg-pg-block"><h2>The challenge</h2><p>A home care provider needed a clear, trustworthy website that families and search engines can understand quickly.</p></div>
-      <div class="zg-pg-block"><h2>What I did</h2><p>A full WordPress / Elementor build. Worked on technical SEO improvements, including schema markup and Rich Results validation. Also updated llms.txt and refined Elementor content to help keep the site structured, accessible, and easier for search tools to interpret.</p></div>
-      <div class="zg-pg-block"><h2>The stack</h2><ul class="zg-tags"><li>WordPress</li><li>Elementor</li><li>Schema / JSON-LD</li><li>Rich Results</li><li>llms.txt</li><li>Technical SEO</li></ul></div>
-      <div class="zg-pg-block"><h2>The result</h2><p class="zg-result">Schema validated in Google's Rich Results Test, plus an llms.txt file so AI search tools can read the site clearly.</p></div>
-      <div class="zg-pg-block zg-pg-wide"><h2>How it was built</h2><ol class="zg-pipe" aria-label="How it was built"><li>Elementor build</li><li>Schema</li><li>Rich Results</li><li>llms.txt</li></ol></div>
+      <div class="zg-pg-block zg-rv"><h2>The challenge</h2><p>A home care provider needed a clear, trustworthy website that families and search engines can understand quickly.</p></div>
+      <div class="zg-pg-block zg-rv"><h2>What I did</h2><p>A full WordPress / Elementor build. Worked on technical SEO improvements, including schema markup and Rich Results validation. Also updated llms.txt and refined Elementor content to help keep the site structured, accessible, and easier for search tools to interpret.</p></div>
+      <div class="zg-pg-block zg-rv"><h2>The stack</h2><ul class="zg-tags"><li>WordPress</li><li>Elementor</li><li>Schema / JSON-LD</li><li>Rich Results</li><li>llms.txt</li><li>Technical SEO</li></ul></div>
+      <div class="zg-pg-block zg-rv"><h2>The result</h2><p class="zg-result">Schema validated in Google's Rich Results Test, plus an llms.txt file so AI search tools can read the site clearly.</p></div>
+      <div class="zg-pg-block zg-pg-wide"><h2>How it was built</h2><div class="zg-pg-stepper zg-rv" data-zg-tabs style="--zg-n:4">
+        <p class="zg-pg-hint">// Pick a step.</p>
+        <div class="zg-pg-nodes" role="tablist" aria-label="How it was built"><i class="zg-pg-track" aria-hidden="true"><i class="zg-pg-fill"></i></i><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s0-tab" aria-controls="zg-pg-s0" aria-selected="true" data-zg-event="build_step" data-zg-label="Elementor build"><span class="zg-pg-num">01</span><span class="zg-pg-node-t">Elementor build</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s1-tab" aria-controls="zg-pg-s1" aria-selected="false" data-zg-event="build_step" data-zg-label="Schema"><span class="zg-pg-num">02</span><span class="zg-pg-node-t">Schema</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s2-tab" aria-controls="zg-pg-s2" aria-selected="false" data-zg-event="build_step" data-zg-label="Rich Results"><span class="zg-pg-num">03</span><span class="zg-pg-node-t">Rich Results</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s3-tab" aria-controls="zg-pg-s3" aria-selected="false" data-zg-event="build_step" data-zg-label="llms.txt"><span class="zg-pg-num">04</span><span class="zg-pg-node-t">llms.txt</span></button></div>
+        <div class="zg-pg-step" role="tabpanel" id="zg-pg-s0" aria-labelledby="zg-pg-s0-tab"><span class="zg-kicker">STEP 01 OF 04</span><h3>Elementor build</h3><p>A full WordPress site built in Elementor, kept structured and accessible.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s1" aria-labelledby="zg-pg-s1-tab"><span class="zg-kicker">STEP 02 OF 04</span><h3>Schema</h3><p>Schema markup, so search engines can understand the business.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s2" aria-labelledby="zg-pg-s2-tab"><span class="zg-kicker">STEP 03 OF 04</span><h3>Rich Results</h3><p>The schema checked in Google's Rich Results Test.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s3" aria-labelledby="zg-pg-s3-tab"><span class="zg-kicker">STEP 04 OF 04</span><h3>llms.txt</h3><p>An llms.txt file so AI search tools can read the site clearly.</p></div>
+      </div></div>
     </div>
   </section>
 
   <section class="zg-sec zg-alt">
     <div class="z-wrap">
-      <div class="z-head">
+      <div class="z-head zg-rv">
         <span class="z-label">// related</span>
         <h2 class="z-title">Keep reading.</h2>
       </div>
       <div class="zg-grid c3">
-        <a class="zg-card zg-pg-link" href="https://zana-g.com/wordpress-elementor-developer/"><span class="zg-kicker">SERVICE</span><strong>WordPress &amp; Elementor</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
-        <a class="zg-card zg-pg-link" href="https://zana-g.com/technical-seo-llms-txt/"><span class="zg-kicker">SERVICE</span><strong>Technical SEO &amp; llms.txt</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
-        <a class="zg-card zg-pg-link" href="https://zana-g.com/walker-group-case-study/"><span class="zg-kicker">CASE STUDY</span><strong>The Walker Group</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
+        <a class="zg-card zg-pg-link zg-rv" href="https://zana-g.com/wordpress-elementor-developer/"><span class="zg-kicker">SERVICE</span><strong>WordPress &amp; Elementor</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
+        <a class="zg-card zg-pg-link zg-rv" href="https://zana-g.com/technical-seo-llms-txt/"><span class="zg-kicker">SERVICE</span><strong>Technical SEO &amp; llms.txt</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
+        <a class="zg-card zg-pg-link zg-rv" href="https://zana-g.com/walker-group-case-study/"><span class="zg-kicker">CASE STUDY</span><strong>The Walker Group</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
       </div>
     </div>
   </section>
@@ -264,6 +276,13 @@
   var root = document.getElementById("zeno-portfolio");
   if (!root || root.dataset.zgReady === "true") return;
   root.dataset.zgReady = "true";
+  root.classList.add("zg-js");
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var all = function (selector, within) {
+    return Array.prototype.slice.call((within || root).querySelectorAll(selector));
+  };
 
   var header = root.querySelector(".z-header");
   var menu = root.querySelector(".z-menu");
@@ -274,6 +293,7 @@
 
   if (year) year.textContent = new Date().getFullYear();
 
+  /* ---------- tracking ---------- */
   function zgTrack(name, label, url) {
     window.dataLayer = window.dataLayer || [];
     var data = { event: "zg_event", zg_event: name, zg_label: label || "" };
@@ -285,6 +305,7 @@
     if (el) zgTrack(el.dataset.zgEvent, el.dataset.zgLabel, el.href);
   });
 
+  /* ---------- mobile menu ---------- */
   function zgMenu(open) {
     links.classList.toggle("open", open);
     menu.setAttribute("aria-expanded", String(open));
@@ -301,6 +322,7 @@
     if (e.key === "Escape") zgMenu(false);
   });
 
+  /* ---------- theme ---------- */
   function zgTheme(theme) {
     root.setAttribute("data-zg-theme", theme);
     themeBtn.setAttribute("aria-pressed", String(theme === "light"));
@@ -314,6 +336,7 @@
     zgTrack("theme_toggle", next);
   });
 
+  /* ---------- header + progress bar ---------- */
   var ticking = false;
   function zgScroll() {
     ticking = false;
@@ -326,5 +349,167 @@
     if (!ticking) { ticking = true; window.requestAnimationFrame(zgScroll); }
   }, { passive: true });
   zgScroll();
+
+  /* ---------- reveal on scroll ---------- */
+  var reveal = all(".zg-rv");
+  if ("IntersectionObserver" in window && !reduce) {
+    var revealObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("zg-in");
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+    reveal.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    reveal.forEach(function (el) { el.classList.add("zg-in"); });
+  }
+
+  /* ---------- 360° demo cube ---------- */
+  all("[data-zg-cube]").forEach(function (stage) {
+    var cube = stage.querySelector(".zg-pg-cube");
+    var rx = -18;
+    var ry = 30;
+    var drag = null;
+    var touched = false;
+    var frame = 0;
+    function draw() {
+      cube.style.setProperty("--zg-cx", rx + "deg");
+      cube.style.setProperty("--zg-cy", ry + "deg");
+    }
+    function spin() {
+      if (touched || !stage.offsetParent) { frame = 0; return; }
+      ry += 0.35;
+      draw();
+      frame = window.requestAnimationFrame(spin);
+    }
+    stage.zgStart = function () {
+      if (!frame && !touched && !reduce) frame = window.requestAnimationFrame(spin);
+    };
+    stage.addEventListener("pointerdown", function (e) {
+      touched = true;
+      drag = { x: e.clientX, y: e.clientY, rx: rx, ry: ry };
+      stage.setPointerCapture(e.pointerId);
+      stage.classList.add("dragging");
+    });
+    stage.addEventListener("pointermove", function (e) {
+      if (!drag) return;
+      ry = drag.ry + (e.clientX - drag.x) * 0.6;
+      rx = Math.max(-70, Math.min(70, drag.rx - (e.clientY - drag.y) * 0.4));
+      draw();
+    });
+    function stop() {
+      drag = null;
+      stage.classList.remove("dragging");
+    }
+    stage.addEventListener("pointerup", stop);
+    stage.addEventListener("pointercancel", stop);
+    cube.addEventListener("keydown", function (e) {
+      var step = { ArrowLeft: [0, -15], ArrowRight: [0, 15], ArrowUp: [15, 0], ArrowDown: [-15, 0] }[e.key];
+      if (!step) return;
+      e.preventDefault();
+      touched = true;
+      rx = Math.max(-70, Math.min(70, rx + step[0]));
+      ry += step[1];
+      draw();
+    });
+    draw();
+  });
+
+  /* ---------- tabs: the case study views and the numbered steps ---------- */
+  all("[data-zg-tabs]").forEach(function (box) {
+    var tabs = all('[role="tab"]', box);
+    var panels = all('[role="tabpanel"]', box);
+    function show(index, focus) {
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.setAttribute("aria-selected", String(on));
+        tab.tabIndex = on ? 0 : -1;
+        tab.classList.toggle("done", i < index);
+        panels[i].classList.toggle("on", on);
+      });
+      box.style.setProperty("--zg-s", String(tabs.length > 1 ? index / (tabs.length - 1) : 0));
+      if (focus) tabs[index].focus();
+      var cube = panels[index].querySelector("[data-zg-cube]");
+      if (cube) cube.zgStart();
+    }
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { show(i); });
+      tab.addEventListener("keydown", function (e) {
+        var last = tabs.length - 1;
+        var to = -1;
+        if (e.key === "ArrowRight" || e.key === "ArrowDown") to = i === last ? 0 : i + 1;
+        if (e.key === "ArrowLeft" || e.key === "ArrowUp") to = i === 0 ? last : i - 1;
+        if (e.key === "Home") to = 0;
+        if (e.key === "End") to = last;
+        if (to < 0) return;
+        e.preventDefault();
+        show(to, true);
+      });
+    });
+    show(0);
+  });
+
+  /* ---------- service cards light up their part of the drawing ---------- */
+  all("[data-zg-explore]").forEach(function (box) {
+    var cards = all(".zg-pg-item", box);
+    var parts = all(".zg-pg-part", box);
+    var caption = box.querySelector(".zg-pg-cap span");
+    var hovering = false;
+    var lockedUntil = 0;
+    function light(name) {
+      parts.forEach(function (part) {
+        part.classList.toggle("on", part.dataset.part === name || part.dataset.with === name);
+      });
+      cards.forEach(function (card) {
+        var on = card.dataset.part === name;
+        card.classList.toggle("on", on);
+        if (on) caption.textContent = card.querySelector("h3").textContent;
+      });
+    }
+    cards.forEach(function (card) {
+      card.addEventListener("mouseenter", function () { if (finePointer) light(card.dataset.part); });
+      card.addEventListener("click", function () {
+        lockedUntil = Date.now() + 700;
+        light(card.dataset.part);
+      });
+    });
+    parts.forEach(function (part) {
+      part.addEventListener("click", function () {
+        var name = part.dataset.part;
+        var card = box.querySelector('.zg-pg-item[data-part="' + name + '"]');
+        lockedUntil = Date.now() + 900;
+        light(name);
+        card.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+      });
+    });
+    box.addEventListener("mouseenter", function () { hovering = finePointer; });
+    box.addEventListener("mouseleave", function () { hovering = false; });
+    if ("IntersectionObserver" in window) {
+      var cardObserver = new IntersectionObserver(function (entries) {
+        if (hovering || Date.now() < lockedUntil) return;
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) light(entry.target.dataset.part);
+        });
+      }, { rootMargin: "-55% 0px -35% 0px" });
+      cards.forEach(function (card) { cardObserver.observe(card); });
+    }
+    light(cards[0].dataset.part);
+  });
+
+  /* ---------- graphics that lean toward the mouse ---------- */
+  if (finePointer && !reduce) {
+    all("[data-zg-tilt]").forEach(function (el) {
+      el.addEventListener("pointermove", function (e) {
+        var rect = el.getBoundingClientRect();
+        el.style.setProperty("--zg-ry", ((e.clientX - rect.left) / rect.width - 0.5) * 10 + "deg");
+        el.style.setProperty("--zg-rx", (0.5 - (e.clientY - rect.top) / rect.height) * 8 + "deg");
+      });
+      el.addEventListener("pointerleave", function () {
+        el.style.removeProperty("--zg-rx");
+        el.style.removeProperty("--zg-ry");
+      });
+    });
+  }
 })();
 </script>

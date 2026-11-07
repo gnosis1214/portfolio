@@ -1,6 +1,7 @@
 "use strict";
 
-const { pages, SITE, BOOK_URL, PROCESS_STEPS } = require("./content");
+const { pages, SITE, BOOK_URL, PROCESS_STEPS, HINTS } = require("./content");
+const { ART, ANATOMY } = require("./graphics");
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -77,11 +78,65 @@ function laptop(img, eager) {
   return `<div class="zg-dev"><div class="zg-laptop-screen"><span class="zg-slot" aria-hidden="true"></span><img src="${img.src}" alt="${esc(img.alt)}" ${load} width="1264" height="585"></div><div class="zg-laptop-base"></div></div>`;
 }
 
-function term(page) {
-  const rows = page.term.rows
-    .map(([key, value]) => `<dt>${esc(key)}</dt><dd>${esc(value)}</dd>`)
+function heroArt(page) {
+  const chips = page.chips
+    .map((chip, i) => `<span class="zg-cs-chip c${i + 1}">${esc(chip)}</span>`)
     .join("");
-  return `<div class="zg-pg-term"><div class="zg-pg-term-top" aria-hidden="true"><i></i><i></i><i></i></div><p class="zg-pg-term-cmd">${esc(page.term.command)}</p><dl>${rows}</dl></div>`;
+  return `<div class="zg-pg-art zg-pg-grid" data-zg-tilt aria-hidden="true"><svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">${ART[page.art]}</svg>${chips}</div>`;
+}
+
+/* Case study hero: switch between the website and what sits behind it. */
+function caseViews(page) {
+  const id = page.key;
+  const tabs = page.views
+    .map(
+      (view, i) =>
+        `<button type="button" class="zg-pg-tab" role="tab" id="zg-pg-v${i}-tab" aria-controls="zg-pg-v${i}" aria-selected="${i === 0}" data-zg-event="view_switch" data-zg-label="${id}_${esc(view.type)}_${i}">${esc(view.label)}</button>`
+    )
+    .join("");
+  const panels = page.views
+    .map((view, i) => {
+      let body = laptop(page.project, true);
+      if (view.type === "code") {
+        body = `<div class="zg-pg-code"><div class="zg-pg-code-top"><i></i><i></i><i></i><span>${esc(view.file)}</span></div><pre>${esc(view.code)}</pre></div>`;
+      }
+      if (view.type === "cube") {
+        const faces = view.faces.map((face, n) => `<span class="f${n + 1}">${esc(face)}</span>`).join("");
+        body = `<div class="zg-pg-cube-stage zg-pg-grid" data-zg-cube><div class="zg-pg-cube" tabindex="0" role="img" aria-label="Cube you can rotate by dragging or with the arrow keys">${faces}</div></div>`;
+      }
+      const link = view.link
+        ? ` <a href="${view.link.href}" ${EXTERNAL} data-zg-event="project_click" data-zg-label="${id}_file">${esc(view.link.text)}</a>`
+        : "";
+      const note = view.note ? `<p class="zg-pg-view-note">${esc(view.note)}${link}</p>` : "";
+      return `<div class="zg-pg-view" role="tabpanel" id="zg-pg-v${i}" aria-labelledby="zg-pg-v${i}-tab">${body}${note}</div>`;
+    })
+    .join("");
+  return `<div class="zg-pg-views" data-zg-tabs>
+        <p class="zg-pg-hint">// ${esc(HINTS.views)}</p>
+        <div class="zg-pg-tabs" role="tablist" aria-label="Views of this project">${tabs}</div>
+        ${panels}
+      </div>`;
+}
+
+/* Tabs shown as numbered points on a line. Every step's text stays in the HTML. */
+function stepper(steps, label, event) {
+  const nodes = steps
+    .map(
+      (step, i) =>
+        `<button type="button" class="zg-pg-node" role="tab" id="zg-pg-s${i}-tab" aria-controls="zg-pg-s${i}" aria-selected="${i === 0}" data-zg-event="${event}" data-zg-label="${esc(step.title)}"><span class="zg-pg-num">0${i + 1}</span><span class="zg-pg-node-t">${esc(step.title)}</span></button>`
+    )
+    .join("");
+  const panels = steps
+    .map(
+      (step, i) =>
+        `<div class="zg-pg-step" role="tabpanel" id="zg-pg-s${i}" aria-labelledby="zg-pg-s${i}-tab"><span class="zg-kicker">STEP 0${i + 1} OF 0${steps.length}</span><h3>${esc(step.title)}</h3><p>${esc(step.copy)}</p></div>`
+    )
+    .join("");
+  return `<div class="zg-pg-stepper zg-rv" data-zg-tabs style="--zg-n:${steps.length}">
+        <p class="zg-pg-hint">// ${esc(HINTS.steps)}</p>
+        <div class="zg-pg-nodes" role="tablist" aria-label="${esc(label)}"><i class="zg-pg-track" aria-hidden="true"><i class="zg-pg-fill"></i></i>${nodes}</div>
+        ${panels}
+      </div>`;
 }
 
 function hero(page) {
@@ -92,7 +147,7 @@ function hero(page) {
             <a class="z-btn z-btn-dark" href="#zg-pg-work">See the work</a>`
     : `<a class="z-btn z-btn-primary" href="${BOOK_URL}" data-zg-event="book_call" data-zg-label="case_${page.key}">Book a call about a similar build</a>
             <a class="z-btn z-btn-dark" href="https://${page.project.domain}" ${EXTERNAL} data-zg-event="project_click" data-zg-label="${page.project.domain}">Visit site ↗</a>`;
-  const side = isService ? term(page) : laptop(page.project, true);
+  const side = isService ? heroArt(page) : caseViews(page);
   return `  <section class="zg-sec zg-pg-hero">
     <div class="z-wrap zg-pg-hero-in">
       <div>
@@ -111,26 +166,35 @@ function hero(page) {
 
 function sectionHead(label, title, copy) {
   const p = copy ? `\n        <p class="z-copy">${esc(copy)}</p>` : "";
-  return `<div class="z-head">
+  return `<div class="z-head zg-rv">
         <span class="z-label">${esc(label)}</span>
         <h2 class="z-title">${esc(title)}</h2>${p}
       </div>`;
 }
 
+/* Service cards, with a drawing whose parts light up to match. */
 function cards(page) {
   const items = page.cards
     .map((card) => {
       const link = card.link
         ? `<a class="zg-pg-more" href="${pageUrl(card.link.slug)}">${esc(card.link.text)} <span aria-hidden="true">→</span></a>`
         : "";
-      return `        <article class="zg-card"><h3>${esc(card.title)}</h3><p>${esc(card.copy)}</p>${link}</article>`;
+      return `          <article class="zg-card zg-pg-item" data-part="${card.part}"><h3>${esc(card.title)}</h3><p>${esc(card.copy)}</p>${link}</article>`;
     })
     .join("\n");
   return `  <section class="zg-sec">
     <div class="z-wrap">
       ${sectionHead("// what_i_do", page.cardsTitle)}
-      <div class="zg-grid c3">
+      <div class="zg-pg-explore" data-zg-explore>
+        <figure class="zg-pg-fig zg-pg-grid" aria-hidden="true">
+          <figcaption class="zg-pg-cap">// <span>${esc(page.cards[0].title)}</span></figcaption>
+          ${ANATOMY[page.art]}
+          <p class="zg-pg-hint zg-pg-hint-fine">${esc(HINTS.fig)}</p>
+          <p class="zg-pg-hint zg-pg-hint-touch">${esc(HINTS.figTouch)}</p>
+        </figure>
+        <div class="zg-pg-list">
 ${items}
+        </div>
       </div>
     </div>
   </section>`;
@@ -139,7 +203,7 @@ ${items}
 function note(page) {
   if (!page.note) return "";
   return `  <section class="zg-sec zg-alt">
-    <div class="z-wrap zg-pg-note">
+    <div class="z-wrap zg-pg-note zg-rv">
       <h2>${esc(page.note.title)}</h2>
       <p>${esc(page.note.copy)}</p>
     </div>
@@ -156,8 +220,8 @@ function projectRow(item) {
     links.push(`<a class="zg-plink" href="https://${p.domain}" ${EXTERNAL} data-zg-event="project_click" data-zg-label="${p.domain}">Visit site ↗</a>`);
   }
   const plinks = links.length ? `<div class="zg-plinks">${links.join("")}</div>` : "";
-  const image = p.src ? laptop(p, false) : "";
-  return `        <article class="zg-pg-proj${p.src ? "" : " no-img"}">
+  const image = p.src ? `<div data-zg-tilt>${laptop(p, false)}</div>` : "";
+  return `        <article class="zg-pg-proj zg-rv${p.src ? "" : " no-img"}">
           ${image}
           <div>
             <span class="zg-kicker">${esc(p.tag)}</span>
@@ -180,16 +244,10 @@ ${page.projects.map((project) => projectRow({ project })).join("\n")}
 }
 
 function process() {
-  const steps = PROCESS_STEPS.map(
-    (step, i) =>
-      `        <li class="zg-card"><span class="zg-kicker">0${i + 1}</span><h3>${esc(step.title)}</h3><p>${esc(step.copy)}</p></li>`
-  ).join("\n");
   return `  <section class="zg-sec">
     <div class="z-wrap">
       ${sectionHead("// process.run()", "How a project runs.", "Five steps, the same every time, so you always know what happens next.")}
-      <ol class="zg-pg-steps">
-${steps}
-      </ol>
+      ${stepper(PROCESS_STEPS, "How a project runs", "process_step")}
     </div>
   </section>`;
 }
@@ -214,14 +272,14 @@ ${items}
 function caseBody(page) {
   const c = page.caseStudy;
   const tags = c.stack.map((tag) => `<li>${esc(tag)}</li>`).join("");
-  const pipe = c.pipeline.map((step) => `<li>${esc(step)}</li>`).join("");
+  const steps = c.pipeline.map((item) => ({ title: item.step, copy: item.copy }));
   return `  <section class="zg-sec">
     <div class="z-wrap zg-pg-case">
-      <div class="zg-pg-block"><h2>The challenge</h2><p>${esc(c.challenge)}</p></div>
-      <div class="zg-pg-block"><h2>What I did</h2><p>${esc(c.did)}</p></div>
-      <div class="zg-pg-block"><h2>The stack</h2><ul class="zg-tags">${tags}</ul></div>
-      <div class="zg-pg-block"><h2>The result</h2><p class="zg-result">${esc(c.result)}</p></div>
-      <div class="zg-pg-block zg-pg-wide"><h2>How it was built</h2><ol class="zg-pipe" aria-label="How it was built">${pipe}</ol></div>
+      <div class="zg-pg-block zg-rv"><h2>The challenge</h2><p>${esc(c.challenge)}</p></div>
+      <div class="zg-pg-block zg-rv"><h2>What I did</h2><p>${esc(c.did)}</p></div>
+      <div class="zg-pg-block zg-rv"><h2>The stack</h2><ul class="zg-tags">${tags}</ul></div>
+      <div class="zg-pg-block zg-rv"><h2>The result</h2><p class="zg-result">${esc(c.result)}</p></div>
+      <div class="zg-pg-block zg-pg-wide"><h2>How it was built</h2>${stepper(steps, "How it was built", "build_step")}</div>
     </div>
   </section>`;
 }
@@ -231,7 +289,7 @@ function related(page) {
     .map((slug) => {
       const target = bySlug(slug);
       const kicker = target.type === "service" ? "SERVICE" : "CASE STUDY";
-      return `        <a class="zg-card zg-pg-link" href="${pageUrl(slug)}"><span class="zg-kicker">${kicker}</span><strong>${esc(target.crumb)}</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>`;
+      return `        <a class="zg-card zg-pg-link zg-rv" href="${pageUrl(slug)}"><span class="zg-kicker">${kicker}</span><strong>${esc(target.crumb)}</strong><span class="zg-pg-arrow" aria-hidden="true">→</span></a>`;
     })
     .join("\n");
   const cols = page.related.length === 2 ? "c2" : "c3";

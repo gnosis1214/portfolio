@@ -1,9 +1,8 @@
 /* Layout for the separate pages. Colours and type come from the home page tokens. */
 
 #zeno-portfolio .zg-pg-hero{padding:calc(74px + clamp(44px,6vw,84px)) 0 clamp(56px,7vw,92px);background:radial-gradient(ellipse at 82% 30%,rgba(255,51,70,.16),transparent 58%),var(--zg-bg);border-bottom:1px solid var(--zg-line)}
-#zeno-portfolio .zg-pg-hero-in{display:grid;gap:40px}
+#zeno-portfolio .zg-pg-hero-in{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
 @media(min-width:960px){#zeno-portfolio .zg-pg-hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}}
-
 #zeno-portfolio .zg-pg-hero .zg-dev{width:100%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.45))}
 #zeno-portfolio .zg-laptop-screen{aspect-ratio:1264/585}
 
@@ -15,15 +14,6 @@
 #zeno-portfolio .zg-sec p.zg-pg-lead{max-width:620px;font-size:17px;line-height:1.65}
 #zeno-portfolio .zg-sec p.zg-pg-lead+p.zg-pg-lead{margin-top:12px}
 #zeno-portfolio .zg-pg-actions{margin-top:28px}
-
-#zeno-portfolio .zg-pg-term{border:1px solid var(--zg-edge);background:var(--zg-ink-1);font:12px/1.65 "JetBrains Mono",monospace;box-shadow:0 26px 50px rgba(0,0,0,.28)}
-#zeno-portfolio .zg-pg-term-top{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,170,180,.15)}
-#zeno-portfolio .zg-pg-term-top i{width:9px;height:9px;border-radius:50%;background:var(--zg-faint)}
-#zeno-portfolio .zg-pg-term-top i:first-child{background:var(--zg-hi)}
-#zeno-portfolio .zg-sec p.zg-pg-term-cmd{padding:16px 16px 0;color:var(--zg-hi)}
-#zeno-portfolio .zg-pg-term dl{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:8px 16px;margin:0;padding:14px 16px 20px}
-#zeno-portfolio .zg-pg-term dt{color:var(--zg-faint)}
-#zeno-portfolio .zg-pg-term dd{margin:0;color:var(--zg-on-ink)}
 
 #zeno-portfolio .zg-pg-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;color:var(--zg-accent);font-size:14px;font-weight:600}
 #zeno-portfolio .zg-pg-more:hover{text-decoration:underline;text-underline-offset:3px}
@@ -42,24 +32,114 @@
 #zeno-portfolio[data-zg-theme="light"] .zg-plink{background:var(--zg-panel);border-color:var(--zg-line);color:var(--zg-accent)}
 #zeno-portfolio[data-zg-theme="light"] .zg-plink:hover{border-color:var(--zg-accent);color:var(--zg-text)}
 
-#zeno-portfolio .zg-pg-steps{display:grid;gap:14px;margin:0;padding:0;list-style:none}
-#zeno-portfolio .zg-pg-steps .zg-card{padding:22px 20px}
-#zeno-portfolio .zg-pg-steps h3{margin:8px 0}
-@media(min-width:640px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(min-width:1050px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(5,minmax(0,1fr))}}
-
 #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0}
 
 #zeno-portfolio .zg-pg-case{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
 @media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}}
-#zeno-portfolio .zg-pg-block h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px}
-#zeno-portfolio .zg-pg-block p{font-size:16px}
-#zeno-portfolio .zg-pg-block .zg-pipe{margin:0}
-@media(max-width:560px){#zeno-portfolio .zg-pg-block .zg-pipe{flex-wrap:wrap;overflow:visible;gap:8px}#zeno-portfolio .zg-pg-block .zg-pipe li+li{margin-left:0}#zeno-portfolio .zg-pg-block .zg-pipe li+li::before{display:none}}
+#zeno-portfolio .zg-pg-block>h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px}
+#zeno-portfolio .zg-pg-block>p{font-size:16px}
 
 #zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px}
 #zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)}
-#zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent)}
+#zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent);transition:transform .25s}
+#zeno-portfolio .zg-pg-link:hover .zg-pg-arrow{transform:translateX(6px)}
 
 #zeno-portfolio .zg-pg-foot-more{grid-column:1/-1}
 #zeno-portfolio .z-footer-inner{padding-right:0}
+
+/* ---------- Interactive graphics ---------- */
+
+#zeno-portfolio .zg-pg-grid{border:1px solid var(--zg-line);background:radial-gradient(circle at 28% 30%,rgba(255,51,70,.14),transparent 55%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)}
+#zeno-portfolio[data-zg-theme="light"] .zg-pg-grid{background:radial-gradient(circle at 28% 30%,rgba(200,16,46,.1),transparent 55%),linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)}
+#zeno-portfolio .zg-sec p.zg-pg-hint{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)}
+
+#zeno-portfolio [data-zg-tilt]{transform:perspective(900px) rotateX(var(--zg-rx,0deg)) rotateY(var(--zg-ry,0deg));transition:transform .25s ease}
+
+/* Service hero: a drawing that draws itself once on load. */
+#zeno-portfolio .zg-pg-art{position:relative;display:grid;place-items:center;aspect-ratio:1/1;max-width:400px;width:100%;margin:0 auto;padding:13%;color:var(--zg-accent)}
+#zeno-portfolio .zg-pg-art svg{width:100%;height:auto;display:block;overflow:visible}
+#zeno-portfolio .zg-pg-art svg>*{stroke-dasharray:100;stroke-dashoffset:100;animation:zg-pg-draw 1.8s ease-out forwards}
+#zeno-portfolio .zg-pg-art svg>:nth-child(2){animation-delay:.2s}
+#zeno-portfolio .zg-pg-art svg>:nth-child(3){animation-delay:.35s}
+#zeno-portfolio .zg-pg-art svg>:nth-child(4){animation-delay:.5s}
+#zeno-portfolio .zg-pg-art svg>:nth-child(n+5){animation-delay:.65s}
+@keyframes zg-pg-draw{to{stroke-dashoffset:0}}
+
+/* Service cards and their drawing. */
+#zeno-portfolio .zg-pg-explore{display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+#zeno-portfolio .zg-pg-fig{margin:0;padding:12px 14px;position:sticky;top:62px;z-index:5;align-self:start}
+#zeno-portfolio .zg-pg-fig svg{display:block;width:100%;max-height:172px;color:var(--zg-faint)}
+#zeno-portfolio .zg-pg-cap{min-height:18px;margin-bottom:8px;font:12px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent)}
+#zeno-portfolio .zg-pg-fig .zg-pg-hint{margin-top:8px}
+#zeno-portfolio .zg-pg-hint-fine{display:none}
+#zeno-portfolio .zg-pg-part{cursor:pointer;opacity:.5;transition:opacity .25s,color .25s}
+#zeno-portfolio .zg-pg-part.on{opacity:1;color:var(--zg-accent);filter:drop-shadow(0 0 7px rgba(255,77,94,.4))}
+#zeno-portfolio .zg-pg-hit{fill:transparent;stroke:none;pointer-events:all}
+#zeno-portfolio .zg-pg-svg-t{font:12px "JetBrains Mono",monospace;fill:currentColor;stroke:none}
+#zeno-portfolio .zg-pg-dot{fill:currentColor;stroke:none;opacity:.8;transform-box:fill-box;transform-origin:center}
+#zeno-portfolio .zg-pg-part.on .zg-pg-dot{animation:zg-pg-pulse 1.6s ease-in-out infinite}
+@keyframes zg-pg-pulse{50%{transform:scale(1.5);opacity:.45}}
+#zeno-portfolio .zg-pg-list{display:grid;gap:10px;grid-template-columns:minmax(0,1fr)}
+#zeno-portfolio .zg-pg-item{padding:20px 22px;transition:border-color .25s,background .25s}
+#zeno-portfolio .zg-pg-item.on{border-color:var(--zg-accent);background:linear-gradient(90deg,rgba(255,77,94,.09),transparent 70%),var(--zg-panel)}
+@media(hover:hover){#zeno-portfolio .zg-pg-hint-fine{display:block}#zeno-portfolio .zg-pg-hint-touch{display:none}}
+@media(min-width:768px){
+  #zeno-portfolio .zg-pg-explore{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:28px}
+  #zeno-portfolio .zg-pg-fig{top:90px;padding:20px;z-index:1}
+  #zeno-portfolio .zg-pg-fig svg{max-height:none}
+  #zeno-portfolio .zg-pg-cap{margin-bottom:12px}
+}
+
+/* Numbered steps on a line. */
+#zeno-portfolio .zg-pg-stepper>.zg-pg-hint{margin-bottom:16px}
+#zeno-portfolio .zg-pg-nodes{position:relative;display:grid;grid-template-columns:repeat(var(--zg-n),minmax(0,1fr));margin-bottom:20px}
+#zeno-portfolio .zg-pg-track{position:absolute;top:21px;left:calc(100% / var(--zg-n) / 2);right:calc(100% / var(--zg-n) / 2);height:2px;background:var(--zg-line)}
+#zeno-portfolio .zg-pg-fill{display:block;height:100%;width:calc(var(--zg-s,0) * 100%);background:var(--zg-accent);transition:width .45s ease}
+#zeno-portfolio .zg-pg-node{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 3px;border:0;background:none;box-shadow:none;color:var(--zg-muted);font:600 13px/1.25 "Space Grotesk",sans-serif;transition:color .25s}
+#zeno-portfolio .zg-pg-num{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--zg-line);background:var(--zg-panel);font:500 12px "JetBrains Mono",monospace;transition:background .25s,border-color .25s,color .25s}
+#zeno-portfolio .zg-pg-node:hover .zg-pg-num{border-color:var(--zg-accent)}
+#zeno-portfolio .zg-pg-node.done .zg-pg-num{border-color:var(--zg-accent);color:var(--zg-accent)}
+#zeno-portfolio .zg-pg-node[aria-selected="true"]{color:var(--zg-text)}
+#zeno-portfolio .zg-pg-node[aria-selected="true"] .zg-pg-num{background:var(--zg-accent);border-color:var(--zg-accent);color:var(--zg-on-accent)}
+#zeno-portfolio .zg-pg-step{padding:22px;border:1px solid var(--zg-line);background:var(--zg-panel);margin-top:10px}
+#zeno-portfolio .zg-pg-step h3{margin:6px 0 8px}
+#zeno-portfolio .zg-pg-step p{font-size:15px}
+#zeno-portfolio.zg-js .zg-pg-step{display:none;margin-top:0;animation:zg-pg-in .3s ease}
+#zeno-portfolio.zg-js .zg-pg-step.on{display:block}
+@keyframes zg-pg-in{from{opacity:0;transform:translateY(8px)}}
+@media(max-width:480px){#zeno-portfolio .zg-pg-node{font-size:11px;padding:0 1px}}
+
+/* Case study: website, code or demo view. */
+#zeno-portfolio .zg-pg-views{min-width:0}
+#zeno-portfolio .zg-pg-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 14px}
+#zeno-portfolio .zg-pg-tab{min-height:44px;padding:8px 14px;border:1px solid var(--zg-line);background:transparent;box-shadow:none;color:var(--zg-muted);font:12px "JetBrains Mono",monospace;transition:border-color .25s,color .25s,background .25s}
+#zeno-portfolio .zg-pg-tab:hover{border-color:var(--zg-accent);color:var(--zg-text)}
+#zeno-portfolio .zg-pg-tab[aria-selected="true"]{border-color:var(--zg-accent);background:var(--zg-accent);color:var(--zg-on-accent)}
+#zeno-portfolio.zg-js .zg-pg-view{display:none;animation:zg-pg-in .3s ease}
+#zeno-portfolio.zg-js .zg-pg-view.on{display:block}
+#zeno-portfolio .zg-sec p.zg-pg-view-note{margin-top:12px;font-size:13px}
+#zeno-portfolio .zg-pg-view-note a{display:inline-flex;align-items:center;min-height:32px;color:var(--zg-accent)}
+#zeno-portfolio .zg-pg-code{border:1px solid var(--zg-edge);background:var(--zg-ink-1)}
+#zeno-portfolio .zg-pg-code-top{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid rgba(255,170,180,.15)}
+#zeno-portfolio .zg-pg-code-top i{width:9px;height:9px;border-radius:50%;background:var(--zg-faint)}
+#zeno-portfolio .zg-pg-code-top i:first-child{background:var(--zg-hi)}
+#zeno-portfolio .zg-pg-code-top span{margin-left:8px;font:11px "JetBrains Mono",monospace;color:var(--zg-on-ink-2)}
+#zeno-portfolio .zg-pg-code pre{margin:0;padding:16px;border:0;background:none;font:12px/1.7 "JetBrains Mono",monospace;color:var(--zg-on-ink);white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* The 360° demo cube. */
+#zeno-portfolio .zg-pg-cube-stage{display:grid;place-items:center;height:300px;overflow:hidden;perspective:800px;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab}
+#zeno-portfolio .zg-pg-cube-stage.dragging{cursor:grabbing}
+#zeno-portfolio .zg-pg-cube{position:relative;width:160px;height:160px;transform-style:preserve-3d;transform:rotateX(var(--zg-cx,-18deg)) rotateY(var(--zg-cy,30deg))}
+#zeno-portfolio .zg-pg-cube span{position:absolute;inset:0;display:grid;place-items:center;padding:10px;border:1px solid var(--zg-hi);background:rgba(11,16,29,.93);color:var(--zg-on-ink);font:500 13px/1.3 "JetBrains Mono",monospace;text-align:center}
+#zeno-portfolio .zg-pg-cube .f1{transform:translateZ(80px)}
+#zeno-portfolio .zg-pg-cube .f2{transform:rotateY(90deg) translateZ(80px)}
+#zeno-portfolio .zg-pg-cube .f3{transform:rotateY(180deg) translateZ(80px)}
+#zeno-portfolio .zg-pg-cube .f4{transform:rotateY(-90deg) translateZ(80px)}
+#zeno-portfolio .zg-pg-cube .f5{transform:rotateX(90deg) translateZ(80px)}
+#zeno-portfolio .zg-pg-cube .f6{transform:rotateX(-90deg) translateZ(80px)}
+
+@media(prefers-reduced-motion:reduce){
+  #zeno-portfolio .zg-pg-art svg>*{animation:none;stroke-dashoffset:0}
+  #zeno-portfolio .zg-pg-part.on .zg-pg-dot,#zeno-portfolio.zg-js .zg-pg-step,#zeno-portfolio.zg-js .zg-pg-view{animation:none}
+  #zeno-portfolio .zg-pg-fill,#zeno-portfolio [data-zg-tilt]{transition:none}
+}
