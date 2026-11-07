@@ -137,6 +137,8 @@ function collectUsed(html) {
 }
 
 function keepSelector(selector, used) {
+  /* Rules aimed outside the widget, like hiding Astra's scroll-to-top button, always stay. */
+  if (!selector.startsWith("#zeno-portfolio")) return true;
   const plain = selector.replace(/:not\([^)]*\)/g, "").replace(/\[[^\]]*\]/g, "");
   for (const m of plain.matchAll(/\.([A-Za-z_][\w-]*)/g)) {
     if (!used.classes.has(m[1])) return false;

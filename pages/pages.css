@@ -4,6 +4,9 @@
 #zeno-portfolio .zg-pg-hero-in{display:grid;gap:40px}
 @media(min-width:960px){#zeno-portfolio .zg-pg-hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}}
 
+#zeno-portfolio .zg-pg-hero .zg-dev{width:100%;filter:drop-shadow(0 26px 40px rgba(0,0,0,.45))}
+#zeno-portfolio .zg-laptop-screen{aspect-ratio:1264/585}
+
 #zeno-portfolio .zg-pg-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;margin-bottom:20px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)}
 #zeno-portfolio .zg-pg-crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px}
 #zeno-portfolio .zg-pg-crumb a:hover{color:var(--zg-accent)}
@@ -47,14 +50,16 @@
 
 #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0}
 
-#zeno-portfolio .zg-pg-case{display:grid;gap:40px}
+#zeno-portfolio .zg-pg-case{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
 @media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}}
 #zeno-portfolio .zg-pg-block h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px}
 #zeno-portfolio .zg-pg-block p{font-size:16px}
 #zeno-portfolio .zg-pg-block .zg-pipe{margin:0}
+@media(max-width:560px){#zeno-portfolio .zg-pg-block .zg-pipe{flex-wrap:wrap;overflow:visible;gap:8px}#zeno-portfolio .zg-pg-block .zg-pipe li+li{margin-left:0}#zeno-portfolio .zg-pg-block .zg-pipe li+li::before{display:none}}
 
 #zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px}
 #zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)}
 #zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent)}
 
 #zeno-portfolio .zg-pg-foot-more{grid-column:1/-1}
+#zeno-portfolio .z-footer-inner{padding-right:0}
