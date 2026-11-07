@@ -1,0 +1,60 @@
+/* Layout for the separate pages. Colours and type come from the home page tokens. */
+
+#zeno-portfolio .zg-pg-hero{padding:calc(74px + clamp(44px,6vw,84px)) 0 clamp(56px,7vw,92px);background:radial-gradient(ellipse at 82% 30%,rgba(255,51,70,.16),transparent 58%),var(--zg-bg);border-bottom:1px solid var(--zg-line)}
+#zeno-portfolio .zg-pg-hero-in{display:grid;gap:40px}
+@media(min-width:960px){#zeno-portfolio .zg-pg-hero-in{grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center}}
+
+#zeno-portfolio .zg-pg-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;margin-bottom:20px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)}
+#zeno-portfolio .zg-pg-crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px}
+#zeno-portfolio .zg-pg-crumb a:hover{color:var(--zg-accent)}
+
+#zeno-portfolio .zg-pg-h1{font-size:clamp(34px,4.6vw,56px);margin-bottom:20px;overflow-wrap:anywhere}
+#zeno-portfolio .zg-sec p.zg-pg-lead{max-width:620px;font-size:17px;line-height:1.65}
+#zeno-portfolio .zg-sec p.zg-pg-lead+p.zg-pg-lead{margin-top:12px}
+#zeno-portfolio .zg-pg-actions{margin-top:28px}
+
+#zeno-portfolio .zg-pg-term{border:1px solid var(--zg-edge);background:var(--zg-ink-1);font:12px/1.65 "JetBrains Mono",monospace;box-shadow:0 26px 50px rgba(0,0,0,.28)}
+#zeno-portfolio .zg-pg-term-top{display:flex;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(255,170,180,.15)}
+#zeno-portfolio .zg-pg-term-top i{width:9px;height:9px;border-radius:50%;background:var(--zg-faint)}
+#zeno-portfolio .zg-pg-term-top i:first-child{background:var(--zg-hi)}
+#zeno-portfolio .zg-sec p.zg-pg-term-cmd{padding:16px 16px 0;color:var(--zg-hi)}
+#zeno-portfolio .zg-pg-term dl{display:grid;grid-template-columns:minmax(0,auto) minmax(0,1fr);gap:8px 16px;margin:0;padding:14px 16px 20px}
+#zeno-portfolio .zg-pg-term dt{color:var(--zg-faint)}
+#zeno-portfolio .zg-pg-term dd{margin:0;color:var(--zg-on-ink)}
+
+#zeno-portfolio .zg-pg-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;color:var(--zg-accent);font-size:14px;font-weight:600}
+#zeno-portfolio .zg-pg-more:hover{text-decoration:underline;text-underline-offset:3px}
+
+#zeno-portfolio .zg-pg-note{max-width:760px}
+#zeno-portfolio .zg-pg-note h2{font-size:clamp(26px,3.4vw,38px);margin-bottom:14px}
+#zeno-portfolio .zg-pg-note p{font-size:16px}
+
+#zeno-portfolio .zg-pg-proj{display:grid;gap:24px;padding:32px 0;border-top:1px solid var(--zg-line)}
+#zeno-portfolio .zg-pg-proj:last-child{border-bottom:1px solid var(--zg-line)}
+#zeno-portfolio .zg-pg-proj .zg-dev{width:100%;max-width:440px;margin:0 auto}
+#zeno-portfolio .zg-pg-proj h3{margin:8px 0 10px}
+#zeno-portfolio .zg-pg-proj p{font-size:15px}
+#zeno-portfolio .zg-pg-proj .zg-plinks{margin-top:4px}
+@media(min-width:768px){#zeno-portfolio .zg-pg-proj{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:44px;align-items:center}#zeno-portfolio .zg-pg-proj.no-img{grid-template-columns:minmax(0,1fr)}}
+#zeno-portfolio[data-zg-theme="light"] .zg-plink{background:var(--zg-panel);border-color:var(--zg-line);color:var(--zg-accent)}
+#zeno-portfolio[data-zg-theme="light"] .zg-plink:hover{border-color:var(--zg-accent);color:var(--zg-text)}
+
+#zeno-portfolio .zg-pg-steps{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+#zeno-portfolio .zg-pg-steps .zg-card{padding:22px 20px}
+#zeno-portfolio .zg-pg-steps h3{margin:8px 0}
+@media(min-width:640px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1050px){#zeno-portfolio .zg-pg-steps{grid-template-columns:repeat(5,minmax(0,1fr))}}
+
+#zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0}
+
+#zeno-portfolio .zg-pg-case{display:grid;gap:40px}
+@media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}}
+#zeno-portfolio .zg-pg-block h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px}
+#zeno-portfolio .zg-pg-block p{font-size:16px}
+#zeno-portfolio .zg-pg-block .zg-pipe{margin:0}
+
+#zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px}
+#zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)}
+#zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent)}
+
+#zeno-portfolio .zg-pg-foot-more{grid-column:1/-1}
