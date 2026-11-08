@@ -4848,7 +4848,9 @@ window.ZG_CONFIG = window.ZG_CONFIG || {
       var html = "";
       if (card.dataset.zgPage) html += '<a class="zg-plink" href="' + card.dataset.zgPage + '" data-zg-event="case_page_open" data-zg-label="' + card.dataset.zgCase + '_card">View case study →</a>';
       else if (card.dataset.zgCase) html += '<button type="button" class="zg-plink" data-zg-open="zg-case-' + card.dataset.zgCase + '" data-zg-event="case_study_open" data-zg-label="' + card.dataset.zgCase + '_card">View case study →</button>';
-      if (domain.charAt(0) !== "[") html += '<a class="zg-plink" href="https://' + domain + '" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="' + domain + '">Visit site ↗</a>';
+      /* Only real domains get a site link; labels like "Lov Spa · Shopify" don't. */
+      if (/^[a-z0-9-]+(\.[a-z0-9-]+)+$/i.test(domain)) html += '<a class="zg-plink" href="https://' + domain + '" target="_blank" rel="noopener noreferrer" data-zg-event="project_click" data-zg-label="' + domain + '">Visit site ↗</a>';
+      if (!html) return;
       box.innerHTML = html;
       if (hidden) $$("a,button", box).forEach(function (el) { el.tabIndex = -1; });
       info.appendChild(box);
