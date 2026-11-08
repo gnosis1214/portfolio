@@ -86,7 +86,7 @@ Container settings (**Settings**, added by the new Google Analytics tag):
 
 ## 5. GA4 settings
 
-1. **Key events**: **Admin → Data display → Key events → New key event** → `book_call` → **Save**. Repeat for `email_click`. These work before the events first arrive.
+1. **Key events**: **Admin → Data display → Events → Recent events** tab → click the **star** next to `book_call`, then next to `email_click`. GA4 no longer has a "New key event" button, so an event can only be starred after it shows in this list (up to 24 hours after its first hit).
 2. **Custom dimension** for labels: **Admin → Data display → Custom definitions → Create custom dimension** → name `ZG label`, scope **Event**, event parameter `label` → **Save**. (`link_url` is already a built-in dimension, *Link URL*.)
 3. Optional: exclude your own visits. **Admin → Data collection and modification → Data streams → zana-g.com web → Configure tag settings → Show all → Define internal traffic** → add your IP. Then **Admin → Data collection and modification → Data filters** → set *Internal Traffic* to **Active**.
 
