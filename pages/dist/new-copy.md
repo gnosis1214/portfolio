@@ -6,7 +6,6 @@ Everything else on these pages is reused word for word from the home page.
 
 - Hover a card or click the drawing.
 - Scroll the cards or tap the drawing.
-- Pick a step.
 - Switch view.
 
 ## wordpress-elementor-developer

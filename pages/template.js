@@ -1,7 +1,7 @@
 "use strict";
 
 const { pages, SITE, BOOK_URL, PROCESS_STEPS, HINTS } = require("./content");
-const { ART, ANATOMY } = require("./graphics");
+const { ART, ANATOMY, PROCESS_ICONS, PROCESS_ART } = require("./graphics");
 
 const esc = (s) =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -118,25 +118,31 @@ function caseViews(page) {
       </div>`;
 }
 
-/* Tabs shown as numbered points on a line. Every step's text stays in the HTML. */
-function stepper(steps, label, event) {
-  const nodes = steps
-    .map(
-      (step, i) =>
-        `<button type="button" class="zg-pg-node" role="tab" id="zg-pg-s${i}-tab" aria-controls="zg-pg-s${i}" aria-selected="${i === 0}" data-zg-event="${event}" data-zg-label="${esc(step.title)}"><span class="zg-pg-num">0${i + 1}</span><span class="zg-pg-node-t">${esc(step.title)}</span></button>`
-    )
-    .join("");
-  const panels = steps
-    .map(
-      (step, i) =>
-        `<div class="zg-pg-step" role="tabpanel" id="zg-pg-s${i}" aria-labelledby="zg-pg-s${i}-tab"><span class="zg-kicker">STEP 0${i + 1} OF 0${steps.length}</span><h3>${esc(step.title)}</h3><p>${esc(step.copy)}</p></div>`
-    )
-    .join("");
-  return `<div class="zg-pg-stepper zg-rv" data-zg-tabs style="--zg-n:${steps.length}">
-        <p class="zg-pg-hint">// ${esc(HINTS.steps)}</p>
-        <div class="zg-pg-nodes" role="tablist" aria-label="${esc(label)}"><i class="zg-pg-track" aria-hidden="true"><i class="zg-pg-fill"></i></i>${nodes}</div>
-        ${panels}
-      </div>`;
+/*
+ * The home page's process section: steps on a line that the scroll fills.
+ * On desktop the section pins while the steps light up one by one (see runtime.js).
+ * Steps with an icon show it, with the number above the title; the rest show the number in the box.
+ */
+function procSection({ label, title, copy, steps, event }) {
+  const items = steps
+    .map((step, i) => {
+      const num = String(i + 1).padStart(2, "0");
+      const box = step.icon || `<span class="zg-pg-stepno">${num}</span>`;
+      const kicker = step.icon ? `<span class="zg-kicker">${num}</span>` : "";
+      const delay = i ? ` style="--zg-d:${i}"` : "";
+      return `        <li class="zg-step zg-rv"${delay} data-zg-label="${esc(step.title)}"><span class="zg-step-ic">${box}</span><div>${kicker}<h3>${esc(step.title)}</h3><p>${esc(step.copy)}</p></div></li>`;
+    })
+    .join("\n");
+  return `  <section class="zg-sec zg-alt" id="zeno-process" aria-labelledby="zg-process-title" data-zg-proc="${event}">
+    <div class="z-wrap">
+      ${PROCESS_ART}
+      ${sectionHead(label, title, copy, "zg-process-title")}
+      <ol class="zg-proc" style="--zg-n:${steps.length}">
+        <li class="zg-proc-line" aria-hidden="true"><i></i></li>
+${items}
+      </ol>
+    </div>
+  </section>`;
 }
 
 function hero(page) {
@@ -164,11 +170,12 @@ function hero(page) {
   </section>`;
 }
 
-function sectionHead(label, title, copy) {
+function sectionHead(label, title, copy, id) {
   const p = copy ? `\n        <p class="z-copy">${esc(copy)}</p>` : "";
+  const idAttr = id ? ` id="${id}"` : "";
   return `<div class="z-head zg-rv">
         <span class="z-label">${esc(label)}</span>
-        <h2 class="z-title">${esc(title)}</h2>${p}
+        <h2 class="z-title"${idAttr}>${esc(title)}</h2>${p}
       </div>`;
 }
 
@@ -244,12 +251,22 @@ ${page.projects.map((project) => projectRow({ project })).join("\n")}
 }
 
 function process() {
-  return `  <section class="zg-sec">
-    <div class="z-wrap">
-      ${sectionHead("// process.run()", "How a project runs.", "Five steps, the same every time, so you always know what happens next.")}
-      ${stepper(PROCESS_STEPS, "How a project runs", "process_step")}
-    </div>
-  </section>`;
+  return procSection({
+    label: "// process.run()",
+    title: "How a project runs.",
+    copy: "Five steps, the same every time, so you always know what happens next.",
+    steps: PROCESS_STEPS.map((step, i) => ({ ...step, icon: PROCESS_ICONS[i] })),
+    event: "process_step",
+  });
+}
+
+function buildSteps(page) {
+  return procSection({
+    label: "// build.log()",
+    title: "How it was built.",
+    steps: page.caseStudy.pipeline.map((item) => ({ title: item.step, copy: item.copy })),
+    event: "build_step",
+  });
 }
 
 function faq(page) {
@@ -272,14 +289,12 @@ ${items}
 function caseBody(page) {
   const c = page.caseStudy;
   const tags = c.stack.map((tag) => `<li>${esc(tag)}</li>`).join("");
-  const steps = c.pipeline.map((item) => ({ title: item.step, copy: item.copy }));
   return `  <section class="zg-sec">
     <div class="z-wrap zg-pg-case">
       <div class="zg-pg-block zg-rv"><h2>The challenge</h2><p>${esc(c.challenge)}</p></div>
       <div class="zg-pg-block zg-rv"><h2>What I did</h2><p>${esc(c.did)}</p></div>
       <div class="zg-pg-block zg-rv"><h2>The stack</h2><ul class="zg-tags">${tags}</ul></div>
       <div class="zg-pg-block zg-rv"><h2>The result</h2><p class="zg-result">${esc(c.result)}</p></div>
-      <div class="zg-pg-block zg-pg-wide"><h2>How it was built</h2>${stepper(steps, "How it was built", "build_step")}</div>
     </div>
   </section>`;
 }
@@ -350,7 +365,7 @@ function renderMain(page) {
   const sections =
     page.type === "service"
       ? [hero(page), cards(page), note(page), work(page), process(), faq(page), related(page)]
-      : [hero(page), caseBody(page), related(page)];
+      : [hero(page), caseBody(page), buildSteps(page), related(page)];
   return `<main id="zg-pg-main">\n${sections.filter(Boolean).join("\n\n")}\n</main>`;
 }
 

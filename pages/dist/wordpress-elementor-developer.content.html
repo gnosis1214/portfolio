@@ -89,18 +89,22 @@
     </div>
   </section>
 
-  <section class="zg-sec">
+  <section class="zg-sec zg-alt" id="zeno-process" aria-labelledby="zg-process-title" data-zg-proc="process_step">
     <div class="z-wrap">
+      <svg class="zg-proc-art" viewBox="0 0 400 300" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M140 70 60 150l80 80M260 70l80 80-80 80M225 40 175 260"/><circle cx="200" cy="150" r="140" stroke-dasharray="4 10"/></svg>
       <div class="z-head zg-rv">
         <span class="z-label">// process.run()</span>
-        <h2 class="z-title">How a project runs.</h2>
+        <h2 class="z-title" id="zg-process-title">How a project runs.</h2>
         <p class="z-copy">Five steps, the same every time, so you always know what happens next.</p>
       </div>
-      <div class="zg-pg-stepper zg-rv" data-zg-tabs style="--zg-n:5">
-        <p class="zg-pg-hint">// Pick a step.</p>
-        <div class="zg-pg-nodes" role="tablist" aria-label="How a project runs"><i class="zg-pg-track" aria-hidden="true"><i class="zg-pg-fill"></i></i><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s0-tab" aria-controls="zg-pg-s0" aria-selected="true" data-zg-event="process_step" data-zg-label="Discover"><span class="zg-pg-num">01</span><span class="zg-pg-node-t">Discover</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s1-tab" aria-controls="zg-pg-s1" aria-selected="false" data-zg-event="process_step" data-zg-label="Plan"><span class="zg-pg-num">02</span><span class="zg-pg-node-t">Plan</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s2-tab" aria-controls="zg-pg-s2" aria-selected="false" data-zg-event="process_step" data-zg-label="Build"><span class="zg-pg-num">03</span><span class="zg-pg-node-t">Build</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s3-tab" aria-controls="zg-pg-s3" aria-selected="false" data-zg-event="process_step" data-zg-label="QA"><span class="zg-pg-num">04</span><span class="zg-pg-node-t">QA</span></button><button type="button" class="zg-pg-node" role="tab" id="zg-pg-s4-tab" aria-controls="zg-pg-s4" aria-selected="false" data-zg-event="process_step" data-zg-label="Launch &amp; support"><span class="zg-pg-num">05</span><span class="zg-pg-node-t">Launch &amp; support</span></button></div>
-        <div class="zg-pg-step" role="tabpanel" id="zg-pg-s0" aria-labelledby="zg-pg-s0-tab"><span class="zg-kicker">STEP 01 OF 05</span><h3>Discover</h3><p>A short call or brief to understand your goals, users, platform and deadline.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s1" aria-labelledby="zg-pg-s1-tab"><span class="zg-kicker">STEP 02 OF 05</span><h3>Plan</h3><p>Scope, task list, time-box and a clear definition of done, agreed before I start.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s2" aria-labelledby="zg-pg-s2-tab"><span class="zg-kicker">STEP 03 OF 05</span><h3>Build</h3><p>Built on staging or a duplicate page first, with Git backups at every milestone.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s3" aria-labelledby="zg-pg-s3-tab"><span class="zg-kicker">STEP 04 OF 05</span><h3>QA</h3><p>Mobile, speed, links, forms and tracking checked before anything goes live.</p></div><div class="zg-pg-step" role="tabpanel" id="zg-pg-s4" aria-labelledby="zg-pg-s4-tab"><span class="zg-kicker">STEP 05 OF 05</span><h3>Launch &amp; support</h3><p>Go-live, handoff notes, and optional monthly care so the site stays healthy.</p></div>
-      </div>
+      <ol class="zg-proc" style="--zg-n:5">
+        <li class="zg-proc-line" aria-hidden="true"><i></i></li>
+        <li class="zg-step zg-rv" data-zg-label="Discover"><span class="zg-step-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></span><div><span class="zg-kicker">01</span><h3>Discover</h3><p>A short call or brief to understand your goals, users, platform and deadline.</p></div></li>
+        <li class="zg-step zg-rv" style="--zg-d:1" data-zg-label="Plan"><span class="zg-step-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div><span class="zg-kicker">02</span><h3>Plan</h3><p>Scope, task list, time-box and a clear definition of done, agreed before I start.</p></div></li>
+        <li class="zg-step zg-rv" style="--zg-d:2" data-zg-label="Build"><span class="zg-step-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7-5 5 5 5M15 7l5 5-5 5"/></svg></span><div><span class="zg-kicker">03</span><h3>Build</h3><p>Built on staging or a duplicate page first, with Git backups at every milestone.</p></div></li>
+        <li class="zg-step zg-rv" style="--zg-d:3" data-zg-label="QA"><span class="zg-step-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg></span><div><span class="zg-kicker">04</span><h3>QA</h3><p>Mobile, speed, links, forms and tracking checked before anything goes live.</p></div></li>
+        <li class="zg-step zg-rv" style="--zg-d:4" data-zg-label="Launch &amp; support"><span class="zg-step-ic"><svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c4 3 5 8 3 13H9C7 11 8 6 12 3Z"/><path d="m9 16-3 4M15 16l3 4"/><circle cx="12" cy="10" r="1.5"/></svg></span><div><span class="zg-kicker">05</span><h3>Launch &amp; support</h3><p>Go-live, handoff notes, and optional monthly care so the site stays healthy.</p></div></li>
+      </ol>
     </div>
   </section>
 

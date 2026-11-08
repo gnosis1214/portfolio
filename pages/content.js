@@ -147,7 +147,6 @@ currentSlug = "every page";
 const HINTS = {
   fig: N("Hover a card or click the drawing."),
   figTouch: N("Scroll the cards or tap the drawing."),
-  steps: N("Pick a step."),
   views: N("Switch view."),
 };
 

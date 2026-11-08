@@ -63,6 +63,55 @@
     zgTrack("theme_toggle", next);
   });
 
+  /* ---------- process steps: the scroll fills the line, same as the home page ---------- */
+  var procSec = root.querySelector("[data-zg-proc]");
+  var proc = procSec && procSec.querySelector(".zg-proc");
+  var procInner = procSec && procSec.querySelector(":scope > .z-wrap");
+  var procSteps = proc ? all(".zg-step", proc) : [];
+  var procSeen = [];
+  var procPinned = false;
+  /* Desktop: pin the section until every step is lit. */
+  function zgPinProcess() {
+    if (!proc) return;
+    procSec.classList.remove("zg-pin");
+    procSec.style.removeProperty("--zg-pin-h");
+    var vh = window.innerHeight;
+    procPinned = !reduce && window.innerWidth >= 1050 && procInner.offsetHeight + 90 <= vh;
+    if (!procPinned) return;
+    var stage = Math.max(160, Math.round(vh * 0.32));
+    procSec.style.setProperty("--zg-pin-h", (vh + stage * (procSteps.length + 1)) + "px");
+    procSec.classList.add("zg-pin");
+  }
+  function zgProcess() {
+    if (!proc) return;
+    var vh = window.innerHeight;
+    var n = procSteps.length;
+    var p, lit;
+    if (procPinned) {
+      /* Steps light one by one; the last stage holds the finished line. */
+      var sr = procSec.getBoundingClientRect();
+      var raw = Math.min(1, Math.max(0, -sr.top / Math.max(1, sr.height - vh)));
+      p = Math.min(1, raw * (n + 1) / n);
+      lit = function (i) { return raw * (n + 1) >= i + 0.15; };
+    } else {
+      var r = proc.getBoundingClientRect();
+      p = reduce ? 1 : Math.min(1, Math.max(0, (vh * 0.75 - r.top) / (r.height + vh * 0.25)));
+      lit = function (i) { return p >= (i + 0.5) / n || p === 1; };
+    }
+    var box = proc.getBoundingClientRect();
+    var inView = box.top < vh && box.bottom > 0;
+    procSteps.forEach(function (step, i) {
+      var on = lit(i);
+      step.classList.toggle("zg-on", on);
+      /* One event per step, the first time a visitor scrolls it into the light. */
+      if (on && inView && !procSeen[i]) {
+        procSeen[i] = true;
+        zgTrack(procSec.dataset.zgProc, step.dataset.zgLabel);
+      }
+    });
+    proc.style.setProperty("--zg-pp", p.toFixed(3));
+  }
+
   /* ---------- header + progress bar ---------- */
   var ticking = false;
   function zgScroll() {
@@ -71,10 +120,13 @@
     var max = doc.scrollHeight - window.innerHeight;
     header.classList.toggle("zg-scrolled", window.scrollY > 40);
     bar.style.setProperty("--zg-p", max > 0 ? String(window.scrollY / max) : "0");
+    zgProcess();
   }
   window.addEventListener("scroll", function () {
     if (!ticking) { ticking = true; window.requestAnimationFrame(zgScroll); }
   }, { passive: true });
+  window.addEventListener("resize", function () { zgPinProcess(); zgScroll(); }, { passive: true });
+  zgPinProcess();
   zgScroll();
 
   /* ---------- reveal on scroll ---------- */
@@ -143,7 +195,7 @@
     draw();
   });
 
-  /* ---------- tabs: the case study views and the numbered steps ---------- */
+  /* ---------- tabs: the case study views ---------- */
   all("[data-zg-tabs]").forEach(function (box) {
     var tabs = all('[role="tab"]', box);
     var panels = all('[role="tabpanel"]', box);
@@ -152,10 +204,8 @@
         var on = i === index;
         tab.setAttribute("aria-selected", String(on));
         tab.tabIndex = on ? 0 : -1;
-        tab.classList.toggle("done", i < index);
         panels[i].classList.toggle("on", on);
       });
-      box.style.setProperty("--zg-s", String(tabs.length > 1 ? index / (tabs.length - 1) : 0));
       if (focus) tabs[index].focus();
       var cube = panels[index].querySelector("[data-zg-cube]");
       if (cube) cube.zgStart();

@@ -35,7 +35,7 @@
 #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0}
 
 #zeno-portfolio .zg-pg-case{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
-@media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}#zeno-portfolio .zg-pg-wide{grid-column:1/-1}}
+@media(min-width:768px){#zeno-portfolio .zg-pg-case{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 56px}}
 #zeno-portfolio .zg-pg-block>h2{font-size:clamp(24px,3vw,32px);margin-bottom:14px}
 #zeno-portfolio .zg-pg-block>p{font-size:16px}
 
@@ -90,24 +90,9 @@
   #zeno-portfolio .zg-pg-cap{margin-bottom:12px}
 }
 
-/* Numbered steps on a line. */
-#zeno-portfolio .zg-pg-stepper>.zg-pg-hint{margin-bottom:16px}
-#zeno-portfolio .zg-pg-nodes{position:relative;display:grid;grid-template-columns:repeat(var(--zg-n),minmax(0,1fr));margin-bottom:20px}
-#zeno-portfolio .zg-pg-track{position:absolute;top:21px;left:calc(100% / var(--zg-n) / 2);right:calc(100% / var(--zg-n) / 2);height:2px;background:var(--zg-line)}
-#zeno-portfolio .zg-pg-fill{display:block;height:100%;width:calc(var(--zg-s,0) * 100%);background:var(--zg-accent);transition:width .45s ease}
-#zeno-portfolio .zg-pg-node{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 3px;border:0;background:none;box-shadow:none;color:var(--zg-muted);font:600 13px/1.25 "Space Grotesk",sans-serif;transition:color .25s}
-#zeno-portfolio .zg-pg-num{display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--zg-line);background:var(--zg-panel);font:500 12px "JetBrains Mono",monospace;transition:background .25s,border-color .25s,color .25s}
-#zeno-portfolio .zg-pg-node:hover .zg-pg-num{border-color:var(--zg-accent)}
-#zeno-portfolio .zg-pg-node.done .zg-pg-num{border-color:var(--zg-accent);color:var(--zg-accent)}
-#zeno-portfolio .zg-pg-node[aria-selected="true"]{color:var(--zg-text)}
-#zeno-portfolio .zg-pg-node[aria-selected="true"] .zg-pg-num{background:var(--zg-accent);border-color:var(--zg-accent);color:var(--zg-on-accent)}
-#zeno-portfolio .zg-pg-step{padding:22px;border:1px solid var(--zg-line);background:var(--zg-panel);margin-top:10px}
-#zeno-portfolio .zg-pg-step h3{margin:6px 0 8px}
-#zeno-portfolio .zg-pg-step p{font-size:15px}
-#zeno-portfolio.zg-js .zg-pg-step{display:none;margin-top:0;animation:zg-pg-in .3s ease}
-#zeno-portfolio.zg-js .zg-pg-step.on{display:block}
-@keyframes zg-pg-in{from{opacity:0;transform:translateY(8px)}}
-@media(max-width:480px){#zeno-portfolio .zg-pg-node{font-size:11px;padding:0 1px}}
+/* Process steps: the home page's rules, plus a column count for the 4-step case study pipelines. */
+#zeno-portfolio .zg-pg-stepno{font:500 13px "JetBrains Mono",monospace}
+@media(min-width:1050px){#zeno-portfolio .zg-proc{grid-template-columns:repeat(var(--zg-n,5),minmax(0,1fr))}}
 
 /* Case study: website, code or demo view. */
 #zeno-portfolio .zg-pg-views{min-width:0}
@@ -117,6 +102,7 @@
 #zeno-portfolio .zg-pg-tab[aria-selected="true"]{border-color:var(--zg-accent);background:var(--zg-accent);color:var(--zg-on-accent)}
 #zeno-portfolio.zg-js .zg-pg-view{display:none;animation:zg-pg-in .3s ease}
 #zeno-portfolio.zg-js .zg-pg-view.on{display:block}
+@keyframes zg-pg-in{from{opacity:0;transform:translateY(8px)}}
 #zeno-portfolio .zg-sec p.zg-pg-view-note{margin-top:12px;font-size:13px}
 #zeno-portfolio .zg-pg-view-note a{display:inline-flex;align-items:center;min-height:32px;color:var(--zg-accent)}
 #zeno-portfolio .zg-pg-code{border:1px solid var(--zg-edge);background:var(--zg-ink-1)}
@@ -140,6 +126,6 @@
 
 @media(prefers-reduced-motion:reduce){
   #zeno-portfolio .zg-pg-art svg>*{animation:none;stroke-dashoffset:0}
-  #zeno-portfolio .zg-pg-part.on .zg-pg-dot,#zeno-portfolio.zg-js .zg-pg-step,#zeno-portfolio.zg-js .zg-pg-view{animation:none}
-  #zeno-portfolio .zg-pg-fill,#zeno-portfolio [data-zg-tilt]{transition:none}
+  #zeno-portfolio .zg-pg-part.on .zg-pg-dot,#zeno-portfolio.zg-js .zg-pg-view{animation:none}
+  #zeno-portfolio [data-zg-tilt]{transition:none}
 }

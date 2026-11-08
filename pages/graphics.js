@@ -61,4 +61,18 @@ const ANATOMY = {
   ),
 };
 
-module.exports = { ART, ANATOMY };
+/* Icons for "How a project runs", copied from the home page's process section. */
+const icon = (body) => `<svg class="zg-ic" viewBox="0 0 24 24" aria-hidden="true">${body}</svg>`;
+const PROCESS_ICONS = [
+  icon('<circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/>'),
+  icon('<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>'),
+  icon('<path d="m9 7-5 5 5 5M15 7l5 5-5 5"/>'),
+  icon('<circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/>'),
+  icon('<path d="M12 3c4 3 5 8 3 13H9C7 11 8 6 12 3Z"/><path d="m9 16-3 4M15 16l3 4"/><circle cx="12" cy="10" r="1.5"/>'),
+];
+
+/* The faint code mark behind the process section, also from the home page. */
+const PROCESS_ART =
+  '<svg class="zg-proc-art" viewBox="0 0 400 300" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M140 70 60 150l80 80M260 70l80 80-80 80M225 40 175 260"/><circle cx="200" cy="150" r="140" stroke-dasharray="4 10"/></svg>';
+
+module.exports = { ART, ANATOMY, PROCESS_ICONS, PROCESS_ART };

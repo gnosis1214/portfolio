@@ -20,7 +20,7 @@ const DIST = path.join(HERE, "dist");
 const WIDGET = path.join(HERE, "..", "zeno-portfolio-elementor.html");
 
 /* Classes added by the page script, so they never appear in the markup. */
-const RUNTIME_CLASSES = ["open", "zg-scrolled", "z-missing", "zg-js", "zg-in"];
+const RUNTIME_CLASSES = ["open", "zg-scrolled", "z-missing", "zg-js", "zg-in", "zg-on", "zg-pin"];
 
 /* ---------- CSS parsing ---------- */
 
