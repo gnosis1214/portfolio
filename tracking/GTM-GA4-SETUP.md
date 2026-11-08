@@ -32,7 +32,7 @@ Parameters: `label` (from `zg_label`) and `link_url` (from `zg_url`, mailto link
 1. analytics.google.com → **Admin** (gear, bottom left) → **Create** → **Property**.
 2. Property name `zana-g.com`, time zone **Philippines**, currency **US Dollar** → **Next** → pick business details → **Next** → objective **Generate leads** → **Create**.
 3. Platform **Web** → website URL `zana-g.com`, stream name `zana-g.com web` → leave **Enhanced measurement** on → **Create & continue**.
-4. Copy the **Measurement ID** (`G-…`). Close the install screen: GTM loads the tag, so don't add gtag code anywhere.
+4. Copy the **Measurement ID** (`G-…`). Close the install screen: GTM loads the tag, so don't add gtag code anywhere. GA4 now also creates its own Google tag with a `GTM-…` ID on that screen. Don't install it: it can't hold the `zg_event` trigger, and loading it next to the real container doubles page views. The Measurement ID is under **Admin → Data streams → zana-g.com web**.
 5. Recommended: **Admin → Data collection and modification → Data retention** → Event data retention **14 months** → **Save**. (The default is 2 months.)
 
 ## 2. GTM container (skip if you have one)
@@ -64,12 +64,16 @@ Trigger (**Triggers → New**):
 5. `CE - zg_event`: type **Custom Event**, event name `zg_event`, fires on **All Custom Events** → **Save**.
 
 Tags (**Tags → New**):
-6. `Google tag - GA4`: type **Google Tag**, Tag ID `{{Const - GA4 Measurement ID}}`, trigger **Initialization - All Pages** → **Save**.
+6. `Google tag - GA4`: type **Google Analytics → Google Analytics** (marked *New*; it replaced the Google Tag type for GA4), Measurement ID `{{Const - GA4 Measurement ID}}`. The trigger is set to **Initialization - All Pages** automatically → **Save**.
 7. `GA4 Event - zg_event`: type **Google Analytics → Google Analytics: GA4 Event**.
    - Measurement ID `{{Const - GA4 Measurement ID}}`
    - Event name `{{DLV - zg_event}}`
    - Event parameters → **Add parameter**: `label` = `{{DLV - zg_label}}`; `link_url` = `{{CJS - zg_url}}`
    - Trigger `CE - zg_event` → **Save**.
+
+Container settings (**Settings**, added by the new Google Analytics tag):
+8. **Allow user-provided data capabilities** → switch **off** → **Save**. It's on by default and scans pages for emails, phone numbers and addresses, which would pick up the contact email on every page.
+9. **Manage automatic event detection**: leave the defaults (page views on history change, scrolls, outbound clicks, form interactions, video, downloads).
 
 ## 4. Test, then publish
 
