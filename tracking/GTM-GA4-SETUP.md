@@ -19,13 +19,13 @@ No IDs live in this repo. The GTM container ID goes into the site through the Co
 | `service_page_open` | Home Services cards → service page | |
 | `case_page_open` | Home Work cards and modals, service page project cards → case study | |
 | `view_switch` | Case study view tabs | |
-| `process_step` | "How a project runs" stepper on service pages | |
-| `build_step` | "How it was built" stepper on case studies | |
+| `process_step` | "How a project runs" on service pages: once per step, the first time scrolling lights it | |
+| `build_step` | "How it was built" on case studies: once per step, the first time scrolling lights it | |
 | `project_click`, `social_click`, `case_study_open`, `project_filter`, `view_projects`, `contact_click`, `assistant_open`, `assistant_question`, `theme_toggle` | Home page (see V2-NOTES) | |
 
 Parameters: `label` (from `zg_label`) and `link_url` (from `zg_url`, mailto links sent as `mailto` so no email address reaches GA4).
 
-`link_url` uses a Custom JavaScript variable, not a Data Layer Variable: GTM keeps keys from earlier pushes, so a plain variable would repeat the last link's URL on button clicks (`view_switch`, steppers).
+`link_url` uses a Custom JavaScript variable, not a Data Layer Variable: GTM keeps keys from earlier pushes, so a plain variable would repeat the last link's URL on button clicks (`view_switch`, process steps).
 
 ## 1. GA4 property (skip if you have one)
 
@@ -78,7 +78,7 @@ Container settings (**Settings**, added by the new Google Analytics tag):
 ## 4. Test, then publish
 
 1. GTM → **Preview** (top right) → enter `https://zana-g.com/` → **Connect**. The site opens in a new window with "Tag Assistant connected".
-2. On the home page: click a Services card link (`service_page_open`) and a Work "Read case study" button (`case_page_open`). On the service page: click a "How a project runs" step (`process_step`). On a case study: click a view tab (`view_switch`) and a "How it was built" step (`build_step`).
+2. On the home page: click a Services card link (`service_page_open`) and a Work "Read case study" button (`case_page_open`). On the service page: scroll through "How a project runs" (`process_step`, one per step). On a case study: click a view tab (`view_switch`) and scroll through "How it was built" (`build_step`).
 3. In the Tag Assistant tab, each `zg_event` row should show **GA4 Event - zg_event** under *Tags Fired*. Click the tag to see the event name and `label`.
 4. GA4 → **Admin → Data display → DebugView**: the same events appear within a minute.
 5. Back in GTM → **Submit** → version name `GA4 + zg_event` → **Publish**.
