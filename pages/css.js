@@ -192,4 +192,4 @@ function widgetStyles() {
   return parseCss(stripComments(blocks.join("\n")));
 }
 
-module.exports = { WIDGET, RUNTIME_CLASSES, stripComments, compact, collectUsed, purge, printCss, widgetStyles };
+module.exports = { WIDGET, RUNTIME_CLASSES, stripComments, compact, parseCss, collectUsed, purge, printCss, widgetStyles };
