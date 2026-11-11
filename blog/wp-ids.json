@@ -1,0 +1,30 @@
+{
+  "categories": {
+    "websites": 4,
+    "seo-ai-search": 5,
+    "shopify": 6,
+    "tracking-ads": 7,
+    "automation-ai": 8,
+    "hiring-a-developer": 9
+  },
+  "posts": {
+    "is-your-website-ready-for-ai-search": {
+      "id": 251,
+      "hash": "e9cf382cdefa"
+    },
+    "one-web-developer-vs-five-freelancers": {
+      "id": 254,
+      "hash": "31a2e89b4ccc"
+    },
+    "signs-your-website-is-costing-you-leads": {
+      "id": 257,
+      "hash": "b3e49dee07a0"
+    }
+  },
+  "pages": {
+    "blog": {
+      "id": 260,
+      "hash": "ff652a47f44b"
+    }
+  }
+}

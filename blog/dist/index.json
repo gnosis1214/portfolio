@@ -1,0 +1,45 @@
+{
+  "posts": [
+    {
+      "slug": "is-your-website-ready-for-ai-search",
+      "title": "Is your website ready for AI search? A plain-English check",
+      "seoTitle": "Is Your Website Ready for AI Search? A Plain-English Check",
+      "seoDescription": "ChatGPT, Perplexity and Google's AI answers now recommend businesses. Here's how they find your website, and an 8-point check you can run today.",
+      "excerpt": "People now ask ChatGPT, Perplexity and Google's AI answers which business to hire. Those tools can only recommend you if they can reach, read and trust your site. Here's how that works, what helps, and a quick check you can run today.",
+      "date": "2026-11-12",
+      "category": "seo-ai-search",
+      "mediaId": 249,
+      "hash": "e9cf382cdefa"
+    },
+    {
+      "slug": "one-web-developer-vs-five-freelancers",
+      "title": "One developer or five freelancers? Why fewer handoffs make better websites",
+      "seoTitle": "One Web Developer vs Five Freelancers: Which Works Better?",
+      "seoDescription": "Splitting design, build, SEO and tracking across five freelancers creates handoffs and gaps. Here's when one full-stack web developer is the better hire.",
+      "excerpt": "Splitting a website between a designer, a developer, an SEO, an ads person and an automation freelancer sounds thorough. In practice, the gaps between them are where leads get lost. Here's when one developer who owns it all works better.",
+      "date": "2026-11-12",
+      "category": "hiring-a-developer",
+      "mediaId": 248,
+      "hash": "31a2e89b4ccc"
+    },
+    {
+      "slug": "signs-your-website-is-costing-you-leads",
+      "title": "7 signs your website is costing you leads (and how to fix each one)",
+      "seoTitle": "7 Signs Your Website Is Costing You Leads (and the Fixes)",
+      "seoDescription": "Slow pages, hidden calls to action and forms that never arrive quietly cost small businesses leads. Seven signs to check today, and how to fix each one.",
+      "excerpt": "A website rarely breaks loudly. It just stops sending enquiries, one slow page and one lost form at a time. Here are the seven signs I look for first on a small business site, how to check each one yourself, and what the fix involves.",
+      "date": "2026-11-12",
+      "category": "websites",
+      "mediaId": 250,
+      "hash": "b3e49dee07a0"
+    }
+  ],
+  "archive": {
+    "slug": "blog",
+    "title": "Blog",
+    "seoTitle": "Blog: Websites, Shopify and AI Search Tips | Zana-G",
+    "seoDescription": "Plain-English guides on websites, Shopify, tracking and AI search for business owners and agencies, from remote web developer Genesis Montilla.",
+    "mediaId": 249,
+    "hash": "ff652a47f44b"
+  }
+}
