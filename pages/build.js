@@ -59,7 +59,8 @@ function checkParts(page, main, errors) {
 }
 
 function checkLinks(page, html, widgetHtml, errors) {
-  const slugs = new Set(pages.map((p) => p.slug));
+  /* The blog archive is built by blog/build.js. */
+  const slugs = new Set([...pages.map((p) => p.slug), "blog"]);
   for (const m of html.matchAll(/href="([^"]+)"/g)) {
     const href = m[1];
     if (href.startsWith("#")) {

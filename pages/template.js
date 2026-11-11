@@ -24,6 +24,7 @@ const NAV = [
   ["Work", "#zeno-work"],
   ["Pricing", "#zeno-pricing"],
   ["FAQ", "#zeno-faq"],
+  ["Blog", "blog/"],
   ["Contact", "#zeno-contact"],
 ];
 
@@ -35,11 +36,12 @@ const FOOT_NAV = [
   ["Case studies", "#zeno-cases"],
   ["Pricing", "#zeno-pricing"],
   ["FAQ", "#zeno-faq"],
+  ["Blog", "blog/"],
   ["Contact", "#zeno-contact"],
 ];
 
 function header(page) {
-  const active = page.type === "service" ? "Services" : "Work";
+  const active = page.navActive || (page.type === "service" ? "Services" : "Work");
   const links = NAV.map(([label, hash]) => {
     const cls = label === active ? ' class="active" aria-current="true"' : "";
     return `        <a href="${SITE}${hash}"${cls}>${label}</a>`;
@@ -410,4 +412,4 @@ ${runtime}</script>
 `;
 }
 
-module.exports = { renderPage, renderMain, renderSchema };
+module.exports = { renderPage, renderMain, renderSchema, header, contact, footer, esc, pageUrl, EXTERNAL };
