@@ -1,0 +1,249 @@
+/* Blog posts and the /blog/ archive. Colours and type come from the home page tokens. */
+
+/* Astra styles bare buttons and inputs; these keep the blog's own look. */
+#zeno-portfolio .zg-bl-flip,#zeno-portfolio .zg-bl-chip,#zeno-portfolio .zg-bl-fb-btns button,#zeno-portfolio .zg-bl-share button,#zeno-portfolio .zg-bl-search input,#zeno-portfolio .zg-bl-sort select{border-radius:0;box-shadow:none;text-transform:none;letter-spacing:normal}
+#zeno-portfolio [hidden]{display:none!important}
+#zeno-portfolio .zg-bl-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- post hero ---------- */
+#zeno-portfolio .zg-bl-hero{padding:calc(74px + clamp(36px,5vw,64px)) 0 clamp(28px,4vw,48px);background:radial-gradient(ellipse at 82% 0%,rgba(255,51,70,.15),transparent 55%),var(--zg-bg)}
+#zeno-portfolio .zg-bl-hero .zg-pg-crumb{margin-bottom:14px}
+#zeno-portfolio .zg-bl-hero-meta{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-bottom:18px;font:12px/1.4 "JetBrains Mono",monospace;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-hero-meta span{display:inline-flex;align-items:center;gap:6px}
+#zeno-portfolio .zg-bl-hero-meta .zg-ic{width:15px;height:15px}
+#zeno-portfolio .zg-bl-chip-link{display:inline-flex;align-items:center;min-height:32px;padding:4px 12px;border:1px solid var(--zg-edge);color:var(--zg-accent);transition:background .25s,color .25s}
+#zeno-portfolio .zg-bl-chip-link:hover{background:var(--zg-accent);color:var(--zg-on-accent)}
+#zeno-portfolio .zg-bl-h1{max-width:940px}
+#zeno-portfolio .zg-sec p.zg-bl-lead-p{max-width:720px;font-size:18px}
+#zeno-portfolio .zg-bl-byline{display:flex;align-items:center;gap:12px;margin:26px 0 32px}
+#zeno-portfolio .zg-bl-byline img{width:44px;height:44px;border-radius:50%;object-fit:cover;border:1px solid var(--zg-edge)}
+#zeno-portfolio .zg-sec .zg-bl-byline p{display:flex;flex-direction:column;font-size:13px;line-height:1.45}
+#zeno-portfolio .zg-bl-byline a{color:var(--zg-text);font-weight:600;font-size:14px}
+#zeno-portfolio .zg-bl-byline a:hover{color:var(--zg-accent)}
+#zeno-portfolio .zg-bl-figure{margin:0}
+#zeno-portfolio .zg-bl-hero-img{overflow:hidden;aspect-ratio:16/9;border:1px solid var(--zg-line);background:var(--zg-panel)}
+@media(min-width:960px){#zeno-portfolio .zg-bl-hero-img{aspect-ratio:2/1}}
+#zeno-portfolio .zg-bl-hero-img img{width:100%;height:100%;object-fit:cover}
+@media(prefers-reduced-motion:no-preference){#zeno-portfolio.zg-js .zg-bl-hero-img img{transform:scale(1.12);will-change:transform}}
+#zeno-portfolio .zg-bl-figure figcaption{margin-top:10px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-figure figcaption a{text-decoration:underline;text-underline-offset:2px}
+#zeno-portfolio .zg-bl-figure figcaption a:hover{color:var(--zg-accent)}
+
+/* ---------- layout: contents on the side, the article in a reading column ---------- */
+#zeno-portfolio .zg-sec.zg-bl-body-sec{padding-top:clamp(20px,3vw,40px)}
+#zeno-portfolio .zg-bl-layout{display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
+#zeno-portfolio .zg-bl-side{display:none}
+#zeno-portfolio .zg-bl-body{min-width:0;max-width:720px}
+@media(min-width:1024px){
+  #zeno-portfolio .zg-bl-layout{grid-template-columns:220px minmax(0,720px);justify-content:center;gap:64px}
+  #zeno-portfolio .zg-bl-side{display:block;position:sticky;top:96px;align-self:start;max-height:calc(100vh - 120px);overflow-y:auto}
+  #zeno-portfolio .zg-bl-toc-m{display:none}
+}
+#zeno-portfolio .zg-sec p.zg-bl-toc-t{margin-bottom:12px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted);letter-spacing:.06em}
+#zeno-portfolio .zg-bl-toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--zg-line)}
+#zeno-portfolio .zg-bl-toc a{display:block;margin-left:-1px;padding:7px 0 7px 14px;border-left:2px solid transparent;font-size:13px;line-height:1.45;color:var(--zg-muted);transition:color .2s,border-color .2s}
+#zeno-portfolio .zg-bl-toc a:hover{color:var(--zg-text)}
+#zeno-portfolio .zg-bl-toc a.on{color:var(--zg-text);border-left-color:var(--zg-accent)}
+#zeno-portfolio .zg-sec p.zg-bl-left{display:flex;align-items:center;gap:8px;margin-top:18px;font:12px "JetBrains Mono",monospace;color:var(--zg-accent)}
+#zeno-portfolio .zg-bl-left .zg-ic{width:16px;height:16px}
+#zeno-portfolio .zg-bl-side-share{margin-top:30px}
+#zeno-portfolio .zg-bl-toc-m{margin-bottom:28px;border:1px solid var(--zg-line);background:var(--zg-panel)}
+#zeno-portfolio .zg-bl-toc-m summary{list-style:none;display:flex;align-items:center;gap:12px;min-height:52px;padding:0 18px;font:600 15px "Space Grotesk",sans-serif;color:var(--zg-text);cursor:pointer}
+#zeno-portfolio .zg-bl-toc-m summary::-webkit-details-marker{display:none}
+#zeno-portfolio .zg-bl-toc-m[open] .zg-plus{transform:rotate(45deg)}
+#zeno-portfolio .zg-bl-toc-m ol{margin:0 18px 14px;padding:0 0 0 14px;border-left:1px solid var(--zg-line);list-style:none}
+#zeno-portfolio .zg-bl-body .zg-bl-toc-m a{display:block;padding:7px 0;font-size:14px;line-height:1.45;color:var(--zg-muted);text-decoration:none}
+#zeno-portfolio .zg-bl-body .zg-bl-toc-m a:hover{color:var(--zg-text)}
+
+/* ---------- article copy ---------- */
+#zeno-portfolio .zg-bl-body>p,#zeno-portfolio .zg-bl-list li{font-size:17px;line-height:1.8;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-body>p{margin:0 0 22px}
+#zeno-portfolio .zg-bl-body strong{color:var(--zg-text);font-weight:600}
+#zeno-portfolio .zg-bl-body p a,#zeno-portfolio .zg-bl-body li a{color:var(--zg-accent);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+#zeno-portfolio .zg-bl-body p a:hover,#zeno-portfolio .zg-bl-body li a:hover{text-decoration-thickness:2px}
+#zeno-portfolio .zg-bl-body code{padding:1px 6px;border:1px solid var(--zg-line);background:var(--zg-panel2);color:var(--zg-text);font:.86em "JetBrains Mono",monospace;overflow-wrap:anywhere}
+#zeno-portfolio .zg-bl-h{position:relative;scroll-margin-top:96px}
+#zeno-portfolio .zg-bl-body>h2{margin:56px 0 18px;font-size:clamp(26px,3.2vw,36px)}
+#zeno-portfolio .zg-bl-body>h3{margin:36px 0 12px;font-size:clamp(20px,2.2vw,24px)}
+#zeno-portfolio .zg-bl-anchor{margin-left:10px;font:500 .62em "JetBrains Mono",monospace;color:var(--zg-faint);opacity:0;transition:opacity .2s,color .2s;vertical-align:middle}
+#zeno-portfolio .zg-bl-h:hover .zg-bl-anchor,#zeno-portfolio .zg-bl-anchor:focus-visible{opacity:1}
+#zeno-portfolio .zg-bl-anchor:hover{color:var(--zg-accent)}
+@media(hover:none){#zeno-portfolio .zg-bl-anchor{opacity:.55}}
+#zeno-portfolio .zg-bl-list{margin:0 0 24px;padding-left:22px}
+#zeno-portfolio .zg-bl-list li{margin-bottom:8px;padding-left:4px}
+#zeno-portfolio .zg-bl-list li::marker{color:var(--zg-accent)}
+
+#zeno-portfolio .zg-bl-tldr{margin:0 0 36px;padding:22px 24px;border:1px solid var(--zg-edge);border-left:3px solid var(--zg-accent);background:linear-gradient(90deg,rgba(255,77,94,.08),transparent 60%),var(--zg-panel)}
+#zeno-portfolio .zg-bl-tldr ul{margin:10px 0 0;padding-left:20px}
+#zeno-portfolio .zg-bl-tldr li{margin-bottom:6px;font-size:15.5px;line-height:1.65;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-tldr li::marker{color:var(--zg-accent)}
+
+#zeno-portfolio .zg-bl-callout{margin:28px 0;padding:18px 22px;border:1px solid var(--zg-line);border-left:3px solid var(--zg-blue);background:var(--zg-panel2)}
+#zeno-portfolio .zg-bl-callout .zg-kicker{color:var(--zg-blue)}
+#zeno-portfolio[data-zg-theme="light"] .zg-bl-callout{border-left-color:#1F6FC4}
+#zeno-portfolio[data-zg-theme="light"] .zg-bl-callout .zg-kicker{color:#1F5FA8}
+#zeno-portfolio .zg-sec .zg-bl-callout p{margin-top:6px;font-size:15.5px;line-height:1.7;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-quote{margin:36px 0;padding:4px 0 4px 24px;border-left:3px solid var(--zg-accent)}
+#zeno-portfolio .zg-sec .zg-bl-quote p{font:500 clamp(20px,2.4vw,26px)/1.4 "Space Grotesk",sans-serif;letter-spacing:-.02em;color:var(--zg-text)}
+
+/* ---------- interactive checklist ---------- */
+#zeno-portfolio .zg-bl-check{margin:36px 0;padding:clamp(20px,3vw,30px)}
+#zeno-portfolio .zg-bl-check h3{margin:8px 0;font-size:clamp(20px,2.2vw,24px)}
+#zeno-portfolio .zg-sec p.zg-bl-check-intro{margin-bottom:18px;font-size:15px}
+#zeno-portfolio .zg-bl-check-grid{display:grid;gap:18px}
+@media(min-width:700px){#zeno-portfolio .zg-bl-check-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start}#zeno-portfolio .zg-bl-score{position:sticky;top:90px}}
+#zeno-portfolio .zg-bl-check-list{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+#zeno-portfolio .zg-bl-check-list label{position:relative;display:flex;align-items:flex-start;gap:12px;min-height:44px;padding:11px 12px;border:1px solid var(--zg-line);background:var(--zg-panel);font-size:14.5px;line-height:1.5;color:var(--zg-text);cursor:pointer;transition:border-color .2s,background .2s}
+#zeno-portfolio .zg-bl-check-list label:hover{border-color:var(--zg-edge)}
+#zeno-portfolio .zg-bl-check-list label:has(input:checked){border-color:var(--zg-edge);background:linear-gradient(90deg,rgba(255,77,94,.09),transparent 70%),var(--zg-panel)}
+#zeno-portfolio .zg-bl-check-list input{position:absolute;top:0;left:0;width:1px;height:1px;margin:0;opacity:0}
+#zeno-portfolio .zg-bl-box{display:grid;place-items:center;flex:none;width:20px;height:20px;margin-top:1px;border:1.5px solid var(--zg-faint);transition:background .2s,border-color .2s}
+#zeno-portfolio .zg-bl-box::after{content:"";width:10px;height:5px;margin-top:-3px;border:2px solid var(--zg-on-accent);border-top:0;border-right:0;transform:rotate(-45deg) scale(0);transition:transform .2s}
+#zeno-portfolio .zg-bl-check-list input:checked+.zg-bl-box{border-color:var(--zg-accent);background:var(--zg-accent)}
+#zeno-portfolio .zg-bl-check-list input:checked+.zg-bl-box::after{transform:rotate(-45deg) scale(1)}
+#zeno-portfolio .zg-bl-check-list input:focus-visible+.zg-bl-box{outline:2px solid var(--zg-accent);outline-offset:2px}
+#zeno-portfolio .zg-bl-score{padding:18px;border:1px solid var(--zg-line);background:var(--zg-panel);text-align:center}
+#zeno-portfolio .zg-bl-ring{position:relative;width:116px;height:116px;margin:0 auto 14px}
+#zeno-portfolio .zg-bl-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+#zeno-portfolio .zg-bl-ring circle{fill:none;stroke-width:9}
+#zeno-portfolio .zg-bl-ring-bg{stroke:var(--zg-line)}
+#zeno-portfolio .zg-bl-ring-fg{stroke:var(--zg-accent);stroke-dasharray:100;stroke-dashoffset:100;stroke-linecap:round;transition:stroke-dashoffset .6s cubic-bezier(.2,.8,.2,1)}
+#zeno-portfolio .zg-sec p.zg-bl-ring-n{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font:600 32px/1 "Space Grotesk",sans-serif;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-ring-n span{font-size:15px;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-res+.zg-bl-res{margin-top:14px;padding-top:14px;border-top:1px solid var(--zg-line)}
+#zeno-portfolio:not(.zg-js) .zg-bl-res-prompt{display:none}
+#zeno-portfolio.zg-js .zg-bl-res{display:none}
+#zeno-portfolio.zg-js .zg-bl-res.on{display:block;margin:0;padding:0;border:0;animation:zg-pg-in .35s ease}
+#zeno-portfolio .zg-sec p.zg-bl-res-t{margin-bottom:6px;font:600 17px/1.3 "Space Grotesk",sans-serif;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-res p{font-size:14px;line-height:1.6}
+#zeno-portfolio .zg-bl-res-cta{min-height:44px;margin-top:14px;padding:10px 18px;font-size:12px}
+
+/* ---------- myth / fact cards ---------- */
+#zeno-portfolio .zg-bl-flips-wrap{margin:30px 0 34px}
+#zeno-portfolio .zg-sec p.zg-bl-flips-intro{margin-bottom:14px;font-size:15px}
+#zeno-portfolio .zg-bl-flips{display:grid;gap:12px}
+@media(min-width:560px){#zeno-portfolio .zg-bl-flips{grid-template-columns:repeat(2,minmax(0,1fr))}#zeno-portfolio .zg-bl-flips[data-n="3"]{grid-template-columns:repeat(3,minmax(0,1fr))}}
+#zeno-portfolio .zg-bl-flip{display:block;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:pointer;perspective:1000px}
+#zeno-portfolio .zg-bl-flip:hover,#zeno-portfolio .zg-bl-flip:focus{background:none}
+#zeno-portfolio .zg-bl-flip-in{display:grid;min-height:200px;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.2,.8,.2,1)}
+#zeno-portfolio .zg-bl-face{grid-area:1/1;display:flex;flex-direction:column;gap:10px;padding:20px;border:1px solid var(--zg-line);background:var(--zg-panel);-webkit-backface-visibility:hidden;backface-visibility:hidden;transition:border-color .25s}
+#zeno-portfolio .zg-bl-front .zg-kicker{color:var(--zg-faint)}
+#zeno-portfolio .zg-bl-back{transform:rotateY(180deg);border-color:var(--zg-accent);background:linear-gradient(160deg,rgba(255,77,94,.13),transparent 60%),var(--zg-panel)}
+#zeno-portfolio .zg-bl-flip:hover .zg-bl-front{border-color:var(--zg-edge)}
+#zeno-portfolio .zg-bl-flip[aria-pressed="true"] .zg-bl-flip-in{transform:rotateY(180deg)}
+#zeno-portfolio .zg-bl-flip-t{font:600 16px/1.45 "Space Grotesk",sans-serif;letter-spacing:-.01em;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-back .zg-bl-flip-t{font:15px/1.6 "DM Sans",sans-serif;letter-spacing:0}
+#zeno-portfolio .zg-bl-flip-hint{margin-top:auto;font:11px "JetBrains Mono",monospace;color:var(--zg-faint)}
+#zeno-portfolio:not(.zg-js) .zg-bl-face{grid-area:auto;transform:none}
+#zeno-portfolio:not(.zg-js) .zg-bl-flip-hint{display:none}
+
+/* ---------- compare toggle ---------- */
+#zeno-portfolio .zg-bl-cmp{margin:32px 0;padding:clamp(18px,3vw,28px);border:1px solid var(--zg-line);background:var(--zg-panel)}
+#zeno-portfolio .zg-sec p.zg-bl-cmp-t{font:600 18px/1.3 "Space Grotesk",sans-serif;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-ticks{display:grid;gap:10px;margin:4px 0 0;padding:0;list-style:none}
+#zeno-portfolio .zg-bl-ticks li{position:relative;padding-left:32px;font-size:15.5px;line-height:1.6;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-ticks li::before{content:"\2715";position:absolute;top:2px;left:0;display:grid;place-items:center;width:20px;height:20px;border:1px solid var(--zg-line);font:600 10px/1 "JetBrains Mono",monospace;color:var(--zg-faint)}
+#zeno-portfolio .zg-bl-cmp-panel.is-good .zg-bl-ticks li{color:var(--zg-text)}
+#zeno-portfolio .zg-bl-cmp-panel.is-good .zg-bl-ticks li::before{content:"\2713";border-color:var(--zg-accent);background:var(--zg-accent);color:var(--zg-on-accent);font-size:12px}
+#zeno-portfolio:not(.zg-js) .zg-bl-cmp-panel+.zg-bl-cmp-panel{margin-top:18px}
+
+/* ---------- steps ---------- */
+#zeno-portfolio .zg-bl-steps{position:relative;margin:26px 0 32px;padding:0;list-style:none}
+#zeno-portfolio .zg-bl-steps::before{content:"";position:absolute;top:12px;bottom:12px;left:21px;width:1px;background:linear-gradient(var(--zg-accent),var(--zg-line))}
+#zeno-portfolio .zg-bl-steps li{position:relative;display:grid;grid-template-columns:44px minmax(0,1fr);gap:18px;padding:10px 0}
+#zeno-portfolio .zg-bl-step-n{position:relative;z-index:1;display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--zg-edge);background:var(--zg-bg);font:500 13px "JetBrains Mono",monospace;color:var(--zg-accent)}
+#zeno-portfolio .zg-sec p.zg-bl-step-t{margin:9px 0 6px;font:600 18px/1.3 "Space Grotesk",sans-serif;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-steps p{font-size:15.5px;line-height:1.7}
+
+/* ---------- FAQ and call to action ---------- */
+#zeno-portfolio .zg-bl-faq{margin:8px 0 32px}
+#zeno-portfolio .zg-bl-cta{margin:40px 0;padding:clamp(22px,4vw,36px)}
+#zeno-portfolio .zg-sec p.zg-bl-cta-t{margin:8px 0 10px;font:600 clamp(22px,2.6vw,28px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-cta p{font-size:15.5px}
+#zeno-portfolio .zg-bl-cta .zg-actions{margin-top:20px}
+
+/* ---------- end of post: feedback, share, author ---------- */
+#zeno-portfolio .zg-bl-end{display:grid;gap:22px;margin:48px 0 28px;padding:24px 0;border-top:1px solid var(--zg-line);border-bottom:1px solid var(--zg-line)}
+@media(min-width:640px){#zeno-portfolio .zg-bl-end{grid-template-columns:minmax(0,1fr) auto;align-items:start}}
+#zeno-portfolio .zg-sec p.zg-bl-fb-q{margin-bottom:10px;font:600 15px/1.4 "Space Grotesk",sans-serif;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-fb-btns{display:flex;flex-wrap:wrap;gap:8px}
+#zeno-portfolio .zg-bl-fb-btns button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border:1px solid var(--zg-line);background:transparent;color:var(--zg-text);font:12px "JetBrains Mono",monospace;cursor:pointer;transition:border-color .2s,background .2s}
+#zeno-portfolio .zg-bl-fb-btns .zg-ic{width:17px;height:17px}
+#zeno-portfolio .zg-bl-fb-btns button:hover:not(:disabled){border-color:var(--zg-accent);background:transparent}
+#zeno-portfolio .zg-bl-fb-btns button[aria-pressed="true"]{border-color:var(--zg-accent);background:var(--zg-accent);color:var(--zg-on-accent)}
+#zeno-portfolio .zg-bl-fb-btns button:disabled{cursor:default}
+#zeno-portfolio .zg-bl-fb-btns button:disabled:not([aria-pressed="true"]){opacity:.45}
+#zeno-portfolio .zg-sec p.zg-bl-fb-thanks{margin-top:10px;font-size:14px;color:var(--zg-accent)}
+#zeno-portfolio .zg-bl-share{display:flex;flex-wrap:wrap;gap:8px}
+#zeno-portfolio .zg-bl-share a,#zeno-portfolio .zg-bl-share button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--zg-line);background:transparent;color:var(--zg-text);cursor:pointer;transition:border-color .2s,color .2s,transform .2s}
+#zeno-portfolio .zg-bl-share a:hover,#zeno-portfolio .zg-bl-share button:hover{border-color:var(--zg-accent);background:transparent;color:var(--zg-accent);transform:translateY(-2px)}
+#zeno-portfolio .zg-bl-share .zg-ic{width:18px;height:18px}
+#zeno-portfolio .zg-bl-author{display:grid;grid-template-columns:64px minmax(0,1fr);gap:18px;padding:24px;border:1px solid var(--zg-line);background:var(--zg-panel)}
+#zeno-portfolio .zg-bl-author img{width:64px;height:64px;border-radius:50%;object-fit:cover;border:1px solid var(--zg-edge)}
+#zeno-portfolio .zg-sec p.zg-bl-author-n{margin:4px 0 6px;font:600 18px/1.3 "Space Grotesk",sans-serif;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-author-n span{color:var(--zg-muted);font-weight:500}
+#zeno-portfolio .zg-bl-author p{font-size:14.5px;line-height:1.65}
+@media(min-width:640px){#zeno-portfolio .zg-bl-author{grid-template-columns:88px minmax(0,1fr);gap:22px;padding:28px}#zeno-portfolio .zg-bl-author img{width:88px;height:88px}}
+
+#zeno-portfolio .zg-bl-toast{position:fixed;left:50%;bottom:24px;z-index:10002;padding:10px 16px;background:var(--zg-text);color:var(--zg-bg);font:12px "JetBrains Mono",monospace;opacity:0;transform:translate(-50%,16px);transition:opacity .25s,transform .25s;pointer-events:none}
+#zeno-portfolio .zg-bl-toast.on{opacity:1;transform:translate(-50%,0)}
+
+/* ---------- post cards ---------- */
+#zeno-portfolio .zg-bl-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+@media(min-width:640px){#zeno-portfolio .zg-bl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:960px){#zeno-portfolio .zg-bl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+#zeno-portfolio .zg-bl-card{position:relative;display:flex;flex-direction:column;border:1px solid var(--zg-line);background:var(--zg-panel);transition:border-color .3s}
+#zeno-portfolio .zg-bl-card:hover{border-color:var(--zg-red)}
+#zeno-portfolio .zg-bl-card:focus-within{outline:2px solid var(--zg-accent);outline-offset:2px}
+#zeno-portfolio .zg-bl-card-img{overflow:hidden;aspect-ratio:16/9;border-bottom:1px solid var(--zg-line);background:var(--zg-panel2)}
+#zeno-portfolio .zg-bl-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+#zeno-portfolio .zg-bl-card:hover .zg-bl-card-img img{transform:scale(1.05)}
+#zeno-portfolio .zg-bl-card-body{display:flex;flex:1;flex-direction:column;gap:10px;padding:20px 22px 22px}
+#zeno-portfolio .zg-sec p.zg-bl-card-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 12px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-card-t{font-size:clamp(19px,1.8vw,22px);line-height:1.25;letter-spacing:-.03em}
+#zeno-portfolio .zg-bl-card-t a::after{content:"";position:absolute;inset:0;z-index:1}
+#zeno-portfolio .zg-bl-card-t a:focus-visible{outline:none}
+#zeno-portfolio .zg-sec p.zg-bl-card-x{font-size:14.5px;line-height:1.65}
+#zeno-portfolio .zg-bl-card-go{margin-top:auto;padding-top:4px;font-size:13px;font-weight:600;color:var(--zg-accent)}
+#zeno-portfolio .zg-bl-card-go i{display:inline-block;font-style:normal;transition:transform .25s}
+#zeno-portfolio .zg-bl-card:hover .zg-bl-card-go i{transform:translateX(6px)}
+@media(min-width:640px) and (max-width:959px){#zeno-portfolio .zg-bl-archive .zg-bl-lead{grid-column:1/-1}}
+@media(min-width:960px){
+  #zeno-portfolio .zg-bl-lead{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr)}
+  #zeno-portfolio .zg-bl-lead .zg-bl-card-img{aspect-ratio:auto;min-height:340px;border-right:1px solid var(--zg-line);border-bottom:0}
+  #zeno-portfolio .zg-bl-lead .zg-bl-card-body{justify-content:center;padding:36px 40px}
+  #zeno-portfolio .zg-bl-lead .zg-bl-card-t{font-size:clamp(26px,2.6vw,34px)}
+  #zeno-portfolio .zg-sec .zg-bl-lead p.zg-bl-card-x{font-size:16px}
+  #zeno-portfolio .zg-bl-lead .zg-bl-card-go{margin-top:8px}
+}
+#zeno-portfolio .zg-bl-all{margin-top:28px;text-align:center}
+#zeno-portfolio .zg-bl-svc-x{font-size:14px;line-height:1.6;color:var(--zg-muted)}
+
+/* ---------- archive ---------- */
+#zeno-portfolio .zg-bl-ahero{padding:calc(74px + clamp(44px,6vw,84px)) 0 clamp(36px,5vw,56px);border-bottom:1px solid var(--zg-line);background:radial-gradient(ellipse at 82% 30%,rgba(255,51,70,.16),transparent 58%),var(--zg-bg)}
+#zeno-portfolio .zg-bl-tools{display:grid;gap:16px;margin-top:32px}
+#zeno-portfolio .zg-bl-search{position:relative;display:flex;align-items:center;max-width:520px}
+#zeno-portfolio .zg-bl-search .zg-ic{position:absolute;left:16px;width:18px;height:18px;color:var(--zg-muted);pointer-events:none}
+#zeno-portfolio .zg-bl-search input{width:100%;min-height:52px;margin:0;padding:12px 16px 12px 46px;border:1px solid var(--zg-line);background:var(--zg-panel);color:var(--zg-text);font:15px "DM Sans",sans-serif;outline:none}
+#zeno-portfolio .zg-bl-search input:focus{border-color:var(--zg-accent);background:var(--zg-panel)}
+#zeno-portfolio .zg-bl-search input::placeholder{color:var(--zg-faint);opacity:1}
+#zeno-portfolio .zg-bl-chips{display:flex;flex-wrap:wrap;gap:8px}
+#zeno-portfolio .zg-bl-chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 14px;border:1px solid var(--zg-line);background:transparent;color:var(--zg-muted);font:12px/1.2 "JetBrains Mono",monospace;cursor:pointer;transition:border-color .2s,color .2s,background .2s}
+#zeno-portfolio .zg-bl-chip span{padding:1px 6px;border:1px solid currentColor;font-size:10px;opacity:.75}
+#zeno-portfolio .zg-bl-chip:hover,#zeno-portfolio .zg-bl-chip:focus{border-color:var(--zg-accent);background:transparent;color:var(--zg-text)}
+#zeno-portfolio .zg-bl-chip[aria-pressed="true"]{border-color:var(--zg-accent);background:var(--zg-accent);color:var(--zg-on-accent)}
+#zeno-portfolio .zg-sec.zg-bl-list-sec{padding-top:clamp(28px,4vw,48px)}
+#zeno-portfolio .zg-bl-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:20px}
+#zeno-portfolio .zg-sec p.zg-bl-count{font:12px "JetBrains Mono",monospace;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-sort{display:inline-flex;align-items:center;gap:10px;font:12px "JetBrains Mono",monospace;color:var(--zg-muted)}
+#zeno-portfolio .zg-bl-sort select{min-height:44px;margin:0;padding:6px 12px;border:1px solid var(--zg-line);background:var(--zg-panel);color:var(--zg-text);font:12px "JetBrains Mono",monospace;cursor:pointer}
+#zeno-portfolio .zg-bl-empty{padding:48px 24px;border:1px dashed var(--zg-line);text-align:center}
+#zeno-portfolio .zg-sec .zg-bl-empty p{margin-bottom:16px}
+#zeno-portfolio .zg-bl-ask{display:grid;gap:24px;align-items:end}
+#zeno-portfolio .zg-bl-ask .z-title{font-size:clamp(30px,4vw,48px)}
+@media(min-width:900px){#zeno-portfolio .zg-bl-ask{grid-template-columns:minmax(0,1fr) auto}}
+
+@media(prefers-reduced-motion:reduce){
+  #zeno-portfolio .zg-bl-flip-in,#zeno-portfolio .zg-bl-ring-fg,#zeno-portfolio .zg-bl-card-img img,#zeno-portfolio .zg-bl-toast{transition:none}
+  #zeno-portfolio.zg-js .zg-bl-res.on{animation:none}
+}
