@@ -10,21 +10,25 @@
   "posts": {
     "is-your-website-ready-for-ai-search": {
       "id": 251,
-      "hash": "e9cf382cdefa"
+      "hash": "52fe13a4adb6"
     },
     "one-web-developer-vs-five-freelancers": {
       "id": 254,
-      "hash": "31a2e89b4ccc"
+      "hash": "4d308f0c4d9e"
     },
     "signs-your-website-is-costing-you-leads": {
       "id": 257,
-      "hash": "b3e49dee07a0"
+      "hash": "8b1e2d9bdb00"
+    },
+    "never-edit-your-live-site": {
+      "id": 278,
+      "hash": "f27385fc69c6"
     }
   },
   "pages": {
     "blog": {
       "id": 260,
-      "hash": "ff652a47f44b"
+      "hash": "1cf472781fbb"
     }
   }
 }

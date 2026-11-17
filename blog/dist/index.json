@@ -1,6 +1,17 @@
 {
   "posts": [
     {
+      "slug": "never-edit-your-live-site",
+      "title": "Why website changes should never go straight to the live site",
+      "seoTitle": "Why Website Changes Should Never Go Straight to Live",
+      "seoDescription": "Editing a live website risks broken pages, lost orders and lost leads. How staging, Git backups and rollbacks work in plain English, and what to ask for.",
+      "excerpt": "Most website disasters start with a small edit made on the live site. Here's how I use staging, Git backups and a rollback plan so changes go out safely, and the questions to ask anyone who works on your site.",
+      "date": "2026-11-17",
+      "category": "websites",
+      "mediaId": 277,
+      "hash": "f27385fc69c6"
+    },
+    {
       "slug": "is-your-website-ready-for-ai-search",
       "title": "Is your website ready for AI search? A plain-English check",
       "seoTitle": "Is Your Website Ready for AI Search? A Plain-English Check",
@@ -9,7 +20,7 @@
       "date": "2026-11-12",
       "category": "seo-ai-search",
       "mediaId": 249,
-      "hash": "e9cf382cdefa"
+      "hash": "52fe13a4adb6"
     },
     {
       "slug": "one-web-developer-vs-five-freelancers",
@@ -20,7 +31,7 @@
       "date": "2026-11-12",
       "category": "hiring-a-developer",
       "mediaId": 248,
-      "hash": "31a2e89b4ccc"
+      "hash": "4d308f0c4d9e"
     },
     {
       "slug": "signs-your-website-is-costing-you-leads",
@@ -31,7 +42,7 @@
       "date": "2026-11-12",
       "category": "websites",
       "mediaId": 250,
-      "hash": "b3e49dee07a0"
+      "hash": "8b1e2d9bdb00"
     }
   ],
   "archive": {
@@ -39,7 +50,7 @@
     "title": "Blog",
     "seoTitle": "Blog: Websites, Shopify and AI Search Tips | Zana-G",
     "seoDescription": "Plain-English guides on websites, Shopify, tracking and AI search for business owners and agencies, from remote web developer Genesis Montilla.",
-    "mediaId": 249,
-    "hash": "ff652a47f44b"
+    "mediaId": 277,
+    "hash": "1cf472781fbb"
   }
 }

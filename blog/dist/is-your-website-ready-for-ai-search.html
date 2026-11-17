@@ -94,10 +94,6 @@
 #zeno-portfolio .zg-sec.zg-alt{background:var(--zg-bg2)}
 #zeno-portfolio .zg-sec p{color:var(--zg-muted)}
 #zeno-portfolio .zg-sec h3{font-size:clamp(18px,2vw,22px)}
-#zeno-portfolio .zg-card{position:relative;padding:28px 24px;border:1px solid var(--zg-line);background:var(--zg-panel);transform:perspective(900px) rotateX(var(--zg-rx,0deg)) rotateY(var(--zg-ry,0deg));transition:transform .35s,border-color .3s}
-#zeno-portfolio .zg-card:hover{border-color:var(--zg-red)}
-#zeno-portfolio .zg-card h3{margin-bottom:10px}
-#zeno-portfolio .zg-card p{font-size:14px}
 #zeno-portfolio .zg-kicker{font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-accent);letter-spacing:.06em}
 #zeno-portfolio .zg-faq details{border-bottom:1px solid var(--zg-line)}
 #zeno-portfolio .zg-faq details:first-child{border-top:1px solid var(--zg-line)}
@@ -122,8 +118,7 @@
 #zeno-portfolio[data-zg-theme="light"] .z-contact{background:radial-gradient(ellipse at 50% 60%,#FBDDE1,transparent 65%),var(--bg2)}
 #ast-scroll-top{display:none!important}
 #zeno-portfolio .z-footer-inner{padding-right:72px}
-@media(prefers-reduced-motion:reduce){#zeno-portfolio.zg-js .zg-rv{opacity:1;translate:none;transition:none}
-#zeno-portfolio .zg-card{transform:none}}
+@media(prefers-reduced-motion:reduce){#zeno-portfolio.zg-js .zg-rv{opacity:1;translate:none;transition:none}}
 #zeno-portfolio .zg-pg-crumb{display:flex;flex-wrap:wrap;align-items:center;gap:0 8px;margin-bottom:20px;font:11px/1.5 "JetBrains Mono",monospace;color:var(--zg-muted)}
 #zeno-portfolio .zg-pg-crumb a{display:inline-flex;align-items:center;min-height:32px;text-decoration:underline;text-underline-offset:3px}
 #zeno-portfolio .zg-pg-crumb a:hover{color:var(--zg-accent)}
@@ -133,10 +128,6 @@
 #zeno-portfolio .zg-pg-more{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-top:6px;color:var(--zg-accent);font-size:14px;font-weight:600}
 #zeno-portfolio .zg-pg-more:hover{text-decoration:underline;text-underline-offset:3px}
 #zeno-portfolio .zg-pg-faq .zg-faq-a{padding-left:0}
-#zeno-portfolio .zg-pg-link{display:flex;flex-direction:column;gap:8px;min-height:120px}
-#zeno-portfolio .zg-pg-link strong{font:600 clamp(18px,2vw,22px)/1.2 "Space Grotesk",sans-serif;letter-spacing:-.03em;color:var(--zg-text)}
-#zeno-portfolio .zg-pg-arrow{margin-top:auto;color:var(--zg-accent);transition:transform .25s}
-#zeno-portfolio .zg-pg-link:hover .zg-pg-arrow{transform:translateX(6px)}
 #zeno-portfolio .zg-pg-foot-more{grid-column:1/-1}
 #zeno-portfolio .z-footer-inner{padding-right:0}
 #zeno-portfolio .zg-pg-grid{border:1px solid var(--zg-line);background:radial-gradient(circle at 28% 30%,rgba(255,51,70,.14),transparent 55%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/40px 40px,var(--zg-panel)}
@@ -324,7 +315,6 @@
 #zeno-portfolio .zg-sec .zg-bl-lead p.zg-bl-card-x{font-size:16px}
 #zeno-portfolio .zg-bl-lead .zg-bl-card-go{margin-top:8px}}
 #zeno-portfolio .zg-bl-all{margin-top:28px;text-align:center}
-#zeno-portfolio .zg-bl-svc-x{font-size:14px;line-height:1.6;color:var(--zg-muted)}
 @media(prefers-reduced-motion:reduce){#zeno-portfolio .zg-bl-flip-in,#zeno-portfolio .zg-bl-ring-fg,#zeno-portfolio .zg-bl-card-img img,#zeno-portfolio .zg-bl-toast{transition:none}
 #zeno-portfolio.zg-js .zg-bl-res.on{animation:none}}
 </style>
@@ -453,6 +443,15 @@
     <div class="z-wrap">
       <div class="z-head zg-rv"><span class="z-label">// keep_reading</span><h2 class="z-title" id="zg-bl-more">Keep reading.</h2></div>
       <div class="zg-bl-grid zg-bl-related">
+<article class="zg-bl-card zg-rv" data-topic="websites" data-date="2026-11-17" data-text="why website changes should never go straight to the live site most website disasters start with a small edit made on the live site. here's how i use staging, git backups and a rollback plan so changes go out safely, and the questions to ask anyone who works on your site. websites staging backups git rollback wordpress shopify website maintenance small business">
+  <div class="zg-bl-card-img"><img src="https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site.jpg" srcset="https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-300x169.jpg 300w, https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-768x432.jpg 768w, https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-1024x576.jpg 1024w, https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-1536x864.jpg 1536w, https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site.jpg 1600w" sizes="(min-width: 960px) 380px, (min-width: 640px) 50vw, 100vw" alt="Developer writing code on a laptop at a wooden desk" width="1600" height="900" loading="lazy" decoding="async"></div>
+  <div class="zg-bl-card-body">
+    <p class="zg-bl-card-meta"><span class="zg-kicker">Websites</span><span><time datetime="2026-11-17">November 17, 2026</time> · 6 min read</span></p>
+    <h3 class="zg-bl-card-t"><a href="https://zana-g.com/never-edit-your-live-site/" data-zg-event="blog_open" data-zg-label="staging_first">Why website changes should never go straight to the live site</a></h3>
+    <p class="zg-bl-card-x">Most website disasters start with a small edit made on the live site. Here's how I use staging, Git backups and a rollback plan so changes go out safely, and the questions to ask anyone who works on your site.</p>
+    <span class="zg-bl-card-go" aria-hidden="true">Read the post <i>→</i></span>
+  </div>
+</article>
 <article class="zg-bl-card zg-rv" data-topic="hiring-a-developer" data-date="2026-11-12" data-text="one developer or five freelancers? why fewer handoffs make better websites splitting a website between a designer, a developer, an seo, an ads person and an automation freelancer sounds thorough. in practice, the gaps between them are where leads get lost. here's when one developer who owns it all works better. hiring a developer freelancer hire full-stack agency web developer outsourcing">
   <div class="zg-bl-card-img"><img src="https://zana-g.com/wp-content/uploads/2026/11/one-web-developer-vs-five-freelancers.jpg" srcset="https://zana-g.com/wp-content/uploads/2026/11/one-web-developer-vs-five-freelancers-300x169.jpg 300w, https://zana-g.com/wp-content/uploads/2026/11/one-web-developer-vs-five-freelancers-768x432.jpg 768w, https://zana-g.com/wp-content/uploads/2026/11/one-web-developer-vs-five-freelancers-1024x576.jpg 1024w, https://zana-g.com/wp-content/uploads/2026/11/one-web-developer-vs-five-freelancers-1536x864.jpg 1536w, https://zana-g.com/wp-content/uploads/2026/11/one-web-developer-vs-five-freelancers.jpg 1600w" sizes="(min-width: 960px) 380px, (min-width: 640px) 50vw, 100vw" alt="Developer working on a website design on one screen and its code on another" width="1600" height="900" loading="lazy" decoding="async"></div>
   <div class="zg-bl-card-body">
@@ -471,7 +470,6 @@
     <span class="zg-bl-card-go" aria-hidden="true">Read the post <i>→</i></span>
   </div>
 </article>
-<a class="zg-card zg-pg-link zg-bl-svc zg-rv" href="https://zana-g.com/technical-seo-llms-txt/"><span class="zg-kicker">SERVICE</span><strong>Technical SEO &amp; llms.txt</strong><span class="zg-bl-svc-x">Technical SEO and llms.txt setup from a remote developer (GMT+8): schema markup, Rich Results checks, internal linking and content structure for AI crawlers.</span><span class="zg-pg-arrow" aria-hidden="true">→</span></a>
       </div>
       <p class="zg-bl-all"><a class="z-btn z-btn-dark" href="https://zana-g.com/blog/">All posts <span>→</span></a></p>
     </div>

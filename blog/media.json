@@ -85,5 +85,34 @@
         "src": "https://zana-g.com/wp-content/uploads/2026/11/signs-your-website-is-costing-you-leads.jpg"
       }
     ]
+  },
+  "never-edit-your-live-site": {
+    "id": 277,
+    "from": "https://images.unsplash.com/photo-1534665482403-a909d0d97c67?w=1600&h=900&fit=crop&crop=entropy&fm=jpg&q=78",
+    "src": "https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site.jpg",
+    "width": 1600,
+    "height": 900,
+    "sizes": [
+      {
+        "w": 300,
+        "src": "https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-300x169.jpg"
+      },
+      {
+        "w": 768,
+        "src": "https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-768x432.jpg"
+      },
+      {
+        "w": 1024,
+        "src": "https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-1024x576.jpg"
+      },
+      {
+        "w": 1536,
+        "src": "https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site-1536x864.jpg"
+      },
+      {
+        "w": 1600,
+        "src": "https://zana-g.com/wp-content/uploads/2026/11/never-edit-your-live-site.jpg"
+      }
+    ]
   }
 }
